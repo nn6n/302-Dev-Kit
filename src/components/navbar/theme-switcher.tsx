@@ -3,11 +3,15 @@
 import { useEffect, useState } from "react";
 
 import useSystemTheme from "@/hooks/use-system-theme";
+import { MoonIcon, SunIcon } from "@radix-ui/react-icons";
 
+
+import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
-  DropdownMenuItem,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
   DropdownMenuTrigger
 } from "@/components/ui/dropdown-menu";
 import { Theme } from "@/hooks/use-system-theme";
@@ -44,15 +48,23 @@ export function ThemeSwitcher({ }) {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger>Theme</DropdownMenuTrigger>
-      <DropdownMenuContent>
-        {
-          THEME_OPTIONS.map((it) => (
-            <DropdownMenuItem key={it.value} onClick={() => { setTheme(it.value) }}>{it.label}</DropdownMenuItem>
-          ))
-        }
+      <DropdownMenuTrigger asChild>
+        <Button size="icon" variant={"ghost"}>
+          <SunIcon className='size-5 dark:hidden' />
+          <MoonIcon className='hidden size-5 dark:block' />
+        </Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent align='end'>
+        <DropdownMenuRadioGroup value={theme} onValueChange={(value) => setTheme(value as Theme)}>
+          {
+            THEME_OPTIONS.map(it => (
+              <DropdownMenuRadioItem key={it.value} value={it.value}>
+                {it.label}
+              </DropdownMenuRadioItem>
+            ))
+          }
+        </DropdownMenuRadioGroup>
       </DropdownMenuContent>
     </DropdownMenu>
-
   );
 }

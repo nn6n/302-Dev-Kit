@@ -12,12 +12,11 @@ import {
   DropdownMenuRadioItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import useSystemTheme from "@/hooks/use-system-theme";
-import { Theme } from "@/hooks/use-system-theme";
+import useAppTheme, { Theme } from "@/hooks/use-theme";
 
-export function ThemeSwitcher({}) {
+export function ThemeSwitcher({ }) {
   const [mounted, setMounted] = useState(false);
-  const { theme, setTheme } = useSystemTheme();
+  const { theme, setTheme } = useAppTheme();
 
   useEffect(() => {
     setMounted(true);

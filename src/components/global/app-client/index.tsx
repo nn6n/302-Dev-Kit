@@ -8,7 +8,7 @@ interface ClientOnlyProps {
   children: ReactNode;
 }
 
-export default function ClientOnly({
+export default function AppClient({
   children,
 }: ClientOnlyProps): JSX.Element | null {
   const [hasMounted, setHasMounted] = useState<boolean>(false);

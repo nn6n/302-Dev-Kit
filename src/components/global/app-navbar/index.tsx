@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 import { LangSwitcher } from "./lang-switcher";
 
-export default function Navbar() {
+export default function AppNavbar() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {

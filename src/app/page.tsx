@@ -1,5 +1,7 @@
 "use client"
-import { Button } from "@/components/ui/button";
+import { Test } from "@/components/common/test";
+// import { Button } from "@/components/ui/button";
+
 import Locale from "@/locales";
 import { useEffect } from "react";
 
@@ -9,7 +11,8 @@ export default function HomePage() {
   })
   return (
     <div className="flex h-[2500px] flex-col items-center">
-      <Button variant={"default"}>Button</Button>
+      <Test />
+      {/* <Button variant={"default"}>Button</Button> */}
       <div>{Locale.Title}</div>
     </div>
   );

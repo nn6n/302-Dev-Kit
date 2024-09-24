@@ -4,15 +4,12 @@ import { Suspense } from "react";
 import ClientOnly from "@/components/client-only";
 import Navbar from "@/components/navbar";
 import Providers from "@/components/providers";
-
 import "@/styles/globals.css";
 
 export const metadata: Metadata = {
   title: "Next.js Starter App",
   description: "A basic starter for next.js",
 };
-
-
 
 export default function RootLayout({
   children,

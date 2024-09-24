@@ -1,6 +1,6 @@
 /* eslint-disable n/no-process-env */
 import { createEnv } from "@t3-oss/env-nextjs";
-import { z, ZodError } from "zod";
+import { ZodError, z } from "zod";
 
 export const env = createEnv({
   server: {

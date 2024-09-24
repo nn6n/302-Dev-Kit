@@ -1,12 +1,11 @@
 // 'use client'
-
 import DataManager from "@/utils/data";
+
 import en from "./en";
 import ja from "./ja";
 import zh from "./zh";
-
-
 import type { LocaleType } from "./zh";
+
 export type { LocaleType, PartialLocaleType } from "./zh";
 
 const ALL_LANGS = {
@@ -38,7 +37,7 @@ export const ALL_LANG_OPTIONS = [
     label: "日本語",
     value: "ja",
   },
-]
+];
 
 const LANG_KEY = "ai-translator-lang-v2";
 const DEFAULT_LANG = "en";
@@ -49,7 +48,7 @@ const targetLang = ALL_LANGS[getLang()] as LocaleType;
 // if target lang missing some fields, it will use fallback lang string
 DataManager.mergeData(fallbackLang, targetLang);
 
-console.log("merda::lang::", fallbackLang)
+console.log("merda::lang::", fallbackLang);
 export default fallbackLang as LocaleType;
 
 function getItem(key: string) {
@@ -63,9 +62,8 @@ function getItem(key: string) {
 function setItem(key: string, value: string) {
   try {
     localStorage.setItem(key, value);
-  } catch { }
+  } catch {}
 }
-
 
 function getLanguage() {
   try {
@@ -77,11 +75,11 @@ function getLanguage() {
 
 export function getLang(): Lang {
   // url
-  if (typeof (window) !== "undefined") {
+  if (typeof window !== "undefined") {
     let urlLang = new URLSearchParams(window.location.search).get("lang");
-    if (urlLang === "zh-CN") urlLang = "zh"
-    if (urlLang === "en-US") urlLang = "en"
-    if (urlLang === "ja-JP") urlLang = "ja"
+    if (urlLang === "zh-CN") urlLang = "zh";
+    if (urlLang === "en-US") urlLang = "en";
+    if (urlLang === "ja-JP") urlLang = "ja";
     if (AllLangs.includes((urlLang ?? "") as Lang)) {
       return urlLang as Lang;
     }

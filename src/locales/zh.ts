@@ -1,4 +1,3 @@
-
 const zh = {
   Symbol: "zh",
   Title: "中文",
@@ -12,14 +11,18 @@ const zh = {
   },
   Error: {
     Title: "系统错误!",
-    TokenMiss: (domain: string) => `该工具已禁用/删除, 更多信息请访问 ${domain}`, // -10001
-    TokenInvalid: (domain: string) => `该工具已禁用/删除！更多信息请访问 ${domain}`, // -10002
+    TokenMiss: (domain: string) =>
+      `该工具已禁用/删除, 更多信息请访问 ${domain}`, // -10001
+    TokenInvalid: (domain: string) =>
+      `该工具已禁用/删除！更多信息请访问 ${domain}`, // -10002
     InternalError: (domain: string) => `内部错误，更多信息请访问 ${domain}`, // -10003
     AccountOut: (domain: string) => `账号欠费，更多信息请访问 ${domain}`, // -10004
     TokenExpired: (domain: string) => `验证码过期，更多信息请访问 ${domain}`, // -10005
     TotalOut: (domain: string) => `该工具总额度已用, 更多信息请访问 ${domain}`, // -10006
-    TodayOut: (domain: string) => `该工具当日额度已用完，更多信息请访问 ${domain}`, // -10007
-    HourOut: (domain: string) => `该免费工具在本小时的额度已达上限,请访问 ${domain} 生成属于自己的工具`, // -10012
+    TodayOut: (domain: string) =>
+      `该工具当日额度已用完，更多信息请访问 ${domain}`, // -10007
+    HourOut: (domain: string) =>
+      `该免费工具在本小时的额度已达上限,请访问 ${domain} 生成属于自己的工具`, // -10012
     GenerateImageError: "图片生成错误，请尝试切换模型或修改提示词",
   },
   Auth: {
@@ -43,10 +46,14 @@ const zh = {
     Title: "关于",
     Desc: "AI视频生成器",
     Loading: "加载中...",
-    CreateInfo: (user: string) => `本工具由302.AI用户 ${user} 创建, 302.AI是一个AI生成和分享的平台，可以一键生成自己的AI工具`,
-    TotalInfo: (all: number, use: number) => `本工具的总限额为 <${all}PTC>, 已经使用 <${use}PTC>`,
-    DayInfo: (all: number, use: number) => `本工具的单日限额为 <${all}PTC>, 已经使用 <${use}PTC>`,
-    RecordInfo: "本工具的生成记录均保存在本机，不会被上传，生成此工具的用户无法看到你的生成记录",
+    CreateInfo: (user: string) =>
+      `本工具由302.AI用户 ${user} 创建, 302.AI是一个AI生成和分享的平台，可以一键生成自己的AI工具`,
+    TotalInfo: (all: number, use: number) =>
+      `本工具的总限额为 <${all}PTC>, 已经使用 <${use}PTC>`,
+    DayInfo: (all: number, use: number) =>
+      `本工具的单日限额为 <${all}PTC>, 已经使用 <${use}PTC>`,
+    RecordInfo:
+      "本工具的生成记录均保存在本机，不会被上传，生成此工具的用户无法看到你的生成记录",
     MoreInfo: (domain: string) => `更多信息请访问： ${domain}`,
   },
   History: {
@@ -58,7 +65,7 @@ const zh = {
   },
   Landing: {
     Title: "AI Tool Start",
-    Desc: "Create your ai tool from here"
+    Desc: "Create your ai tool from here",
   },
   Footer: {
     Title: "内容由AI生成，仅供参考",
@@ -67,8 +74,8 @@ const zh = {
 
 type DeepPartial<T> = T extends object
   ? {
-    [P in keyof T]?: DeepPartial<T[P]>;
-  }
+      [P in keyof T]?: DeepPartial<T[P]>;
+    }
   : T;
 
 export type LocaleType = typeof zh;

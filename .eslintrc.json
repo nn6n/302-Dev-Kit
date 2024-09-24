@@ -5,28 +5,15 @@
     "prettier",
     "plugin:tailwindcss/recommended"
   ],
-  "plugins": [
-    "tailwindcss",
-    "check-file",
-    "n"
-  ],
+  "plugins": ["tailwindcss", "check-file", "n"],
   "rules": {
-    "prefer-arrow-callback": [
-      "error"
-    ],
-    "prefer-template": [
-      "error"
-    ],
+    "prefer-arrow-callback": ["error"],
+    "prefer-template": ["error"],
     // "semi": [
     //   "error"
     // ],
-    "quotes": [
-      "error",
-      "double"
-    ],
-    "n/no-process-env": [
-      "error"
-    ],
+    "quotes": ["error", "double"],
+    "n/no-process-env": ["error"],
     "check-file/filename-naming-convention": [
       "error",
       {

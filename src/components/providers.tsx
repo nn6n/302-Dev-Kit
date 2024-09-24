@@ -7,7 +7,7 @@ import { ThemeProvider as NextThemesProvider } from "next-themes";
 export default function Providers({ children }: { children: ReactNode }) {
   return (
     <div className="flex size-full flex-col">
-      <NextThemesProvider attribute="class" >{children}</NextThemesProvider>
+      <NextThemesProvider attribute="class">{children}</NextThemesProvider>
     </div>
   );
 }

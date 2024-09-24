@@ -2,7 +2,7 @@
 
 import { ReactNode, useEffect, useState } from "react";
 
-import Loading from "./loading";
+import Loading from "@/components/common/loading";
 
 interface ClientOnlyProps {
   children: ReactNode;

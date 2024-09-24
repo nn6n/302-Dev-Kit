@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 
-import ClientOnly from "@/components/client-only";
-import Navbar from "@/components/navbar";
-import Providers from "@/components/providers";
+import Navbar from "@/components/global/app-navbar";
+import ClientOnly from "@/components/global/client-only";
+import Providers from "@/components/global/providers";
 import "@/styles/globals.css";
 
 export const metadata: Metadata = {
-  title: "Next.js Starter App",
-  description: "A basic starter for next.js",
+  title: "302AI",
+  description: "",
 };
 
 export default function RootLayout({
@@ -17,14 +17,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className="bg-cover dark:bg-black">
       <head>
         {/* <link
           rel="icon"
           href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📦</text></svg>"
         /> */}
       </head>
-      <body className="h-screen w-screen bg-cover dark:bg-black">
+      <body className="h-screen w-screen ">
         <ClientOnly>
           <Providers>
             <Navbar />

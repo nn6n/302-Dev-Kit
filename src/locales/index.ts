@@ -3,8 +3,8 @@ import DataManager from "@/utils/data";
 
 import en from "./en";
 import ja from "./ja";
-import zh from "./zh";
 import type { LocaleType } from "./zh";
+import zh from "./zh";
 
 export type { LocaleType, PartialLocaleType } from "./zh";
 
@@ -48,7 +48,7 @@ const targetLang = ALL_LANGS[getLang()] as LocaleType;
 // if target lang missing some fields, it will use fallback lang string
 DataManager.mergeData(fallbackLang, targetLang);
 
-console.log("merda::lang::", fallbackLang);
+// console.log("merda::lang::", fallbackLang);
 export default fallbackLang as LocaleType;
 
 function getItem(key: string) {
@@ -62,7 +62,7 @@ function getItem(key: string) {
 function setItem(key: string, value: string) {
   try {
     localStorage.setItem(key, value);
-  } catch {}
+  } catch { }
 }
 
 function getLanguage() {

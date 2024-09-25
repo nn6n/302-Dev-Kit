@@ -95,7 +95,7 @@ export const useLogin = () => {
     //     console.error(`Login error: ${JSON.stringify(e)}`)
     //   })
     // }
-  }, [handleLogin, apiKey, isAuthPage, updateConfig, router, t])
+  }, [handleLogin, apiKey, isAuthPage, updateConfig, router])
 
   useEffect(() => {
     if (!isAuthPage) {

@@ -3,16 +3,17 @@
 import { Button } from "@/components/ui/button"
 import { login } from "@/lib/auth"
 import { emitter } from "@/lib/mitt"
+import Locale from "@/locales"
 import { useAppStore } from "@/stores"
 
 export function Test() {
   const { updateConfig } = useAppStore()
 
-  const handleError = () => {
+  const handleTestError = () => {
     emitter.emit("ToastError", -10005)
   }
 
-  const handleAuth = () => {
+  const handleTestAuth = () => {
     const loginCode = "123"
     login(loginCode).then((res: any) => {
       if (res.data?.info) {
@@ -26,17 +27,16 @@ export function Test() {
         })
         return res
       }
-      // setErrMessage(result.errorMessage)
-      console.log("ers:::", res)
       emitter.emit("ToastError", -99)
     })
 
   }
 
   return (
-    <>
-      <Button onClick={handleError}>错误测试</Button>
-      <Button onClick={handleAuth}>验证测试</Button>
-    </>
+    <div className="flex flex-col space-y-4 p-4 text-center">
+      <p>{Locale.Title}</p>
+      <Button onClick={handleTestAuth}>Test Auth</Button>
+      <Button onClick={handleTestError}>Test Error</Button>
+    </div>
   )
 }

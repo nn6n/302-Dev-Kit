@@ -3,10 +3,10 @@
 import { Button } from "@/components/ui/button"
 import { login } from "@/lib/auth"
 import { emitter } from "@/lib/mitt"
-import { useToolStore } from "@/stores"
+import { useAppStore } from "@/stores"
 
 export function Test() {
-  const { updateAll } = useToolStore()
+  const { updateConfig } = useAppStore()
 
   const handleError = () => {
     emitter.emit("ToastError", -10005)
@@ -16,11 +16,11 @@ export function Test() {
     const loginCode = "123"
     login(loginCode).then((res: any) => {
       if (res.data?.info) {
-        updateAll({ info: res.data?.info })
+        updateConfig({ info: res.data?.info })
       }
 
       if (res.success) {
-        updateAll({
+        updateConfig({
           ...res.data,
           code: loginCode,
         })

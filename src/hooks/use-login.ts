@@ -1,6 +1,6 @@
 import { env } from "@/env"
 import { login } from "@/lib/auth"
-import { useToolStore } from "@/stores"
+import { useAppStore } from "@/stores"
 import { useRouter } from "next/navigation"
 import { useCallback, useEffect, useState } from "react"
 // import toast from "react-hot-toast"
@@ -15,9 +15,9 @@ export const useLogin = () => {
   const [code, setCode] = useState("")
   const [errMessage, setErrMessage] = useState<string | undefined>("")
 
-  const { apiKey, updateAll } = useToolStore((state) => ({
+  const { apiKey, updateConfig } = useAppStore((state) => ({
     apiKey: state.apiKey,
-    updateAll: state.updateAll,
+    updateConfig: state.updateConfig,
   }))
 
   // 登录
@@ -34,7 +34,7 @@ export const useLogin = () => {
           }
         }
 
-        updateAll({
+        updateConfig({
           ...result.data,
           code: loginCode,
         })
@@ -45,7 +45,7 @@ export const useLogin = () => {
 
       return result
     },
-    [isAuthPage, updateAll]
+    [isAuthPage, updateConfig]
   )
   useEffect(() => {
     const performLogin = async () => {
@@ -56,7 +56,7 @@ export const useLogin = () => {
       const urlRegion =
         urlParams.get("region") || env.NEXT_PUBLIC_DEFAULT_REGION!
 
-      updateAll({ region: urlRegion })
+      updateConfig({ region: urlRegion })
 
       let result = await handleLogin()
 
@@ -95,7 +95,7 @@ export const useLogin = () => {
     //     console.error(`Login error: ${JSON.stringify(e)}`)
     //   })
     // }
-  }, [handleLogin, apiKey, isAuthPage, updateAll, router, t])
+  }, [handleLogin, apiKey, isAuthPage, updateConfig, router, t])
 
   useEffect(() => {
     if (!isAuthPage) {

@@ -1,7 +1,7 @@
 "use client"
 import { env } from "@/env"
 import { emitter } from "@/lib/mitt"
-import { useToolStore } from "@/stores"
+import { useAppStore } from "@/stores"
 import ky from "ky"
 import { isEmpty } from "radash"
 import { langToCountry } from "./utils"
@@ -12,7 +12,7 @@ const apiKy = ky.create({
   hooks: {
     beforeRequest: [
       (request) => {
-        const { apiKey, language } = useToolStore.getState()
+        const { apiKey, language } = useAppStore.getState()
         if (apiKey) {
           request.headers.set("Authorization", `Bearer ${apiKey}`)
         }
@@ -42,7 +42,7 @@ const authKy = ky.create({
   hooks: {
     beforeRequest: [
       (request) => {
-        const { language } = useToolStore.getState()
+        const { language } = useAppStore.getState()
         if (language) {
           request.headers.set("Lang", langToCountry(language))
         }

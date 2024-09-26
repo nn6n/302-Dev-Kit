@@ -14,7 +14,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import useAppTheme, { Theme } from "@/hooks/global/use-theme";
 
-export function ThemeSwitcher({}) {
+export default function ThemeSwitcher({}) {
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useAppTheme();
 

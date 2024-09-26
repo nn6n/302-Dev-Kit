@@ -15,7 +15,7 @@ export const SIGN_IN_FORM: AuthFormProps[] = [
     inputType: "input",
     type: "password",
     placeholder: "auth code",
-    label: "Rememer",
+    label: "Code",
   },
   {
     id: "2",

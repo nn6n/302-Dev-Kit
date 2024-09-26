@@ -11,12 +11,18 @@ import { useAppStore } from "@/stores";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 export function Test() {
   const router = useRouter();
   const { updateConfig } = useAppStore();
 
-  const handleTestAuth = () => {
+  const handleGoAuth = () => {
     router.push("/auth");
+  };
+
+  const handleGoLang = () => {
+    router.push("/land");
   };
 
   const handleTestFetch = () => {
@@ -43,7 +49,8 @@ export function Test() {
   return (
     <div className="flex flex-col space-y-4 p-4 text-center">
       <p>{Locale.Title}</p>
-      <Button onClick={handleTestAuth}>Test Auth</Button>
+      <Button onClick={handleGoAuth}>Go Auth</Button>
+      <Button onClick={handleGoLang}>GO Lang</Button>
       <Button onClick={handleTestFetch}>Test Fetch</Button>
       <Button onClick={handleTestError}>Test Error</Button>
     </div>

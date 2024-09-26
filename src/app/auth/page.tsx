@@ -1,34 +1,19 @@
-// pages/auth.js
 "use client";
 
-import { useSearchParams } from "next/navigation";
-import { useEffect } from "react";
-
 import SignInForm from "@/components/forms/auth";
-import useAuth from "@/hooks/auth";
+import { Lock } from "@/icons";
 
-// pages/auth.js
-
-const Auth = () => {
-  const { isPending, setValue, onAuth, register, errors } = useAuth();
-  const params = useSearchParams();
-
-  useEffect(() => {
-    const queryCode = params.get("pw");
-    const storedCode = localStorage.getItem("code");
-
-    if (queryCode) {
-      setValue("code", queryCode);
-    } else if (storedCode) {
-      setValue("code", storedCode);
-    }
-  }, [params]);
-
+const AuthPage = () => {
   return (
-    <div className="m-auto max-w-screen-sm">
-      <SignInForm />
+    <div className="h-full w-full p-12">
+      <div className="m-auto w-full max-w-screen-sm rounded-md border p-4 shadow-2xl">
+        <div className="flex w-full justify-center">
+          <Lock className="h-10 w-10" />
+        </div>
+        <SignInForm />
+      </div>
     </div>
   );
 };
 
-export default Auth;
+export default AuthPage;

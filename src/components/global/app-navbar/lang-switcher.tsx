@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import Locale, { ALL_LANG_OPTIONS, changeLang } from "@/locales";
 
-export function LangSwitcher() {
+export default function LangSwitcher() {
   const [lang, setLang] = React.useState("zh");
 
   React.useEffect(() => {

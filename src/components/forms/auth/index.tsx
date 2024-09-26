@@ -6,7 +6,7 @@ import { useEffect } from "react";
 import { FormGenerator } from "@/components/common/form-generator";
 import { Loader } from "@/components/common/loader";
 import { Button } from "@/components/ui/button";
-import { APP_CONSTANTS } from "@/constants";
+import { Form_CONSTANTS } from "@/constants";
 import useAuth from "@/hooks/auth";
 
 type SignInFormProps = {};
@@ -36,7 +36,7 @@ const SignInForm = (props: SignInFormProps) => {
     <>
       <h1 className="text-center">Auth</h1>
       <form className="mt-10 flex flex-col gap-3" onSubmit={handleSubmit}>
-        {APP_CONSTANTS.signInForm.map((field) => (
+        {Form_CONSTANTS.signInForm.map((field) => (
           <FormGenerator
             {...field}
             key={field.id}

@@ -1,2 +1,2 @@
 export { Home } from "./home";
-export { HomeDuoToneWhite } from "./home-duo-tone-white";
+export { Lock } from "./lock";

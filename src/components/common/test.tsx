@@ -23,8 +23,8 @@ export function Test() {
     router.push("/land");
   };
 
-  const handleTestFetch = () => {
-    const loginCode = "123";
+  const handleTestLogin = () => {
+    const loginCode = "555";
     login(loginCode).then((res: any) => {
       if (res.data?.info) {
         updateConfig({ info: res.data?.info });
@@ -34,11 +34,20 @@ export function Test() {
           ...res.data,
           code: loginCode,
         });
+        emitter.emit("ToastError", -100);
         return res;
       }
+    }).catch((err) => {
+      console.log(err)
       emitter.emit("ToastError", -99);
-    });
+    })
   };
+
+  const handleTestLogout = () => {
+    console.log('logout;:')
+    updateConfig({ apiKey: '' })
+    emitter.emit("ToastError", -101);
+  }
 
   const handleTestError = () => {
     emitter.emit("ToastError", -10005);
@@ -49,7 +58,8 @@ export function Test() {
       <p>{Locale.Title}</p>
       <Button onClick={handleGoAuth}>Go Auth</Button>
       <Button onClick={handleGoLang}>GO Lang</Button>
-      <Button onClick={handleTestFetch}>Test Fetch</Button>
+      <Button onClick={handleTestLogin}>Test Login</Button>
+      <Button onClick={handleTestLogout}>Test Logout</Button>
       <Button onClick={handleTestError}>Test Error</Button>
     </div>
   );

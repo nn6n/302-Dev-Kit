@@ -9,7 +9,7 @@ export type MenuProps = {
   integration?: boolean;
 };
 
-export const LANDING_PAGE_MENU: MenuProps[] = [
+export const APP_MENU: MenuProps[] = [
   {
     id: 0,
     label: "Home",

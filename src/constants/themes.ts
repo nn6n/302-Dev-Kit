@@ -1,11 +1,11 @@
-type ThemesProps = {
+export type ThemeProps = {
   id: string;
   icon: string;
   label: string;
   value: string;
 };
 
-export const ICON_LIST: ThemesProps[] = [
+export const APP_THEME: ThemeProps[] = [
   {
     id: "0",
     icon: "light",

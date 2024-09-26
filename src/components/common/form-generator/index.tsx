@@ -1,9 +1,9 @@
-import { Checkbox } from "@/components/ui/checkbox"; // 假设ShadcnUI的Checkbox路径为此
+import { Checkbox } from "@/components/ui/checkbox";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { ErrorMessage } from "@hookform/error-message";
-import { FieldErrors, FieldValues, UseFormRegister } from "react-hook-form";
-import { Input } from "../../ui/input";
-import { Label } from "../../ui/label";
+import { FieldErrors, FieldValues, UseFormRegister, UseFormSetValue } from "react-hook-form";
 
 type FormGeneratorProps = {
   inputType: "select" | "input" | "textarea" | "checkbox";
@@ -15,7 +15,8 @@ type FormGeneratorProps = {
   label?: string;
   lines?: number;
   register: UseFormRegister<any>;
-  watch?: (name: string) => any; // added watch for checkbox default value
+  setValue: UseFormSetValue<any>;
+  watch: (name: string, defaultValue: any) => any; // added watch for checkbox default value
 };
 
 export const FormGenerator = ({
@@ -24,6 +25,7 @@ export const FormGenerator = ({
   label,
   placeholder,
   register,
+  setValue,
   name,
   errors,
   type,
@@ -107,14 +109,14 @@ export const FormGenerator = ({
         </Label>
       );
     case "checkbox":
-      // const checkboxValue = watch ? watch(name) : false;
-      // console.log('cheV:::', checkboxValue)
+      const watchCheckbox = watch(name, false)
       return (
         <Label className="flex gap-2 items-center" htmlFor={`checkbox-${label}`}>
           <Checkbox
             id={`checkbox-${label}`}
             {...register(name)}
-            onCheckedChange={(value) => register(name).onChange({ target: value })}
+            checked={watchCheckbox}
+            onCheckedChange={(checked) => setValue(name, checked)}
           />
           {label && label}
         </Label>

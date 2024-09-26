@@ -13,6 +13,10 @@ const useAuth = () => {
   const [isPending, setIsPending] = useState(false);
   const router = useRouter();
   const { watch, register, handleSubmit, setValue, formState: { errors } } = useForm({
+    defaultValues: {
+      code: '', // 默认值为空
+      remember: false, // 设置默认值为false
+    },
     resolver: zodResolver(schema),
   });
 
@@ -37,10 +41,6 @@ const useAuth = () => {
   const onSubmit = async (data: any) => {
     console.log('data::', data)
     const { code, remember } = data;
-    if (!code) {
-      // 如果code为空字符串，展示错误, e.g., 设置默认空字符串也无效，需要输入
-      return;
-    }
     await performAuth(code, remember);
   };
 

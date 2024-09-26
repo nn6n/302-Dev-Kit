@@ -42,6 +42,7 @@ const SignInForm = (props: SignInFormProps) => {
             key={field.id}
             watch={watch}
             register={register}
+            setValue={setValue}
             errors={errors}
           />
         ))}

@@ -1,16 +1,13 @@
-import {
-  Home,
-} from "@/icons"
+import { Home } from "@/icons";
 
 export type MenuProps = {
-  id: number
-  label: string
-  icon: JSX.Element
-  path: string
-  section?: boolean
-  integration?: boolean
-}
-
+  id: number;
+  label: string;
+  icon: JSX.Element;
+  path: string;
+  section?: boolean;
+  integration?: boolean;
+};
 
 export const LANDING_PAGE_MENU: MenuProps[] = [
   {
@@ -33,4 +30,4 @@ export const LANDING_PAGE_MENU: MenuProps[] = [
     icon: <Home />,
     path: "/vidoe",
   },
-]
+];

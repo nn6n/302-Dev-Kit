@@ -1,9 +1,9 @@
 type ThemesProps = {
-  id: string
-  icon: string
-  label: string
-  value: string
-}
+  id: string;
+  icon: string;
+  label: string;
+  value: string;
+};
 
 export const ICON_LIST: ThemesProps[] = [
   {
@@ -24,4 +24,4 @@ export const ICON_LIST: ThemesProps[] = [
     label: "System",
     value: "system",
   },
-]
+];

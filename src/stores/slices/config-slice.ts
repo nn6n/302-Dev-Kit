@@ -1,12 +1,12 @@
 import { StateCreator } from "zustand";
 
 type ConfigState = {
-  region?: string
-  code?: string
-  apiKey?: string
-  modelName?: string
-  language?: string
-  info?: string
+  region?: string;
+  code?: string;
+  apiKey?: string;
+  modelName?: string;
+  language?: string;
+  info?: string;
 };
 
 type ConfigActions = {

@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
+
 import { ConfigStore, createConfigSlice } from "./slices/config-slice";
 
 // type AppStore = ConfigStore & OtherStore;
@@ -12,7 +13,6 @@ export const useAppStore = create<AppStore>()(
     }),
     {
       name: "ai-tool-store",
-    },
-  ),
+    }
+  )
 );
-

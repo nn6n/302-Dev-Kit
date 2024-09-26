@@ -1,9 +1,15 @@
+import { ErrorMessage } from "@hookform/error-message";
+import {
+  FieldErrors,
+  FieldValues,
+  UseFormRegister,
+  UseFormSetValue,
+} from "react-hook-form";
+
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { ErrorMessage } from "@hookform/error-message";
-import { FieldErrors, FieldValues, UseFormRegister, UseFormSetValue } from "react-hook-form";
 
 type FormGeneratorProps = {
   inputType: "select" | "input" | "textarea" | "checkbox";
@@ -48,7 +54,7 @@ export const FormGenerator = ({
             errors={errors}
             name={name}
             render={({ message }) => (
-              <p className="text-red-400 mt-2">
+              <p className="mt-2 text-red-400">
                 {message === "Required" ? "" : message}
               </p>
             )}
@@ -61,7 +67,7 @@ export const FormGenerator = ({
           {label && label}
           <select
             id={`select-${label}`}
-            className="w-full bg-transparent border-[1px] p-3 rounded-lg"
+            className="w-full rounded-lg border-[1px] bg-transparent p-3"
             {...register(name)}
           >
             {options?.length &&
@@ -79,7 +85,7 @@ export const FormGenerator = ({
             errors={errors}
             name={name}
             render={({ message }) => (
-              <p className="text-red-400 mt-2">
+              <p className="mt-2 text-red-400">
                 {message === "Required" ? "" : message}
               </p>
             )}
@@ -101,7 +107,7 @@ export const FormGenerator = ({
             errors={errors}
             name={name}
             render={({ message }) => (
-              <p className="text-red-400 mt-2">
+              <p className="mt-2 text-red-400">
                 {message === "Required" ? "" : message}
               </p>
             )}
@@ -109,9 +115,12 @@ export const FormGenerator = ({
         </Label>
       );
     case "checkbox":
-      const watchCheckbox = watch(name, false)
+      const watchCheckbox = watch(name, false);
       return (
-        <Label className="flex gap-2 items-center" htmlFor={`checkbox-${label}`}>
+        <Label
+          className="flex items-center gap-2"
+          htmlFor={`checkbox-${label}`}
+        >
           <Checkbox
             id={`checkbox-${label}`}
             {...register(name)}

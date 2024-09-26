@@ -1,27 +1,31 @@
 // pages/auth.js
-'use client'
-import SignInForm from '@/components/forms/sign-in';
-import useAuth from '@/hooks/authentication';
-import { useSearchParams } from 'next/navigation';
-import { useEffect } from 'react';
+"use client";
+
+import { useSearchParams } from "next/navigation";
+import { useEffect } from "react";
+
+import SignInForm from "@/components/forms/auth";
+import useAuth from "@/hooks/auth";
+
+// pages/auth.js
 
 const Auth = () => {
   const { isPending, setValue, onAuth, register, errors } = useAuth();
   const params = useSearchParams();
 
   useEffect(() => {
-    const queryCode = params.get('pw');
-    const storedCode = localStorage.getItem('code');
+    const queryCode = params.get("pw");
+    const storedCode = localStorage.getItem("code");
 
     if (queryCode) {
-      setValue('code', queryCode);
+      setValue("code", queryCode);
     } else if (storedCode) {
-      setValue('code', storedCode);
+      setValue("code", storedCode);
     }
   }, [params]);
 
   return (
-    <div className='max-w-screen-sm m-auto'>
+    <div className="m-auto max-w-screen-sm">
       <SignInForm />
     </div>
   );

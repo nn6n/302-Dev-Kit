@@ -1,11 +1,12 @@
-"use client"
-import { useToast } from "@/hooks/use-toast";
+"use client";
 
-import { emitter } from "@/lib/mitt";
 import { useEffect } from "react";
 
+import { useToast } from "@/hooks/global/use-toast";
+import { emitter } from "@/lib/mitt";
+
 const AppError = () => {
-  const { toast } = useToast()
+  const { toast } = useToast();
 
   useEffect(() => {
     const handleError = (errorCode: number) => {
@@ -13,7 +14,7 @@ const AppError = () => {
       toast({
         title: `Error code: ${errorCode}`,
         description: "Error desc",
-      })
+      });
     };
 
     emitter.on("ToastError", handleError);
@@ -27,4 +28,4 @@ const AppError = () => {
   return null; // This component does not render anything to the UI
 };
 
-export default AppError
+export default AppError;

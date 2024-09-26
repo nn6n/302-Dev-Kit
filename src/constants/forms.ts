@@ -1,12 +1,12 @@
 export type AuthFormProps = {
-  id: string
-  name: string
-  inputType: "checkbox" | "input"
-  type?: "email" | "text" | "password"
-  options?: { value: string; label: string; id: string }[]
-  label?: string
-  placeholder?: string
-}
+  id: string;
+  name: string;
+  inputType: "checkbox" | "input";
+  type?: "email" | "text" | "password";
+  options?: { value: string; label: string; id: string }[];
+  label?: string;
+  placeholder?: string;
+};
 
 export const SIGN_IN_FORM: AuthFormProps[] = [
   {
@@ -23,4 +23,4 @@ export const SIGN_IN_FORM: AuthFormProps[] = [
     inputType: "checkbox",
     label: "Rememer",
   },
-]
+];

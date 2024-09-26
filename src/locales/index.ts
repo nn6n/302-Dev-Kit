@@ -39,7 +39,7 @@ export const ALL_LANG_OPTIONS = [
   },
 ];
 
-const LANG_KEY = "ai-translator-lang-v2";
+const LANG_KEY = "tool-start-lang";
 const DEFAULT_LANG = "en";
 
 const fallbackLang = en;
@@ -62,7 +62,7 @@ function getItem(key: string) {
 function setItem(key: string, value: string) {
   try {
     localStorage.setItem(key, value);
-  } catch {}
+  } catch { }
 }
 
 function getLanguage() {

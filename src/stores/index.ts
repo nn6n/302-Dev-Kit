@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { persist } from "zustand/middleware";
+import { createJSONStorage, persist } from "zustand/middleware";
 
 import { ConfigStore, createConfigSlice } from "./slices/config-slice";
 
@@ -13,6 +13,7 @@ export const useAppStore = create<AppStore>()(
     }),
     {
       name: "ai-tool-store",
+      storage: createJSONStorage(() => sessionStorage),
     }
   )
 );

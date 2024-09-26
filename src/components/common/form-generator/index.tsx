@@ -115,7 +115,7 @@ export const FormGenerator = ({
         </Label>
       );
     case "checkbox":
-      const watchCheckbox = watch(name, false);
+      const watchCheckbox = watch(name, true);
       return (
         <Label
           className="flex items-center gap-2"

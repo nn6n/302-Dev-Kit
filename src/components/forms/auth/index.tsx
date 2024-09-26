@@ -12,7 +12,7 @@ import useAuth from "@/hooks/auth";
 type SignInFormProps = {};
 
 const SignInForm = (props: SignInFormProps) => {
-  const { isPending, setValue, onAuth, watch, register, errors } = useAuth();
+  const { isPending, setValue, onAuth, watch, register, errors, errorMessage } = useAuth();
   const params = useSearchParams();
 
   useEffect(() => {
@@ -46,6 +46,9 @@ const SignInForm = (props: SignInFormProps) => {
             errors={errors}
           />
         ))}
+        {errorMessage &&
+          <p className="text-center text-red-500">{errorMessage}</p>
+        }
         <Button type="submit" className="rounded-2xl">
           <Loader loading={isPending}>Sign In with Code</Loader>
         </Button>

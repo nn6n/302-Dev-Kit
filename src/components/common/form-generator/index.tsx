@@ -10,6 +10,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { cn } from "@/lib/utils";
 
 type FormGeneratorProps = {
   inputType: "select" | "input" | "textarea" | "checkbox";
@@ -23,6 +24,7 @@ type FormGeneratorProps = {
   register: UseFormRegister<any>;
   setValue: UseFormSetValue<any>;
   watch: (name: string, defaultValue: any) => any; // added watch for checkbox default value
+  className?: string;
 };
 
 export const FormGenerator = ({
@@ -37,6 +39,7 @@ export const FormGenerator = ({
   type,
   lines,
   watch,
+  className,
 }: FormGeneratorProps) => {
   switch (inputType) {
     case "input":
@@ -47,7 +50,7 @@ export const FormGenerator = ({
             id={`input-${label}`}
             type={type}
             placeholder={placeholder}
-            className="bg-themeBlack border-themeGray text-themeTextGray"
+            className={cn("bg-themeBlack border-themeGray text-themeTextGray", className)}
             {...register(name)}
           />
           <ErrorMessage

@@ -1,5 +1,5 @@
 export type AuthFormProps = {
-  id: string;
+  id: number;
   name: string;
   inputType: "checkbox" | "input";
   type?: "email" | "text" | "password";
@@ -10,17 +10,17 @@ export type AuthFormProps = {
 
 export const SIGN_IN_FORM: AuthFormProps[] = [
   {
-    id: "1",
+    id: 1,
     name: "code",
     inputType: "input",
     type: "password",
     placeholder: "auth code",
-    label: "Code",
+    label: "",
   },
   {
-    id: "2",
+    id: 2,
     name: "remember",
     inputType: "checkbox",
-    label: "Rememer",
+    label: "Rememer auth code",
   },
 ];

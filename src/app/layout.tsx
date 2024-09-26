@@ -4,6 +4,7 @@ import { Suspense } from "react";
 
 import AppClient from "@/components/global/app-client";
 import AppError from "@/components/global/app-error";
+import AppFooter from "@/components/global/app-footer";
 import AppNavbar from "@/components/global/app-navbar";
 import AppTheme from "@/components/global/app-theme";
 import { Toaster } from "@/components/ui/toaster";
@@ -14,7 +15,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "302AI",
-  description: "",
+  description: "...",
 };
 
 export default function RootLayout({
@@ -37,6 +38,7 @@ export default function RootLayout({
             <main className="grow">
               <Suspense>{children}</Suspense>
             </main>
+            <AppFooter />
           </AppTheme>
         </AppClient>
         <AppError />

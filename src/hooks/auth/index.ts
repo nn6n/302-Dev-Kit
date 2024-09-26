@@ -35,14 +35,10 @@ const useAuth = () => {
     try {
       setErrorMessage('');
       setIsPending(true);
-      // 模拟登录验证
-      // await new Promise((resolve) => setTimeout(resolve, 1000));
       // 调用验证接口
       const result = await login(code)
-      console.log('result:::', result)
       const { updateConfig } = useAppStore.getState();
       updateConfig({ ...result.data })
-
 
       // 成功跳转主页 并且 去除链接参数
       if (remember) {
@@ -60,7 +56,6 @@ const useAuth = () => {
   };
 
   const onSubmit = async (data: any) => {
-    console.log("data::", data);
     const { code, remember } = data;
     await performAuth(code, remember);
   };

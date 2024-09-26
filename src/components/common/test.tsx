@@ -13,7 +13,7 @@ import { useAppStore } from "@/stores";
 
 export function Test() {
   const router = useRouter();
-  const { updateConfig } = useAppStore();
+  const { updateConfig } = useAppStore.getState();
 
   const handleGoAuth = () => {
     router.push("/auth");

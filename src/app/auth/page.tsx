@@ -1,15 +1,13 @@
 "use client";
 
 import SignInForm from "@/components/forms/auth";
-import { Lock } from "@/icons";
+
 
 const AuthPage = () => {
+
   return (
-    <div className="h-full w-full p-12">
-      <div className="m-auto w-full max-w-screen-sm rounded-md border p-4 shadow-2xl">
-        <div className="flex w-full justify-center">
-          <Lock className="h-10 w-10" />
-        </div>
+    <div className="h-full w-full p-12 flex items-center justify-center">
+      <div className="m-auto w-full h-full flex items-center max-w-screen-lg sm:rounded-md sm:border p-4 sm:shadow-2xl">
         <SignInForm />
       </div>
     </div>

@@ -52,7 +52,7 @@ const SignInForm = ({ className }: SignInFormProps) => {
     return <Loading />
   }
   return (
-    <div className={cn("flex flex-col w-full justify-center items-center transform ease-in-out", className)}>
+    <div className={cn("relative flex flex-col w-full justify-center items-center transform ease-in-out", className)}>
       <div className="w-full flex flex-col justify-center items-center space-y-2 text-center">
         <Lock className="h-14 w-14" />
         <h2 className="text-2xl font-bold">Share code required</h2>

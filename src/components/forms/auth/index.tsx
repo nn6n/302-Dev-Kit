@@ -4,8 +4,7 @@ import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
 import { FormGenerator } from "@/components/common/form-generator";
-import { Loader } from "@/components/common/loader";
-import Loading from "@/components/common/loading";
+import { CircleLoader, DotLoader } from "@/components/common/loader-renderer";
 import { Button } from "@/components/ui/button";
 import { Form_CONSTANTS } from "@/constants";
 import useAuth from "@/hooks/auth";
@@ -49,7 +48,7 @@ const SignInForm = ({ className }: SignInFormProps) => {
   };
 
   if (isLoading) {
-    return <Loading />;
+    return <DotLoader />;
   }
   return (
     <div
@@ -89,7 +88,7 @@ const SignInForm = ({ className }: SignInFormProps) => {
           </p>
         )}
         <Button type="submit" className="w-[200px] cursor-pointer rounded-md">
-          <Loader loading={isPending}>Sign In with Code</Loader>
+          <CircleLoader loading={isPending}>Sign In with Code</CircleLoader>
         </Button>
         {Form_CONSTANTS.signInForm
           .filter((it) => it.id === 2)

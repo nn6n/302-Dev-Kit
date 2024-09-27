@@ -15,6 +15,8 @@ import { useAppStore } from "@/stores";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 export function Test() {
   const router = useRouter();
   const { updateConfig } = useAppStore.getState();

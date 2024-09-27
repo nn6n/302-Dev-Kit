@@ -8,7 +8,7 @@ type LoaderProps = {
   className?: string;
 };
 
-export const Loader = ({ loading, children, className }: LoaderProps) => {
+export const CircleLoader = ({ loading, children, className }: LoaderProps) => {
   return loading ? (
     <div className={cn("flex w-full items-center justify-center", className)}>
       <div role="status">
@@ -28,10 +28,30 @@ export const Loader = ({ loading, children, className }: LoaderProps) => {
             fill="currentFill"
           />
         </svg>
-        <span className="sr-only">Loading...</span>
+        {/* <span className="sr-only">Loading...</span> */}
       </div>
     </div>
   ) : (
     children
+  );
+};
+
+export const DotLoader = ({ className }: { className?: string }) => {
+  return (
+    <div
+      className={cn("flex size-full items-center justify-center", className)}
+    >
+      <div className="flex">
+        <div className="mx-1 size-2 animate-dotFlashing rounded-full bg-gray-400"></div>
+        <div
+          className="mx-1 size-2 animate-dotFlashing rounded-full bg-gray-400"
+          style={{ animationDelay: "0.2s" }}
+        ></div>
+        <div
+          className="mx-1 size-2 animate-dotFlashing rounded-full bg-gray-400"
+          style={{ animationDelay: "0.4s" }}
+        ></div>
+      </div>
+    </div>
   );
 };

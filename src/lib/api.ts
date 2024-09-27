@@ -11,7 +11,7 @@ import { langToCountry } from "./utils";
 
 const apiKy = ky.create({
   prefixUrl: env.NEXT_PUBLIC_API_URL,
-  timeout: 30000,
+  timeout: 60 * 1000,
   hooks: {
     beforeRequest: [
       (request) => {
@@ -39,7 +39,7 @@ const apiKy = ky.create({
 
 const authKy = ky.create({
   prefixUrl: env.NEXT_PUBLIC_AUTH_API_URL,
-  timeout: 30000,
+  timeout: 60 * 1000,
   hooks: {
     beforeRequest: [
       (request) => {

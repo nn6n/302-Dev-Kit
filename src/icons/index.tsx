@@ -1,2 +1,2 @@
-export { Home } from "./home";
-export { Lock } from "./lock";
+export { Lock } from "./auth";
+export { Home } from "./global";

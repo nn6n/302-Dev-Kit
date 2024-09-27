@@ -1,17 +1,24 @@
-import { mergeData } from "@/lib/utils"; // 合并数据函数
-import { useAppStore } from "@/stores"; // 应用状态管理
-import en from "./en"; // 英文语言包
-import ja from "./ja"; // 日文语言包
-import type { LocaleType } from "./zh"; // 类型定义
-import zh from "./zh"; // 中文语言包
+// 合并数据函数
+import { mergeData } from "@/lib/utils";
+// 应用状态管理
+import { useAppStore } from "@/stores";
 
-const { updateConfig } = useAppStore.getState();      // 从全局状态获取更新配置的函数
+// 英文语言包
+import en from "./en";
+// 日文语言包
+import ja from "./ja";
+// 类型定义
+import type { LocaleType } from "./zh";
+// 中文语言包
+import zh from "./zh";
+
+const { updateConfig } = useAppStore.getState(); // 从全局状态获取更新配置的函数
 
 export type { LocaleType, PartialLocaleType } from "./zh";
 
-const ALL_LANGS = { zh, en, ja };                     // 所有语言包集合
-export type Lang = keyof typeof ALL_LANGS;            // 语言类型
-export const AllLangs = Object.keys(ALL_LANGS) as Lang[];  // 获取所有语言类型数组
+const ALL_LANGS = { zh, en, ja }; // 所有语言包集合
+export type Lang = keyof typeof ALL_LANGS; // 语言类型
+export const AllLangs = Object.keys(ALL_LANGS) as Lang[]; // 获取所有语言类型数组
 
 export const ALL_LANG_OPTIONS = [
   { label: "中文", value: "zh" },
@@ -19,17 +26,17 @@ export const ALL_LANG_OPTIONS = [
   { label: "日本語", value: "ja" },
 ];
 
-const LANG_KEY = "tool-lang";                         // 本地存储中的语言键名
-const DEFAULT_LANG = "en";                            // 默认语言
+const LANG_KEY = "tool-lang"; // 本地存储中的语言键名
+const DEFAULT_LANG = "en"; // 默认语言
 
-const fallbackLang = en;                              // 默认回退语言
-const langSymbol: Lang = getLang();                   // 获取当前语言符号
+const fallbackLang = en; // 默认回退语言
+const langSymbol: Lang = getLang(); // 获取当前语言符号
 const targetLang = ALL_LANGS[langSymbol] as LocaleType;
 
-mergeData(fallbackLang, targetLang);      // 合并语言数据
-updateConfig({ language: langSymbol });               // 更新全局状态中的语言配置
+mergeData(fallbackLang, targetLang); // 合并语言数据
+updateConfig({ language: langSymbol }); // 更新全局状态中的语言配置
 
-export default targetLang;                            // 导出当前语言
+export default targetLang; // 导出当前语言
 
 /**
  * 尝试从本地存储获取指定键的值
@@ -53,7 +60,7 @@ function setItem(key: string, value: string): void {
   try {
     localStorage.setItem(key, value);
     updateConfig({ language: value });
-  } catch { }
+  } catch {}
 }
 
 /**
@@ -75,7 +82,7 @@ function getLanguage(): string {
 export function getLang(): Lang {
   if (typeof window !== "undefined") {
     const urlLang = new URLSearchParams(window.location.search).get("lang");
-    const standardizedLang = urlLang ? urlLang.split('-')[0] : null;
+    const standardizedLang = urlLang ? urlLang.split("-")[0] : null;
     if (standardizedLang && AllLangs.includes(standardizedLang as Lang)) {
       return standardizedLang as Lang;
     }
@@ -86,7 +93,7 @@ export function getLang(): Lang {
     return savedLang as Lang;
   }
 
-  const browserLang = getLanguage().split('-')[0];
+  const browserLang = getLanguage().split("-")[0];
   if (AllLangs.includes(browserLang as Lang)) {
     return browserLang as Lang;
   }

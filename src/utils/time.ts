@@ -1,5 +1,4 @@
 export default class TimeManager {
-
   // 格式化当前时间
   static getNowformatTime = () => {
     const date = new Date();
@@ -23,5 +22,4 @@ export default class TimeManager {
     const formattedDate = `${year}/${month}/${day} ${hours}:${minutes}`;
     return formattedDate;
   };
-
 }

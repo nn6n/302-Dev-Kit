@@ -21,4 +21,3 @@ export const Home = ({ ...props }) => {
     </svg>
   );
 };
-

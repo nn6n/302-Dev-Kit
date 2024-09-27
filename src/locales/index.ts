@@ -1,5 +1,5 @@
+import { mergeData } from "@/lib/utils"; // 合并数据函数
 import { useAppStore } from "@/stores"; // 应用状态管理
-import DataManager from "@/utils/data"; // 数据管理工具
 import en from "./en"; // 英文语言包
 import ja from "./ja"; // 日文语言包
 import type { LocaleType } from "./zh"; // 类型定义
@@ -26,7 +26,7 @@ const fallbackLang = en;                              // 默认回退语言
 const langSymbol: Lang = getLang();                   // 获取当前语言符号
 const targetLang = ALL_LANGS[langSymbol] as LocaleType;
 
-DataManager.mergeData(fallbackLang, targetLang);      // 合并语言数据
+mergeData(fallbackLang, targetLang);      // 合并语言数据
 updateConfig({ language: langSymbol });               // 更新全局状态中的语言配置
 
 export default targetLang;                            // 导出当前语言

@@ -1,6 +1,6 @@
-'use client'
-import useAuth from "@/hooks/auth";
+"use client";
 
+import useAuth from "@/hooks/auth";
 
 type Props = {};
 

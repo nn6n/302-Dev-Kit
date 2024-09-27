@@ -11,6 +11,8 @@ import { useAppStore } from "@/stores";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 export function Test() {
   const router = useRouter();
   const { updateConfig } = useAppStore.getState();
@@ -25,29 +27,31 @@ export function Test() {
 
   const handleTestLogin = () => {
     const loginCode = "555";
-    login(loginCode).then((res: any) => {
-      if (res.data?.info) {
-        updateConfig({ info: res.data?.info });
-      }
-      if (res.success) {
-        updateConfig({
-          ...res.data,
-          code: loginCode,
-        });
-        emitter.emit("ToastError", -100);
-        return res;
-      }
-    }).catch((err) => {
-      console.log(err)
-      emitter.emit("ToastError", -99);
-    })
+    login(loginCode)
+      .then((res: any) => {
+        if (res.data?.info) {
+          updateConfig({ info: res.data?.info });
+        }
+        if (res.success) {
+          updateConfig({
+            ...res.data,
+            code: loginCode,
+          });
+          emitter.emit("ToastError", -100);
+          return res;
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        emitter.emit("ToastError", -99);
+      });
   };
 
   const handleTestLogout = () => {
-    console.log('logout;:')
-    updateConfig({ apiKey: '' })
+    console.log("logout;:");
+    updateConfig({ apiKey: "" });
     emitter.emit("ToastError", -101);
-  }
+  };
 
   const handleTestError = () => {
     emitter.emit("ToastError", -10005);

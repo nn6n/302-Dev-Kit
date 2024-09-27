@@ -62,7 +62,7 @@ export const login = async (code?: string): Promise<LoginResult> => {
   } else if (data.code === -99) {
     errorMessage = "auth:errors.share_code_error";
   }
-  throw (errorMessage)
+  throw errorMessage;
   // return {
   //   success: false,
   //   errorMessage,

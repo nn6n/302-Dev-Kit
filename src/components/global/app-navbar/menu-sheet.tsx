@@ -5,7 +5,7 @@ import { HomeIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 type Props = {
-  className?: string
+  className?: string;
 };
 
 function MenuSheet({ className }: Props) {

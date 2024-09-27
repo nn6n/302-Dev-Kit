@@ -50,7 +50,10 @@ export const FormGenerator = ({
             id={`input-${label}`}
             type={type}
             placeholder={placeholder}
-            className={cn("bg-themeBlack border-themeGray text-themeTextGray", className)}
+            className={cn(
+              "bg-themeBlack border-themeGray text-themeTextGray",
+              className
+            )}
             {...register(name)}
           />
           <ErrorMessage

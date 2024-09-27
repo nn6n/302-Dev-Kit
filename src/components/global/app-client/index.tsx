@@ -1,7 +1,8 @@
 "use client";
 
-import SkeletonRenderer from '@/components/common/skeleton-renderer';
 import { ReactNode, useEffect, useState } from "react";
+
+import SkeletonRenderer from "@/components/common/skeleton-renderer";
 
 interface ClientOnlyProps {
   children: ReactNode;
@@ -17,9 +18,7 @@ export default function AppClient({
   }, []);
 
   if (!hasMounted) {
-    return (
-      <SkeletonRenderer element='APP_CLIENT' />
-    );
+    return <SkeletonRenderer element="APP_CLIENT" />;
   }
 
   return <>{children}</>;

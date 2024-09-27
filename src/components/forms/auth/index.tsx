@@ -12,16 +12,15 @@ import useAuth from "@/hooks/auth";
 import { Lock } from "@/icons";
 import { cn } from "@/lib/utils";
 
-
 type SignInFormProps = {
-  className?: string
+  className?: string;
 };
 
 const SignInForm = ({ className }: SignInFormProps) => {
   const [isLoading, setIsLoading] = useState(true);
-  const { isPending, setValue, onAuth, watch, register, errors, errorMessage } = useAuth();
+  const { isPending, setValue, onAuth, watch, register, errors, errorMessage } =
+    useAuth();
   const params = useSearchParams();
-
 
   useEffect(() => {
     const queryCode = params.get("pw");
@@ -35,12 +34,12 @@ const SignInForm = ({ className }: SignInFormProps) => {
 
     // init submit
     const initLoad = async () => {
-      await onAuth()
+      await onAuth();
       setTimeout(() => {
-        setIsLoading(false)
-      }, 1000)
-    }
-    initLoad()
+        setIsLoading(false);
+      }, 1000);
+    };
+    initLoad();
   }, [params]);
 
   const handleSubmit = (event: any) => {
@@ -49,48 +48,64 @@ const SignInForm = ({ className }: SignInFormProps) => {
     onAuth();
   };
 
-
   if (isLoading) {
-    return <Loading />
+    return <Loading />;
   }
   return (
-    <div className={cn("relative flex flex-col w-full justify-center items-center transform ease-in-out", className)}>
-      <div className="w-full flex flex-col justify-center items-center space-y-2 text-center">
+    <div
+      className={cn(
+        "relative flex w-full transform flex-col items-center justify-center ease-in-out",
+        className
+      )}
+    >
+      <div className="flex w-full flex-col items-center justify-center space-y-2 text-center">
         <Lock className="h-14 w-14" />
         <h2 className="text-2xl font-bold">Share code required</h2>
-        <p className="text-sm text-muted-foreground">The creator has enabled verification, please enter the share code below</p>
+        <p className="text-sm text-muted-foreground">
+          The creator has enabled verification, please enter the share code
+          below
+        </p>
       </div>
-      <form className="mt-4 flex flex-col gap-3 w-full max-w-sm items-center" onSubmit={handleSubmit}>
-        {Form_CONSTANTS.signInForm.filter((it => it.id === 1)).map((field) => (
-          <FormGenerator
-            {...field}
-            key={field.id}
-            watch={watch}
-            register={register}
-            setValue={setValue}
-            errors={errors}
-            className="w-[200px] text-center"
-          />
-        ))}
-        {errorMessage &&
-          <p className="mt-[-2] text-center text-red-500 dark:text-red-400">{errorMessage}</p>
-        }
-        <Button type="submit" className="rounded-md w-[200px] cursor-pointer">
+      <form
+        className="mt-4 flex w-full max-w-sm flex-col items-center gap-3"
+        onSubmit={handleSubmit}
+      >
+        {Form_CONSTANTS.signInForm
+          .filter((it) => it.id === 1)
+          .map((field) => (
+            <FormGenerator
+              {...field}
+              key={field.id}
+              watch={watch}
+              register={register}
+              setValue={setValue}
+              errors={errors}
+              className="w-[200px] text-center"
+            />
+          ))}
+        {errorMessage && (
+          <p className="mt-[-2] text-center text-red-500 dark:text-red-400">
+            {errorMessage}
+          </p>
+        )}
+        <Button type="submit" className="w-[200px] cursor-pointer rounded-md">
           <Loader loading={isPending}>Sign In with Code</Loader>
         </Button>
-        {Form_CONSTANTS.signInForm.filter((it => it.id === 2)).map((field) => (
-          <FormGenerator
-            {...field}
-            key={field.id}
-            watch={watch}
-            register={register}
-            setValue={setValue}
-            errors={errors}
-            className="w-[200px]"
-          />
-        ))}
+        {Form_CONSTANTS.signInForm
+          .filter((it) => it.id === 2)
+          .map((field) => (
+            <FormGenerator
+              {...field}
+              key={field.id}
+              watch={watch}
+              register={register}
+              setValue={setValue}
+              errors={errors}
+              className="w-[200px]"
+            />
+          ))}
       </form>
-    </div >
+    </div>
   );
 };
 

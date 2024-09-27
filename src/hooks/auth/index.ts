@@ -1,12 +1,14 @@
-'use client'
-import { login } from "@/lib/auth";
-import { useAppStore } from "@/stores";
+"use client";
+
 import { redirect, useRouter } from "next/navigation";
 import { useState } from "react";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+
+import { login } from "@/lib/auth";
+import { useAppStore } from "@/stores";
 
 const schema = z.object({
   code: z.string().optional(),
@@ -15,7 +17,7 @@ const schema = z.object({
 
 const useAuth = () => {
   const [isPending, setIsPending] = useState(false);
-  const [errorMessage, setErrorMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState("");
   const router = useRouter();
   const {
     watch,
@@ -33,18 +35,18 @@ const useAuth = () => {
 
   const performAuth = async (code: string, remember: boolean) => {
     try {
-      setErrorMessage('');
+      setErrorMessage("");
       setIsPending(true);
       // 调用验证接口
-      const result = await login(code)
+      const result = await login(code);
       const { updateConfig } = useAppStore.getState();
-      updateConfig({ ...result.data })
+      updateConfig({ ...result.data });
 
       // 成功跳转主页 并且 去除链接参数
       if (remember) {
         localStorage.setItem("code", code);
       } else {
-        localStorage.setItem("code", "")
+        localStorage.setItem("code", "");
       }
       router.replace("/"); // 跳转并且清除query
     } catch (err) {
@@ -65,7 +67,7 @@ const useAuth = () => {
     if (!apiKey) {
       redirect("/auth");
     }
-  }
+  };
 
   return {
     isPending,

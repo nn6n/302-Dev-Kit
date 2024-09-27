@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import dynamic from "next/dynamic";
 import { Inter } from "next/font/google";
 import { Suspense } from "react";
 
@@ -10,6 +11,10 @@ import AppTheme from "@/components/global/app-theme";
 import { Toaster } from "@/components/ui/toaster";
 import { cn } from "@/lib/utils";
 import "@/styles/globals.css";
+
+const AppChat = dynamic(() => import("@/components/global/app-chat"), {
+  ssr: false,
+});
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,12 +30,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning className="bg-cover dark:bg-black">
-      <head>
-        {/* <link
-          rel="icon"
-          href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📦</text></svg>"
-        /> */}
-      </head>
+      <head></head>
       <body className={cn(inter.className, "h-screen w-screen")}>
         <AppClient>
           <AppTheme>
@@ -41,6 +41,7 @@ export default function RootLayout({
             <AppFooter />
           </AppTheme>
         </AppClient>
+        <AppChat />
         <AppError />
         <Toaster />
       </body>

@@ -9,8 +9,8 @@ export default function AppFooter() {
   const domain = useDomain();
 
   return (
-    <footer className="sticky bottom-0 right-0 flex w-full p-1">
-      <div className="flex w-full flex-col items-center justify-center p-0">
+    <footer className="sticky bottom-0 right-0 flex w-full">
+      <div className="flex w-full flex-col items-center justify-center p-1">
         <a
           href={domain}
           target="_blank"

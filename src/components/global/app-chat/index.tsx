@@ -1,0 +1,17 @@
+"use client";
+
+import Script from "next/script";
+
+import useIsMobile from "@/hooks/global/use-is-mobile";
+
+const AppChat = () => {
+  const isMobile = useIsMobile();
+  if (isMobile) return null;
+  const isDemo = window.location.hostname.includes("demo");
+  if (isDemo) return null;
+  return (
+    <Script src="https://assets.salesmartly.com/js/project_177_61_1649762323.js" />
+  );
+};
+
+export default AppChat;

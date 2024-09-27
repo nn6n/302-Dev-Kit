@@ -12,6 +12,7 @@ export default function HomePage() {
   });
   return (
     <div className="flex h-[2500px] flex-col items-center">
+      <div className="test bg-white">dddd</div>
       <Test />
       {/* <Button variant={"default"}>Button</Button> */}
       {/* <div>{Locale.Title}</div> */}

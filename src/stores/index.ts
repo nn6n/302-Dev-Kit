@@ -12,7 +12,7 @@ export const useAppStore = create<AppStore>()(
       ...createConfigSlice(...a),
     }),
     {
-      name: "ai-tool-store",
+      name: "app-store",
       storage: createJSONStorage(() => sessionStorage),
     }
   )

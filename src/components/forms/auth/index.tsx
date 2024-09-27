@@ -36,7 +36,9 @@ const SignInForm = ({ className }: SignInFormProps) => {
     // init submit
     const initLoad = async () => {
       await onAuth()
-      setIsLoading(false)
+      setTimeout(() => {
+        setIsLoading(false)
+      }, 1000)
     }
     initLoad()
   }, [params]);

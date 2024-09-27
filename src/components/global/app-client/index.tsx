@@ -1,8 +1,7 @@
 "use client";
 
+import SkeletonRenderer from '@/components/common/skeleton-renderer';
 import { ReactNode, useEffect, useState } from "react";
-
-import Loading from "@/components/common/loading";
 
 interface ClientOnlyProps {
   children: ReactNode;
@@ -19,9 +18,7 @@ export default function AppClient({
 
   if (!hasMounted) {
     return (
-      <div className="flex w-full flex-col justify-start space-y-4 p-4">
-        <Loading></Loading>
-      </div>
+      <SkeletonRenderer element='APP_CLIENT' />
     );
   }
 

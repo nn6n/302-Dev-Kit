@@ -42,14 +42,17 @@ export function Test() {
   // };
 
   const handleTestLogout = () => {
-    console.log("logout;:");
     updateConfig({ apiKey: "" });
     localStorage.setItem("code", "");
-    emitter.emit("ToastError", -101);
+    emitter.emit("ToastSuccess", "Logout success!");
+  };
+
+  const handleTestSuccess = () => {
+    emitter.emit("ToastSuccess", "Everythin is on the control!");
   };
 
   const handleTestError = () => {
-    emitter.emit("ToastError", -10005);
+    emitter.emit("ToastError", "Oh! Something get stuff, please view http://302ai.com for more infomation");
   };
 
   return (
@@ -58,6 +61,7 @@ export function Test() {
       <Button onClick={handleGoAuth}>Go Auth</Button>
       <Button onClick={handleGoLang}>GO Lang</Button>
       <Button onClick={handleTestLogout}>Test Logout</Button>
+      <Button onClick={handleTestSuccess}>Test Success</Button>
       <Button onClick={handleTestError}>Test Error</Button>
     </div>
   );

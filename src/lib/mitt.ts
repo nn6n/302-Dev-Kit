@@ -3,7 +3,8 @@
 import mitt from "mitt";
 
 export type ErrorEvent = {
-  ToastError: number;
+  ToastError: string;
+  ToastSuccess: string;
 };
 const emitter = mitt<ErrorEvent>();
 

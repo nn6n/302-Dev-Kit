@@ -19,7 +19,7 @@ import Locale from "@/locales";
 export function InfoModal() {
   return (
     <Dialog>
-      <DialogTrigger>
+      <DialogTrigger asChild>
         <Button size="icon" variant={"ghost"}>
           <InfoIcon className="size-5" />
         </Button>

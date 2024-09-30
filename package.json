@@ -8,6 +8,7 @@
     "dev": "next dev",
     "lint": "next lint",
     "start": "next start",
+    "clean": "rm -rf src/**/dist",
     "check": "prettier --check .",
     "format": "prettier --write ."
   },

@@ -1,16 +1,18 @@
 import { AuthFormProps, SIGN_IN_FORM } from "./forms";
 import { APP_MENU, MenuProps } from "./menus";
-import { APP_THEME, ThemeProps } from "./themes";
+// import { LANG_OPTION, OptionProps, THEME_OPTION } from "./options";
 
 // APP
 type AppConstantsProps = {
   appMenu: MenuProps[];
-  appTheme: ThemeProps[];
+  // appTheme: OptionProps[];
+  // appLang: OptionProps[];
 };
 
 export const APP_CONSTANTS: AppConstantsProps = {
   appMenu: APP_MENU,
-  appTheme: APP_THEME,
+  // appTheme: THEME_OPTION,
+  // appLang: LANG_OPTION,
 };
 
 // Form

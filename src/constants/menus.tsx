@@ -1,4 +1,4 @@
-import { Home } from "@/icons";
+import { Home, Lock } from "@/icons";
 
 export type MenuProps = {
   id: number;
@@ -19,15 +19,9 @@ export const APP_MENU: MenuProps[] = [
   },
   {
     id: 1,
-    label: "Image",
-    icon: <Home />,
-    path: "/image",
+    label: "Auth",
+    icon: <Lock />,
+    path: "/auth",
     section: true,
-  },
-  {
-    id: 1,
-    label: "Video",
-    icon: <Home />,
-    path: "/vidoe",
   },
 ];

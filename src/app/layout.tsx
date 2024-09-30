@@ -45,8 +45,8 @@ export default function RootLayout({
             </AppQeury>
           </AppTheme>
         </AppClient>
-        <AppToaster />
         <AppChat />
+        <AppToaster />
       </body>
     </html>
   );

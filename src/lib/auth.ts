@@ -18,6 +18,7 @@ interface LoginResult {
   success: boolean;
   errorMessage?: string;
   data?: {
+    code: string;
     info: string;
     apiKey: string;
     modelName: string;
@@ -32,12 +33,10 @@ export const login = async (code?: string): Promise<LoginResult> => {
   const res = await authKy.get(
     `bot/v1/${hostname}${code ? `?pwd=${code}` : ""}`
   );
+  let errorMessage = "auth:errors.unknown_error";
 
   if (res.status !== 200) {
-    return {
-      success: false,
-      errorMessage: "auth:errors.network_error",
-    };
+    errorMessage = "auth:errors.network_error"
   }
 
   const data = await res.json<Response>();
@@ -46,6 +45,7 @@ export const login = async (code?: string): Promise<LoginResult> => {
     return {
       success: true,
       data: {
+        code: code || "",
         info: data.data.info,
         apiKey: data.data.api_key,
         modelName: data.data.model_name || env.NEXT_PUBLIC_DEFAULT_MODEL_NAME!,
@@ -54,7 +54,6 @@ export const login = async (code?: string): Promise<LoginResult> => {
     };
   }
 
-  let errorMessage = "auth:errors.unknown_error";
   if (data.code === -101) {
     errorMessage = "auth:errors.tool_deleted";
   } else if (data.code === -100) {

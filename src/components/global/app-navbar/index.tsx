@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 
+import { InfoModal } from "./info-modal";
 import LangSwitcher from "./lang-switcher";
 import MenuSheet from "./menu-sheet";
 import ThemeSwitcher from "./theme-switcher";
@@ -20,6 +21,7 @@ export default function AppNavbar() {
         <MenuSheet />
       </div>
       <div className="flex justify-end">
+        <InfoModal />
         <LangSwitcher />
         <ThemeSwitcher />
       </div>

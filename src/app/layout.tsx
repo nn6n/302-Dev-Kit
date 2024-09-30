@@ -6,6 +6,7 @@ import { Suspense } from "react";
 import AppClient from "@/components/global/app-client";
 import AppFooter from "@/components/global/app-footer";
 import AppNavbar from "@/components/global/app-navbar";
+import AppQeury from "@/components/global/app-query";
 import AppTheme from "@/components/global/app-theme";
 import AppToaster from "@/components/global/app-toaster";
 import { cn } from "@/lib/utils";
@@ -33,13 +34,15 @@ export default function RootLayout({
       <body className={cn(inter.className, "h-screen w-screen")}>
         <AppClient>
           <AppTheme>
-            <AppNavbar />
-            <main className="grow">
+            <AppQeury>
+              <AppNavbar />
               <Suspense>
-                {children}
+                <main className="grow">
+                  {children}
+                </main>
               </Suspense>
-            </main>
-            <AppFooter />
+              <AppFooter />
+            </AppQeury>
           </AppTheme>
         </AppClient>
         <AppToaster />

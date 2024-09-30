@@ -6,7 +6,6 @@ const ja: LocaleType = {
   System: {
     Title: "システム",
     Wait: "待つ",
-    WaitVideo: "ビデオ生成中です。お待ちください...",
     Back: "戻る",
     Download: "ダウンロード",
     Delete: "削除",
@@ -29,8 +28,6 @@ const ja: LocaleType = {
       `このツールの1日のクォータが使い果たされました。詳細については ${domain} をご覧ください。`, // -10007
     HourOut: (domain: string) =>
       `この無料ツールは今時間の上限に達しました。 ${domain} を訪問して自分のツールを作成してください`, // -10012
-    GenerateImageError:
-      "画像生成エラーです。モデルの切り替えやプロンプトの変更を試してください。",
   },
   Auth: {
     Title: "認証",
@@ -50,34 +47,27 @@ const ja: LocaleType = {
   },
   Home: {
     Title: "ホーム",
+    Desc: "",
+  },
+  Footer: {
+    Title: "AI生成コンテンツ、参考のためのみ",
+    Desc: "",
   },
   About: {
     Title: "約",
-    Desc: "AIビデオジェネレーター",
-    Loading: "読み込み中...",
-    CreateInfo: (user: string) =>
-      `このツールは302.AIユーザー${user}によって作成されました。302.AIはAIツールの生成と共有プラットフォームで、ワンクリックで独自のAIツールを生成できます。`,
-    TotalInfo: (all: number, use: number) =>
-      `このツールの総クォータは<${all}PTC>、使用済みは<${use}PTC>です。`,
-    DayInfo: (all: number, use: number) =>
-      `このツールの1日のクォータは<${all}PTC>、使用済みは<${use}PTC>です。`,
-    RecordInfo:
-      "このツールの生成記録はローカルに保存され、アップロードされません。このツールを生成したユーザーは生成記録を確認できません。",
-    MoreInfo: (domain: string) => `詳細については${domain}をご覧ください。`,
+    Desc: "AI Tool",
   },
   History: {
     Title: "履歴",
+    Desc: "",
     Empty: "申し訳ありませんが、履歴記録はありません！",
     Clean: "クリア",
-    DownloadImage: "ビデオをダウンロード",
     ItemCount: (count: number) => `履歴記録は合計${count}件です`,
   },
   Landing: {
     Title: "AI Tool Start",
     Desc: "Create your ai tool from here",
   },
-  Footer: {
-    Title: "AI生成コンテンツ、参考のためのみ",
-  },
+
 };
 export default ja;

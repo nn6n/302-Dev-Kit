@@ -2,19 +2,25 @@
 import { mergeData } from "@/lib/utils";
 // 应用状态管理
 import { useAppStore } from "@/stores";
-
 // 英文语言包
 import en from "./en";
 // 日文语言包
 import ja from "./ja";
-// 类型定义
-import type { LocaleType } from "./zh";
 // 中文语言包
 import zh from "./zh";
 
+type DeepPartial<T> = T extends object
+  ? {
+    [P in keyof T]?: DeepPartial<T[P]>;
+  }
+  : T;
+
+export type LocaleType = typeof zh;
+export type PartialLocaleType = DeepPartial<typeof zh>;
+
+
 const { updateConfig } = useAppStore.getState(); // 从全局状态获取更新配置的函数
 
-export type { LocaleType, PartialLocaleType } from "./zh";
 
 const ALL_LANGS = { zh, en, ja }; // 所有语言包集合
 export type Lang = keyof typeof ALL_LANGS; // 语言类型
@@ -60,7 +66,7 @@ function setItem(key: string, value: string): void {
   try {
     localStorage.setItem(key, value);
     updateConfig({ language: value });
-  } catch {}
+  } catch { }
 }
 
 /**

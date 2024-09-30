@@ -52,7 +52,10 @@ export function Test() {
   };
 
   const handleTestError = () => {
-    emitter.emit("ToastError", "Oh! Something get stuff, please view http://302ai.com for more infomation");
+    emitter.emit(
+      "ToastError",
+      "Oh! Something get stuff, please view http://302ai.com for more infomation"
+    );
   };
 
   return (

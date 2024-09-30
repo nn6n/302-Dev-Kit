@@ -36,7 +36,7 @@ export const login = async (code?: string): Promise<LoginResult> => {
   let errorMessage = "auth:errors.unknown_error";
 
   if (res.status !== 200) {
-    errorMessage = "auth:errors.network_error"
+    errorMessage = "auth:errors.network_error";
   }
 
   const data = await res.json<Response>();

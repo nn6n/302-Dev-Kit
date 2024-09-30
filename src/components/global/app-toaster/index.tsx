@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { useToast } from "@/hooks/global/use-toast";
 import { emitter } from "@/lib/mitt";
+
 import HostRenderer from "../../common/host-renderer";
 
 const AppToaster = () => {
@@ -26,7 +27,6 @@ const AppToaster = () => {
       });
     };
 
-
     emitter.on("ToastSuccess", handleSuccess);
     emitter.on("ToastError", handleError);
 
@@ -37,8 +37,7 @@ const AppToaster = () => {
     };
   }, [toast]);
 
-  return (<Toaster />)
+  return <Toaster />;
 };
 
 export default AppToaster;
-

@@ -1,6 +1,7 @@
+import { useQuery } from "@tanstack/react-query";
+
 import { login } from "@/lib/auth";
 import { useAppStore } from "@/stores";
-import { useQuery } from "@tanstack/react-query";
 
 interface InfoResult {
   success: boolean;
@@ -15,9 +16,9 @@ interface InfoResult {
 }
 
 export const fetchAuth = async (): Promise<InfoResult> => {
-  const { code } = useAppStore.getState()
-  const res = await login(code)
-  return res
+  const { code } = useAppStore.getState();
+  const res = await login(code);
+  return res;
 };
 
 export const useInfo = () => {

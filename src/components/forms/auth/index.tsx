@@ -2,6 +2,7 @@
 
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
+import { FormEvent } from "react";
 
 import { FormGenerator } from "@/components/common/form-generator";
 import { CircleLoader, DotLoader } from "@/components/common/loader-renderer";
@@ -10,7 +11,6 @@ import { FORM_CONSTANTS } from "@/constants";
 import useAuth from "@/hooks/auth";
 import { Lock } from "@/icons";
 import { cn } from "@/lib/utils";
-import { FormEvent } from "react";
 
 type SignInFormProps = {
   className?: string;

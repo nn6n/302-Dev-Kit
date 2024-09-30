@@ -10,6 +10,6 @@ const AppTheme = ({ children }: { children: ReactNode }) => {
       <NextThemesProvider attribute="class">{children}</NextThemesProvider>
     </div>
   );
-}
+};
 
-export default AppTheme
+export default AppTheme;

@@ -13,4 +13,4 @@ export const useAppTheme = () => {
       setTheme,
     } as { theme: Theme; setTheme: SetTheme };
   }, [theme, setTheme, systemTheme]);
-}
+};

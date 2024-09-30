@@ -16,9 +16,9 @@ const schema = z.object({
 });
 
 type AuthData = {
-  code: string
-  remember: boolean
-}
+  code: string;
+  remember: boolean;
+};
 
 const useAuth = () => {
   const [isPending, setIsPending] = useState(false);

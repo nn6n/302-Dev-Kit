@@ -67,7 +67,6 @@ const en: LocaleType = {
     Title: "AI Tool Start",
     Desc: "Create your ai tool from here",
   },
-
 };
 
 export default en;

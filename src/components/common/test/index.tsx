@@ -42,7 +42,7 @@ export function Test() {
   // };
 
   const handleTestLogout = () => {
-    updateConfig({ apiKey: "" });
+    updateConfig({ apiKey: "", code: "" });
     localStorage.setItem("code", "");
     emitter.emit("ToastSuccess", "Logout success!");
   };
@@ -54,7 +54,7 @@ export function Test() {
   const handleTestError = () => {
     emitter.emit(
       "ToastError",
-      "Oh! Something get stuff, please view http://302ai.com for more infomation"
+      "Oh! Something was wrong, please view http://302ai.com for more infomation"
     );
   };
 

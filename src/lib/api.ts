@@ -28,8 +28,8 @@ const apiKy = ky.create({
       async (request, options, response) => {
         if (!response.ok) {
           const res = await response.json<{ error: { err_code: number } }>();
-          if (isEmpty(res.error?.err_code)) {
-            emitter.emit("ToastError", res.error.err_code);
+          if (!isEmpty(res.error?.err_code)) {
+            emitter.emit("ToastError", JSON.stringify(res.error));
           }
         }
       },

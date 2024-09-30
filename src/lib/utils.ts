@@ -7,6 +7,7 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 // 合并数据，递归合并source对象到target对象
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const mergeData = (target: any, source: any): void => {
   Object.keys(source).forEach((key) => {
     if (

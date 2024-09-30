@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 // 定义一个阈值，当窗口宽度小于这个值时，认为是移动设备
 const MOBILE_THRESHOLD = 768;
 
-const useIsMobile = () => {
+export const useIsMobile = () => {
   const [isMobile, setIsMobile] = useState(
     window.innerWidth < MOBILE_THRESHOLD
   );
@@ -25,4 +25,3 @@ const useIsMobile = () => {
   return isMobile;
 };
 
-export default useIsMobile;

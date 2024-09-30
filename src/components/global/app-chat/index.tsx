@@ -2,7 +2,7 @@
 
 import Script from "next/script";
 
-import useIsMobile from "@/hooks/global/use-is-mobile";
+import { useIsMobile } from "@/hooks/global";
 
 const AppChat = () => {
   const isMobile = useIsMobile();

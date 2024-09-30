@@ -6,10 +6,11 @@ import { useEffect, useState } from "react";
 import { FormGenerator } from "@/components/common/form-generator";
 import { CircleLoader, DotLoader } from "@/components/common/loader-renderer";
 import { Button } from "@/components/ui/button";
-import { Form_CONSTANTS } from "@/constants";
+import { FORM_CONSTANTS } from "@/constants";
 import useAuth from "@/hooks/auth";
 import { Lock } from "@/icons";
 import { cn } from "@/lib/utils";
+import { FormEvent } from "react";
 
 type SignInFormProps = {
   className?: string;
@@ -39,9 +40,9 @@ const SignInForm = ({ className }: SignInFormProps) => {
       }, 1000);
     };
     initLoad();
-  }, [params]);
+  }, []);
 
-  const handleSubmit = (event: any) => {
+  const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
     console.log("Form submitted with input:");
     onAuth();
@@ -58,7 +59,7 @@ const SignInForm = ({ className }: SignInFormProps) => {
       )}
     >
       <div className="flex w-full flex-col items-center justify-center space-y-2 text-center">
-        <Lock className="h-14 w-14" />
+        <Lock className="size-14" />
         <h2 className="text-2xl font-bold">Share code required</h2>
         <p className="text-sm text-muted-foreground">
           The creator has enabled verification, please enter the share code
@@ -69,7 +70,7 @@ const SignInForm = ({ className }: SignInFormProps) => {
         className="mt-4 flex w-full max-w-sm flex-col items-center gap-3"
         onSubmit={handleSubmit}
       >
-        {Form_CONSTANTS.signInForm
+        {FORM_CONSTANTS.signInForm
           .filter((it) => it.id === 1)
           .map((field) => (
             <FormGenerator
@@ -90,7 +91,7 @@ const SignInForm = ({ className }: SignInFormProps) => {
         <Button type="submit" className="w-[200px] cursor-pointer rounded-md">
           <CircleLoader loading={isPending}>Sign In with Code</CircleLoader>
         </Button>
-        {Form_CONSTANTS.signInForm
+        {FORM_CONSTANTS.signInForm
           .filter((it) => it.id === 2)
           .map((field) => (
             <FormGenerator

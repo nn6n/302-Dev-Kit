@@ -2,10 +2,11 @@
 
 import { useEffect } from "react";
 
+import { Toaster } from "@/components/ui/toaster";
 import { useToast } from "@/hooks/global/use-toast";
 import { emitter } from "@/lib/mitt";
 
-const AppError = () => {
+const AppToaster = () => {
   const { toast } = useToast();
 
   useEffect(() => {
@@ -23,9 +24,10 @@ const AppError = () => {
     return () => {
       emitter.off("ToastError", handleError);
     };
-  }, []);
+  }, [toast]);
 
-  return null; // This component does not render anything to the UI
+  return (<Toaster />)
 };
 
-export default AppError;
+export default AppToaster;
+

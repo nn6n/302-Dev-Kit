@@ -18,6 +18,6 @@ type FormConstantsProps = {
   signInForm: AuthFormProps[];
 };
 
-export const Form_CONSTANTS: FormConstantsProps = {
+export const FORM_CONSTANTS: FormConstantsProps = {
   signInForm: SIGN_IN_FORM,
 };

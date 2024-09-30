@@ -4,11 +4,10 @@ import { Inter } from "next/font/google";
 import { Suspense } from "react";
 
 import AppClient from "@/components/global/app-client";
-import AppError from "@/components/global/app-error";
 import AppFooter from "@/components/global/app-footer";
 import AppNavbar from "@/components/global/app-navbar";
 import AppTheme from "@/components/global/app-theme";
-import { Toaster } from "@/components/ui/toaster";
+import AppToaster from "@/components/global/app-toaster";
 import { cn } from "@/lib/utils";
 import "@/styles/globals.css";
 
@@ -36,14 +35,15 @@ export default function RootLayout({
           <AppTheme>
             <AppNavbar />
             <main className="grow">
-              <Suspense>{children}</Suspense>
+              <Suspense>
+                {children}
+              </Suspense>
             </main>
             <AppFooter />
           </AppTheme>
         </AppClient>
+        <AppToaster />
         <AppChat />
-        <AppError />
-        <Toaster />
       </body>
     </html>
   );

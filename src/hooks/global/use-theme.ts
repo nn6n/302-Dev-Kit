@@ -5,7 +5,7 @@ import { useTheme } from "next-themes";
 export type Theme = "dark" | "light" | "system";
 export type SetTheme = Dispatch<SetStateAction<Theme>>;
 
-export default function useAppTheme() {
+export const useAppTheme = () => {
   const { theme, setTheme, systemTheme } = useTheme();
   return useMemo(() => {
     return {

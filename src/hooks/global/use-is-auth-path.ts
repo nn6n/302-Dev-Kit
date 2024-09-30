@@ -5,7 +5,7 @@ import { env } from "@/env";
 
 const authPath = env.NEXT_PUBLIC_AUTH_PATH!;
 
-function useIsAuthPath() {
+export const useIsAuthPath = () => {
   const { locale } = useParams();
   const pathname = usePathname();
 
@@ -17,4 +17,4 @@ function useIsAuthPath() {
   return { isAuthPage };
 }
 
-export default useIsAuthPath;
+// export default useIsAuthPath;

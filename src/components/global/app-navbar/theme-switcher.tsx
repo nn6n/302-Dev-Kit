@@ -12,9 +12,9 @@ import {
   DropdownMenuRadioItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import useAppTheme, { Theme } from "@/hooks/global/use-theme";
+import { Theme, useAppTheme } from "@/hooks/global";
 
-export default function ThemeSwitcher({}) {
+export default function ThemeSwitcher({ }) {
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useAppTheme();
 

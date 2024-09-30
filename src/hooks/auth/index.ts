@@ -15,6 +15,11 @@ const schema = z.object({
   remember: z.boolean().optional(),
 });
 
+type AuthData = {
+  code: string
+  remember: boolean
+}
+
 const useAuth = () => {
   const [isPending, setIsPending] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
@@ -33,7 +38,7 @@ const useAuth = () => {
     resolver: zodResolver(schema),
   });
 
-  const performAuth = async (code: string, remember: boolean) => {
+  const performAuth = async ({ code, remember }: AuthData) => {
     try {
       setErrorMessage("");
       setIsPending(true);
@@ -57,9 +62,9 @@ const useAuth = () => {
     }
   };
 
-  const onSubmit = async (data: any) => {
+  const onSubmit = async (data: AuthData) => {
     const { code, remember } = data;
-    await performAuth(code, remember);
+    await performAuth({ code, remember });
   };
 
   const checkAuth = () => {

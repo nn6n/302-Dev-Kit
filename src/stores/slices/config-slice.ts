@@ -1,3 +1,4 @@
+import { produce } from "immer";
 import { StateCreator } from "zustand";
 
 type ConfigState = {
@@ -27,5 +28,5 @@ export const createConfigSlice: StateCreator<
   modelName: "",
   language: "",
   info: "",
-  updateConfig: (fields) => set((state) => ({ ...state, ...fields })),
+  updateConfig: (fields) => set(produce((state) => ({ ...state, ...fields }))),
 });

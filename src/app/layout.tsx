@@ -37,7 +37,7 @@ export default function RootLayout({
             <AppQeury>
               <AppNavbar />
               <Suspense>
-                <main className="grow">{children}</main>
+                <main className="flex grow">{children}</main>
               </Suspense>
               <AppFooter />
             </AppQeury>

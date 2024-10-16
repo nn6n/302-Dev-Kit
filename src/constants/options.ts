@@ -1,4 +1,3 @@
-
 export type OptionProps = {
   id: number;
   label: string;

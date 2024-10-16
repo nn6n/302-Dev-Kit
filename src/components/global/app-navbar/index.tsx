@@ -16,10 +16,8 @@ export default function AppNavbar() {
 
   if (!mounted) return null;
   return (
-    <nav className="sticky top-0 flex w-full items-center justify-between space-x-2 bg-background/95 p-2">
-      <div className="flex justify-start">
-        {/* <MenuSheet /> */}
-      </div>
+    <nav className="sticky top-0 flex w-full items-center justify-between space-x-2 bg-background/95 p-2 shadow-sm">
+      <div className="flex justify-start">{/* <MenuSheet /> */}</div>
       <div className="flex justify-end">
         <InfoModal />
         <LangSwitcher />

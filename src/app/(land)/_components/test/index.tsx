@@ -14,7 +14,6 @@ const Test = () => {
     router.push("/auth");
   };
 
-
   const handleTestLogout = () => {
     updateConfig({ apiKey: "", code: "" });
     localStorage.setItem("code", "");
@@ -40,6 +39,6 @@ const Test = () => {
       <Button onClick={handleTestError}>Test Error</Button>
     </div>
   );
-}
+};
 
-export default Test
+export default Test;

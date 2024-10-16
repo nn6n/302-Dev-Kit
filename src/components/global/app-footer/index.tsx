@@ -1,11 +1,9 @@
 "use client";
 
-
 import AppLogo from "@/components/global/app-logo";
 import Locale from "@/locales";
 
 export default function AppFooter() {
-
   return (
     <footer className="flex w-full">
       <div className="flex w-full flex-col items-center justify-center p-1">

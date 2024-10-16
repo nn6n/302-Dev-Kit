@@ -33,16 +33,17 @@ export default function RootLayout({
       <head></head>
       <body className={cn(inter.className, "h-screen w-screen")}>
         <AppClient>
-          <AppTheme>
-            <AppQeury>
+          <AppQeury>
+            <AppTheme>
               <AppNavbar />
               <Suspense>
                 <main className="flex grow">{children}</main>
               </Suspense>
               <AppFooter />
-            </AppQeury>
-          </AppTheme>
+            </AppTheme>
+          </AppQeury>
         </AppClient>
+
         <AppChat />
         <AppToaster />
       </body>

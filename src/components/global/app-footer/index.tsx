@@ -6,7 +6,7 @@ import Locale from "@/locales";
 export default function AppFooter() {
   return (
     <footer className="flex w-full">
-      <div className="flex w-full flex-col items-center justify-center p-1">
+      <div className="flex w-full flex-col items-center justify-center space-y-1 p-1">
         <div className="flex items-center justify-center">
           <div className="text-xs text-[#666]">Powered By</div>
           <AppLogo width={50} height={14} />

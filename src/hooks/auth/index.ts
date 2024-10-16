@@ -22,13 +22,13 @@ type AuthData = {
 
 const useAuth = () => {
   const [isPending, setIsPending] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
   const router = useRouter();
   const {
     watch,
     register,
     handleSubmit,
     setValue,
+    setError,
     formState: { errors },
   } = useForm({
     defaultValues: {
@@ -40,7 +40,6 @@ const useAuth = () => {
 
   const performAuth = async ({ code, remember }: AuthData) => {
     try {
-      setErrorMessage("");
       setIsPending(true);
       // 调用验证接口
       const result = await login(code);
@@ -56,7 +55,10 @@ const useAuth = () => {
       router.replace("/"); // 跳转并且清除query
     } catch (err) {
       console.error(err);
-      setErrorMessage(err as string);
+      setError("code", {
+        type: "server",
+        message: "Auth code error, for more infomation please view http://302.ai"
+      })
     } finally {
       setIsPending(false);
     }
@@ -82,7 +84,6 @@ const useAuth = () => {
     watch,
     register,
     errors,
-    errorMessage,
   };
 };
 

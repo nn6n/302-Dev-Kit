@@ -11,6 +11,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
+import HostRenderer from "../host-renderer";
 
 type FormGeneratorProps = {
   inputType: "select" | "input" | "textarea" | "checkbox";
@@ -44,7 +45,7 @@ export const FormGenerator = ({
   switch (inputType) {
     case "input":
       return (
-        <Label className="flex flex-col gap-2" htmlFor={`input-${label}`}>
+        <Label className="flex flex-col items-center justify-center gap-2 text-center" htmlFor={`input-${label}`}>
           {label && label}
           <Input
             id={`input-${label}`}
@@ -61,7 +62,7 @@ export const FormGenerator = ({
             name={name}
             render={({ message }) => (
               <p className="mt-2 text-red-400">
-                {message === "Required" ? "" : message}
+                {message === "Required" ? "" : <HostRenderer content={message} />}
               </p>
             )}
           />
@@ -73,7 +74,7 @@ export const FormGenerator = ({
           {label && label}
           <select
             id={`select-${label}`}
-            className="w-full rounded-lg border-[1px] bg-transparent p-3"
+            className="w-full rounded-lg border bg-transparent p-3"
             {...register(name)}
           >
             {options?.length &&
@@ -92,7 +93,7 @@ export const FormGenerator = ({
             name={name}
             render={({ message }) => (
               <p className="mt-2 text-red-400">
-                {message === "Required" ? "" : message}
+                {message === "Required" ? "" : <HostRenderer content={message} />}
               </p>
             )}
           />
@@ -114,7 +115,7 @@ export const FormGenerator = ({
             name={name}
             render={({ message }) => (
               <p className="mt-2 text-red-400">
-                {message === "Required" ? "" : message}
+                {message === "Required" ? "" : <HostRenderer content={message} />}
               </p>
             )}
           />

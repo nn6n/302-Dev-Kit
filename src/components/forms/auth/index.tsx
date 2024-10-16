@@ -1,8 +1,7 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
-import { FormEvent } from "react";
+import { FormEvent, useEffect, useState } from "react";
 
 import { FormGenerator } from "@/components/common/form-generator";
 import { CircleLoader, DotLoader } from "@/components/common/loader-renderer";
@@ -18,7 +17,7 @@ type SignInFormProps = {
 
 const SignInForm = ({ className }: SignInFormProps) => {
   const [isLoading, setIsLoading] = useState(true);
-  const { isPending, setValue, onAuth, watch, register, errors, errorMessage } =
+  const { isPending, setValue, onAuth, watch, register, errors } =
     useAuth();
   const params = useSearchParams();
 
@@ -83,11 +82,6 @@ const SignInForm = ({ className }: SignInFormProps) => {
               className="w-[200px] text-center"
             />
           ))}
-        {errorMessage && (
-          <p className="mt-[-2] text-center text-red-500 dark:text-red-400">
-            {errorMessage}
-          </p>
-        )}
         <Button type="submit" className="w-[200px] cursor-pointer rounded-md">
           <CircleLoader loading={isPending}>Sign In with Code</CircleLoader>
         </Button>

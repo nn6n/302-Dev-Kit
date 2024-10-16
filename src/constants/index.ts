@@ -1,19 +1,16 @@
 import { AuthFormProps, SIGN_IN_FORM } from "./forms";
-import { APP_MENU, MenuProps } from "./menus";
-
-// import { LANG_OPTION, OptionProps, THEME_OPTION } from "./options";
+import { APP_ROUTE_MENU, MenuProps } from "./menus";
+import { APP_THEME_OPTION, OptionProps } from "./options";
 
 // APP
 type AppConstantsProps = {
-  appMenu: MenuProps[];
-  // appTheme: OptionProps[];
-  // appLang: OptionProps[];
+  appRouteMenu: MenuProps[];
+  appThemeOption: OptionProps[];
 };
 
 export const APP_CONSTANTS: AppConstantsProps = {
-  appMenu: APP_MENU,
-  // appTheme: THEME_OPTION,
-  // appLang: LANG_OPTION,
+  appRouteMenu: APP_ROUTE_MENU,
+  appThemeOption: APP_THEME_OPTION,
 };
 
 // Form
@@ -24,3 +21,5 @@ type FormConstantsProps = {
 export const FORM_CONSTANTS: FormConstantsProps = {
   signInForm: SIGN_IN_FORM,
 };
+
+// Land

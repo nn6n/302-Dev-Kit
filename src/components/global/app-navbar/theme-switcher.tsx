@@ -12,9 +12,10 @@ import {
   DropdownMenuRadioItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { APP_CONSTANTS } from "@/constants";
 import { Theme, useAppTheme } from "@/hooks/global";
 
-export default function ThemeSwitcher({}) {
+export default function ThemeSwitcher({ }) {
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useAppTheme();
 
@@ -24,25 +25,25 @@ export default function ThemeSwitcher({}) {
 
   if (!mounted) return null;
 
-  interface THEME_OPTION {
-    label: string;
-    value: Theme;
-  }
+  // interface THEME_OPTION {
+  //   label: string;
+  //   value: Theme;
+  // }
 
-  const THEME_OPTIONS: THEME_OPTION[] = [
-    {
-      label: "Light",
-      value: "light",
-    },
-    {
-      label: "Dark",
-      value: "dark",
-    },
-    {
-      label: "System",
-      value: "system",
-    },
-  ];
+  // const THEME_OPTIONS: THEME_OPTION[] = [
+  //   {
+  //     label: "Light",
+  //     value: "light",
+  //   },
+  //   {
+  //     label: "Dark",
+  //     value: "dark",
+  //   },
+  //   {
+  //     label: "System",
+  //     value: "system",
+  //   },
+  // ];
 
   return (
     <DropdownMenu>
@@ -57,7 +58,7 @@ export default function ThemeSwitcher({}) {
           value={theme}
           onValueChange={(value) => setTheme(value as Theme)}
         >
-          {THEME_OPTIONS.map((it) => (
+          {APP_CONSTANTS.appThemeOption.map((it) => (
             <DropdownMenuRadioItem key={it.value} value={it.value}>
               {it.label}
             </DropdownMenuRadioItem>

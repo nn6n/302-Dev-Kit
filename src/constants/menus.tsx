@@ -9,10 +9,10 @@ export type MenuProps = {
   integration?: boolean;
 };
 
-export const APP_MENU: MenuProps[] = [
+export const APP_ROUTE_MENU: MenuProps[] = [
   {
     id: 0,
-    label: "Home",
+    label: "Land",
     icon: <Home />,
     path: "/",
     section: true,

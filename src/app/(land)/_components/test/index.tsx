@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { emitter } from "@/lib/mitt";
 import { useAppStore } from "@/stores";
 
-export function Test() {
+const Test = () => {
   const router = useRouter();
   const { updateConfig } = useAppStore.getState();
 
@@ -41,3 +41,5 @@ export function Test() {
     </div>
   );
 }
+
+export default Test

@@ -17,7 +17,7 @@ const AppLogo = ({ type, className, width = 150, height = 42 }: Props) => {
         <a
           href={domain}
           target="_blank"
-          className="flex space-x-1 p-1 no-underline"
+          className="flex space-x-1 no-underline"
         >
           <Image
             className=""
@@ -31,7 +31,7 @@ const AppLogo = ({ type, className, width = 150, height = 42 }: Props) => {
         <a
           href={domain}
           target="_blank"
-          className="flex space-x-1 p-1 no-underline"
+          className="flex space-x-1 no-underline"
         >
           <Image
             className="hidden dark:block"

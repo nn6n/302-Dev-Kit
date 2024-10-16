@@ -4,7 +4,7 @@ import { useEffect } from "react";
 
 import Locale from "@/locales";
 import LandHeader from "./_components/header";
-import { Test } from "./_components/test";
+import Test from "./_components/test";
 
 export default function HomePage() {
   useEffect(() => {

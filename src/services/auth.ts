@@ -1,8 +1,9 @@
 "use client";
 
 import { env } from "@/env";
+import Locale from "@/locales";
 
-import { authKy } from "./api";
+import { authKy } from "../lib/api";
 
 interface Response {
   data: {
@@ -16,7 +17,6 @@ interface Response {
 
 interface LoginResult {
   success: boolean;
-  errorMessage?: string;
   data?: {
     code: string;
     info: string;
@@ -55,15 +55,11 @@ export const login = async (code?: string): Promise<LoginResult> => {
   }
 
   if (data.code === -101) {
-    errorMessage = "auth:errors.tool_deleted";
+    errorMessage = Locale.Auth.AccountDel;
   } else if (data.code === -100) {
-    errorMessage = "auth:errors.tool_disabled";
+    errorMessage = Locale.Auth.AccountBin;
   } else if (data.code === -99) {
-    errorMessage = "auth:errors.share_code_error";
+    errorMessage = Locale.Auth.CodeError;
   }
-  throw errorMessage;
-  // return {
-  //   success: false,
-  //   errorMessage,
-  // };
+  throw new Error(errorMessage);
 };

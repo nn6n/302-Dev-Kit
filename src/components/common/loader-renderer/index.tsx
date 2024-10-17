@@ -8,10 +8,15 @@ type LoaderProps = {
   className?: string;
 };
 
+// CircleLoader component: Displays a spinning SVG when loading, otherwise renders children
 export const CircleLoader = ({ loading, children, className }: LoaderProps) => {
-  return loading ? (
+  if (!loading) return <>{children}</>; // Render children if not loading
+
+  return (
     <div className={cn("flex w-full items-center justify-center", className)}>
-      <div role="status">
+      <div role="status" aria-label="Loading">
+        {" "}
+        {/* Provide accessible label */}
         <svg
           aria-hidden="true"
           className="inline h-8 w-8 animate-spin fill-yellow-400 text-gray-200 dark:text-gray-600"
@@ -28,29 +33,25 @@ export const CircleLoader = ({ loading, children, className }: LoaderProps) => {
             fill="currentFill"
           />
         </svg>
-        {/* <span className="sr-only">Loading...</span> */}
       </div>
     </div>
-  ) : (
-    children
   );
 };
 
+// DotLoader component: Displays three dots with flashing animation
 export const DotLoader = ({ className }: { className?: string }) => {
   return (
     <div
       className={cn("flex size-full items-center justify-center", className)}
     >
       <div className="flex">
-        <div className="mx-1 size-2 animate-dotFlashing rounded-full bg-gray-400"></div>
-        <div
-          className="mx-1 size-2 animate-dotFlashing rounded-full bg-gray-400"
-          style={{ animationDelay: "0.2s" }}
-        ></div>
-        <div
-          className="mx-1 size-2 animate-dotFlashing rounded-full bg-gray-400"
-          style={{ animationDelay: "0.4s" }}
-        ></div>
+        {[0, 0.2, 0.4].map((delay, index) => (
+          <div
+            key={index}
+            className="mx-1 size-2 animate-dotFlashing rounded-full bg-gray-400"
+            style={{ animationDelay: `${delay}s` }}
+          ></div>
+        ))}
       </div>
     </div>
   );

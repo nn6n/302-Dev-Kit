@@ -21,23 +21,20 @@ const SignInForm = ({ className }: SignInFormProps) => {
   const params = useSearchParams();
 
   useEffect(() => {
-    const queryCode = params.get("pw");
-    const storedCode = localStorage.getItem("code");
+    const queryCode = params.get("pw") || "";
+    const storedCode = localStorage.getItem("code") || "";
 
-    if (queryCode) {
-      setValue("code", queryCode);
-    } else if (storedCode) {
-      setValue("code", storedCode);
+    // Prefer query code first, then stored code
+    if (queryCode || storedCode) {
+      setValue("code", queryCode || storedCode);
     }
 
-    // init submit
-    const initLoad = async () => {
+    // Initial authentication
+    const initAuthentication = async () => {
       await onAuth();
-      setTimeout(() => {
-        setIsLoading(false);
-      }, 1000);
+      setIsLoading(false);
     };
-    initLoad();
+    initAuthentication();
   }, []);
 
   const handleSubmit = (event: FormEvent) => {
@@ -49,6 +46,7 @@ const SignInForm = ({ className }: SignInFormProps) => {
   if (isLoading) {
     return <DotLoader />;
   }
+
   return (
     <div
       className={cn(
@@ -68,35 +66,20 @@ const SignInForm = ({ className }: SignInFormProps) => {
         className="mt-4 flex w-full max-w-sm flex-col items-center gap-3"
         onSubmit={handleSubmit}
       >
-        {FORM_CONSTANTS.signInForm
-          .filter((it) => it.id === 1)
-          .map((field) => (
-            <FormGenerator
-              {...field}
-              key={field.id}
-              watch={watch}
-              register={register}
-              setValue={setValue}
-              errors={errors}
-              className="w-[200px] text-center"
-            />
-          ))}
+        {FORM_CONSTANTS.signInForm.map((field) => (
+          <FormGenerator
+            {...field}
+            key={field.id}
+            watch={watch}
+            register={register}
+            setValue={setValue}
+            errors={errors}
+            className="w-[200px] text-center"
+          />
+        ))}
         <Button type="submit" className="w-[200px] cursor-pointer rounded-md">
           <CircleLoader loading={isPending}>Sign In with Code</CircleLoader>
         </Button>
-        {FORM_CONSTANTS.signInForm
-          .filter((it) => it.id === 2)
-          .map((field) => (
-            <FormGenerator
-              {...field}
-              key={field.id}
-              watch={watch}
-              register={register}
-              setValue={setValue}
-              errors={errors}
-              className="w-[200px]"
-            />
-          ))}
       </form>
     </div>
   );

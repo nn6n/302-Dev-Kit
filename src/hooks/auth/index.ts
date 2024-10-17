@@ -1,20 +1,22 @@
 "use client";
 
-import { redirect, useRouter } from "next/navigation";
-import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
-import { login } from "@/lib/auth";
+import { login } from "@/services/auth";
 import { useAppStore } from "@/stores";
 
+// Define the schema using Zod for form validation
 const schema = z.object({
   code: z.string().optional(),
   remember: z.boolean().optional(),
 });
 
+// Define the type for authentication data
 type AuthData = {
   code: string;
   remember: boolean;
@@ -23,6 +25,8 @@ type AuthData = {
 const useAuth = () => {
   const [isPending, setIsPending] = useState(false);
   const router = useRouter();
+
+  // Initialize form handling with react-hook-form and Zod resolver
   const {
     watch,
     register,
@@ -30,58 +34,65 @@ const useAuth = () => {
     setValue,
     setError,
     formState: { errors },
-  } = useForm({
+  } = useForm<AuthData>({
     defaultValues: {
-      code: "", // 默认值为空
-      remember: true, // 设置勾选
+      code: "", // Default code to empty string
+      remember: true, // Default remember to true
     },
     resolver: zodResolver(schema),
   });
 
+  // Function to handle authentication
   const performAuth = async ({ code, remember }: AuthData) => {
     try {
       setIsPending(true);
-      // 调用验证接口
+
+      // Call login function to validate the code
       const result = await login(code);
+
+      // Update app configuration from the store with result
       const { updateConfig } = useAppStore.getState();
       updateConfig({ ...result.data });
 
-      // 成功跳转主页 并且 去除链接参数
+      // Store or remove auth code based on remember flag
       if (remember) {
         localStorage.setItem("code", code);
       } else {
-        localStorage.setItem("code", "");
+        localStorage.removeItem("code");
       }
-      router.replace("/"); // 跳转并且清除query
-    } catch (err) {
-      console.error(err);
+
+      // Redirect to the home page
+      router.replace("/");
+    } catch (error: any) {
+      console.error(error);
+
+      // Handle error by setting error state in form
       setError("code", {
         type: "server",
-        message:
-          "Auth code error, for more infomation please view http://302.ai",
+        message: error.message,
       });
     } finally {
       setIsPending(false);
     }
   };
 
+  // Callback for form submission
   const onSubmit = async (data: AuthData) => {
-    const { code, remember } = data;
-    await performAuth({ code, remember });
+    await performAuth(data);
   };
 
-  const checkAuth = () => {
+  // Effect hooks to check authentication status
+  useEffect(() => {
     const { apiKey } = useAppStore.getState();
     if (!apiKey) {
-      redirect("/auth");
+      router.replace("/auth");
     }
-  };
+  }, [router]);
 
   return {
     isPending,
     setValue,
-    checkAuth,
-    onAuth: handleSubmit(onSubmit),
+    onAuth: handleSubmit(onSubmit), // Assign form submit handler
     watch,
     register,
     errors,

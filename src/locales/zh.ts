@@ -32,9 +32,9 @@ const zh = {
     ToolDel: "工具已删除, 更多信息请访问",
     Submit: "确认",
     Remind: "记住分享码",
-    CodeError: "验证码错误！",
+    CodeError: "验证码错误，更多请访问 302.AI",
     AccountBin: "账号已被禁用!",
-    AccountDel: "账号已被注销！",
+    AccountDel: "该工具已禁用/删除，更多请访问 302.AI",
     NetworkError: "网络错误，请刷新页面后重试！",
   },
   Home: {

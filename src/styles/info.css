@@ -1,9 +1,12 @@
-/* info */
+/* 
+  Applying list styling and link styling for the 
+  .app-desc-content class and its anchor tags 
+*/
 .app-desc-content {
-  list-style-type: decimal; /* 添加有序号 */
+  list-style-type: decimal; /* Add ordered numbers to list items */
 }
 
 .app-desc-content a {
-  color: purple; /* 紫色字体颜色 */
-  text-decoration: underline; /* 带下划线 */
+  color: purple; /* Set link text color to purple */
+  text-decoration: underline; /* Add underline to links */
 }

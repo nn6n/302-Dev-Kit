@@ -1,12 +1,13 @@
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 
-// 合并和转换类名
+// Merge and convert class names
 export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs)); // 使用clsx转换类名并使用twMerge合并相同的Tailwind类
+  // Convert class names with clsx and merge identical Tailwind classes with twMerge
+  return twMerge(clsx(inputs));
 }
 
-// 合并数据，递归合并source对象到target对象
+// Recursively merge source object data into target object
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const mergeData = (target: any, source: any): void => {
   Object.keys(source).forEach((key) => {
@@ -20,37 +21,38 @@ export const mergeData = (target: any, source: any): void => {
         typeof target[key] !== "object" ||
         Array.isArray(target[key])
       ) {
-        target[key] = {}; // 初始化对象
+        target[key] = {}; // Initialize target key as object if necessary
       }
-      mergeData(target[key], source[key]); // 递归合并
+      mergeData(target[key], source[key]); // Recursively merge if necessary
     } else {
-      target[key] = source[key]; // 直接赋值
+      target[key] = source[key]; // Directly assign value if not an object
     }
   });
 };
 
-// 语言代码转换为国家代码
+// Convert language code to country code
 export function langToCountry(lang: string) {
-  const map: { [key: string]: string } = {
+  const map: Record<string, string> = {
     zh: "cn",
     en: "en",
     ja: "jp",
   };
-  return map[lang] ?? lang; // 使用可选链运算符简化默认返回
+  return map[lang] ?? lang; // Return mapped code or default to input
 }
 
-// 检测字符串中是否包含中文字符
+// Check if a string contains Chinese characters
 export const containsChinese = (str: string): boolean =>
   /[\u4E00-\u9FA5]/.test(str);
 
-// 复制文本数据到剪贴板
+// Copy text data to clipboard
 export const copyToClipboard = (text: string): void => {
-  if (!text) return;
+  if (!text) return; // Exit if empty text
   if (navigator.clipboard) {
     navigator.clipboard.writeText(text).catch((err) => {
       console.error("Failed to copy to clipboard: ", err);
     });
   } else {
+    // Fallback for environments without clipboard API support
     const textarea = document.createElement("textarea");
     textarea.style.position = "fixed";
     textarea.style.top = "0";

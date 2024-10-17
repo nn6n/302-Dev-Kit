@@ -11,6 +11,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
+
 import HostRenderer from "../host-renderer";
 
 type FormGeneratorProps = {
@@ -46,13 +47,13 @@ const FormGenerator = ({
     <ErrorMessage
       errors={errors}
       name={name}
-      render={({ message }) => (
+      render={({ message }) =>
         message !== "Required" && (
           <p className="mt-2 text-red-400">
             <HostRenderer content={message} />
           </p>
         )
-      )}
+      }
     />
   );
 

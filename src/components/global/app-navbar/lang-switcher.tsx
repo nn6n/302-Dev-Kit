@@ -4,43 +4,47 @@ import * as React from "react";
 
 import { LanguagesIcon } from "lucide-react";
 
+// Import UI components
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
-  DropdownMenuLabel,
   DropdownMenuRadioGroup,
   DropdownMenuRadioItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import Locale, { ALL_LANG_OPTIONS, changeLang } from "@/locales";
+import { APP_CONSTANTS } from "@/constants";
+import Locale, { Lang, changeLang } from "@/locales";
+
+// Import locale utilities
 
 export default function LangSwitcher() {
-  const [lang, setLang] = React.useState("zh");
+  const [lang, setLang] = React.useState(Locale.Symbol); // Initialize lang to the Locale symbol
 
-  React.useEffect(() => {
-    setLang(Locale.Symbol);
-  }, []);
-
-  const handlerChangeLang = (value: string) => {
+  // Handler for changing language
+  const handlerChangeLang = (value: Lang) => {
     setLang(value);
-    changeLang(value);
+    changeLang(value); // Update locale
   };
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button size="icon" variant={"ghost"}>
-          <LanguagesIcon className="size-5" />
+        {/* Trigger button for the dropdown menu */}
+        <Button size="icon" variant="ghost">
+          <LanguagesIcon className="size-5" /> {/* Language icon */}
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-12">
-        <DropdownMenuLabel className="hidden"></DropdownMenuLabel>
-        {/* <DropdownMenuSeparator /> */}
-        <DropdownMenuRadioGroup value={lang} onValueChange={handlerChangeLang}>
-          {ALL_LANG_OPTIONS.map((it) => (
-            <DropdownMenuRadioItem key={it.value} value={it.value}>
-              {it.label}
+        {/* Dropdown language selection */}
+        <DropdownMenuRadioGroup
+          value={lang}
+          onValueChange={(value: string) => handlerChangeLang(value as Lang)}
+        >
+          {/* Map language options to menu items */}
+          {APP_CONSTANTS.appLangOption.map((option) => (
+            <DropdownMenuRadioItem key={option.value} value={option.value}>
+              {option.label}
             </DropdownMenuRadioItem>
           ))}
         </DropdownMenuRadioGroup>

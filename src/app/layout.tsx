@@ -5,10 +5,10 @@ import { Suspense } from "react";
 
 import AppClient from "@/components/global/app-client";
 import AppFooter from "@/components/global/app-footer";
+import AppMessage from "@/components/global/app-message";
 import AppNavbar from "@/components/global/app-navbar";
 import AppQeury from "@/components/global/app-query";
 import AppTheme from "@/components/global/app-theme";
-import AppToaster from "@/components/global/app-toaster";
 import { cn } from "@/lib/utils";
 import "@/styles/globals.css";
 
@@ -45,7 +45,7 @@ export default function RootLayout({
         </AppClient>
 
         <AppChat />
-        <AppToaster />
+        <AppMessage />
       </body>
     </html>
   );

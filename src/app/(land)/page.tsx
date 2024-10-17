@@ -9,8 +9,7 @@ import LandHeader from "./_components/header";
 import Test from "./_components/test";
 
 export default function HomePage() {
-  const { checkAuth } = useAuth();
-  checkAuth();
+  useAuth();
 
   useEffect(() => {
     document.title = Locale.Home.Title;

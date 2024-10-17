@@ -1,52 +1,46 @@
-// 合并数据函数
+// Import required methods and dependencies
 import { mergeData } from "@/lib/utils";
-// 应用状态管理
 import { useAppStore } from "@/stores";
 
-// 英文语言包
+// Import language packs
 import en from "./en";
-// 日文语言包
 import ja from "./ja";
-// 中文语言包
 import zh from "./zh";
 
+// Type definitions for locale types
 type DeepPartial<T> = T extends object
-  ? {
-      [P in keyof T]?: DeepPartial<T[P]>;
-    }
+  ? { [P in keyof T]?: DeepPartial<T[P]> }
   : T;
-
 export type LocaleType = typeof zh;
 export type PartialLocaleType = DeepPartial<typeof zh>;
 
-const { updateConfig } = useAppStore.getState(); // 从全局状态获取更新配置的函数
+// Initialize global state update function
+const { updateConfig } = useAppStore.getState();
 
-const ALL_LANGS = { zh, en, ja }; // 所有语言包集合
-export type Lang = keyof typeof ALL_LANGS; // 语言类型
-export const AllLangs = Object.keys(ALL_LANGS) as Lang[]; // 获取所有语言类型数组
+// Define language pack and options
+const ALL_LANGS = { zh, en, ja };
+export type Lang = keyof typeof ALL_LANGS;
+export const AllLangs = Object.keys(ALL_LANGS) as Lang[];
 
-export const ALL_LANG_OPTIONS = [
-  { label: "中文", value: "zh" },
-  { label: "English", value: "en" },
-  { label: "日本語", value: "ja" },
-];
+// Constants for language settings
+const LANG_KEY = "tool-lang";
+const DEFAULT_LANG = "en";
 
-const LANG_KEY = "tool-lang"; // 本地存储中的语言键名
-const DEFAULT_LANG = "en"; // 默认语言
+// Define fallback and current language
+const langSymbol: Lang = getLang();
+const targetLang = ALL_LANGS[langSymbol];
 
-const fallbackLang = en; // 默认回退语言
-const langSymbol: Lang = getLang(); // 获取当前语言符号
-const targetLang = ALL_LANGS[langSymbol] as LocaleType;
+// Merge language data and update global config
+mergeData(en, targetLang);
+updateConfig({ language: langSymbol });
 
-mergeData(fallbackLang, targetLang); // 合并语言数据
-updateConfig({ language: langSymbol }); // 更新全局状态中的语言配置
-
-export default targetLang; // 导出当前语言
+// Export the selected language pack
+export default targetLang;
 
 /**
- * 尝试从本地存储获取指定键的值
- * @param key - 本地存储键
- * @returns 存储的值，或 null 如果不存在
+ * Retrieve stored item from localStorage
+ * @param key - The key of the item to retrieve
+ * @returns The stored item or null if not found
  */
 function getItem(key: string): string | null {
   try {
@@ -57,20 +51,22 @@ function getItem(key: string): string | null {
 }
 
 /**
- * 尝试将指定键值存储到本地存储，并更新配置
- * @param key - 本地存储键
- * @param value - 要存储的值
+ * Store an item in localStorage and update configuration
+ * @param key - The key under which to store the item
+ * @param value - The value to store
  */
 function setItem(key: string, value: string): void {
   try {
     localStorage.setItem(key, value);
     updateConfig({ language: value });
-  } catch {}
+  } catch {
+    // Ignore storage errors
+  }
 }
 
 /**
- * 获取浏览器语言
- * @returns 浏览器语言，或默认语言
+ * Get user's preferred language
+ * @returns Preferred language or default language if unavailable
  */
 function getLanguage(): string {
   try {
@@ -81,13 +77,14 @@ function getLanguage(): string {
 }
 
 /**
- * 获取当前语言，顺序为：URL参数 -> 本地存储 -> 浏览器首选语言 -> 默认语言
- * @returns 当前语言
+ * Determine the current language based on priority order
+ * URL parameter > Local Storage > Browser setting > Default
+ * @returns Language code
  */
 export function getLang(): Lang {
   if (typeof window !== "undefined") {
     const urlLang = new URLSearchParams(window.location.search).get("lang");
-    const standardizedLang = urlLang ? urlLang.split("-")[0] : null;
+    const standardizedLang = urlLang?.split("-")[0];
     if (standardizedLang && AllLangs.includes(standardizedLang as Lang)) {
       return standardizedLang as Lang;
     }
@@ -107,17 +104,17 @@ export function getLang(): Lang {
 }
 
 /**
- * 改变应用语言并刷新页面
- * @param lang - 新语言
+ * Change application language and refresh page
+ * @param lang - The new language code
  */
-export function changeLang(lang: Lang | string): void {
+export function changeLang(lang: Lang): void {
   setItem(LANG_KEY, lang);
   location.reload();
 }
 
 /**
- * 设置应用语言，不刷新页面
- * @param lang - 新语言
+ * Set application language without refreshing the page
+ * @param lang - The new language code
  */
 export function setLang(lang: Lang): void {
   setItem(LANG_KEY, lang);

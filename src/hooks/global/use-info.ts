@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 
-import { login } from "@/lib/auth";
+import { login } from "@/services/auth";
 import { useAppStore } from "@/stores";
 
 interface InfoResult {

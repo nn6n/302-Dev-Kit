@@ -1,7 +1,6 @@
 "use client";
 
 import ky from "ky";
-import { isEmpty } from "radash";
 
 import { env } from "@/env";
 import { emitter } from "@/lib/mitt";
@@ -9,27 +8,40 @@ import { useAppStore } from "@/stores";
 
 import { langToCountry } from "./utils";
 
+// Create a ky instance for API requests with custom hooks
 const apiKy = ky.create({
-  prefixUrl: env.NEXT_PUBLIC_API_URL,
-  timeout: 60 * 1000,
+  prefixUrl: env.NEXT_PUBLIC_API_URL, // Base URL for the API
+  timeout: 60000, // Timeout set to 60 seconds
   hooks: {
     beforeRequest: [
       (request) => {
+        // Get the apiKey and language from the application state
         const { apiKey, language } = useAppStore.getState();
+
+        // Set Authorization header if apiKey exists
         if (apiKey) {
           request.headers.set("Authorization", `Bearer ${apiKey}`);
         }
+
+        // Set language header if language exists
         if (language) {
           request.headers.set("Lang", langToCountry(language));
         }
       },
     ],
     afterResponse: [
-      async (request, options, response) => {
+      async (_request, _options, response) => {
+        // Handle HTTP errors by emitting a 'ToastError' event
         if (!response.ok) {
-          const res = await response.json<{ error: { err_code: number } }>();
-          if (!isEmpty(res.error?.err_code)) {
-            emitter.emit("ToastError", JSON.stringify(res.error));
+          const res = (await response.json()) as any;
+
+          // Emit a toast error if there is an error code
+          const { language } = useAppStore.getState();
+          if (res.error && language) {
+            // Get the apiKey and language from the application state
+            const message =
+              res.error[langToCountry(language)] || res.error["message"];
+            emitter.emit("ToastError", message);
           }
         }
       },
@@ -37,12 +49,14 @@ const apiKy = ky.create({
   },
 });
 
+// Create a ky instance for authentication-related requests
 const authKy = ky.create({
-  prefixUrl: env.NEXT_PUBLIC_AUTH_API_URL,
-  timeout: 60 * 1000,
+  prefixUrl: env.NEXT_PUBLIC_AUTH_API_URL, // Base URL for the authentication API
+  timeout: 60000, // Timeout set to 60 seconds
   hooks: {
     beforeRequest: [
       (request) => {
+        // Get the language from the application state and set the header
         const { language } = useAppStore.getState();
         if (language) {
           request.headers.set("Lang", langToCountry(language));

@@ -9,11 +9,14 @@ import LandHeader from "./_components/header";
 import Test from "./_components/test";
 
 export default function HomePage() {
-  useAuth();
+  // useAuth();
+  const { onAuth } = useAuth();
+  // onAuth()
 
   useEffect(() => {
+    onAuth()
     document.title = `${Locale.Land.Title} - ${Locale.Domain}`;
-  });
+  }, []);
 
   return (
     <div className="flex w-full flex-col items-center p-8">

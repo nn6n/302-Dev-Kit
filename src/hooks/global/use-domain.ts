@@ -2,7 +2,7 @@ import { env } from "@/env";
 import { useAppStore } from "@/stores";
 
 export function useDomain() {
-  const { region } = useAppStore.getState()
+  const region = useAppStore((state) => state.region)
 
   const domain =
     region == "0"

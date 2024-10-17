@@ -57,8 +57,8 @@ const zh = {
     Title: "AI工具基础模板",
     Desc: "创建属于你自己的AI工具",
     Test: {
+      Hello: "你好呀！欢迎来到 302.AI",
       LogOut: "退出登录",
-      LogOutSuccess: "退出登录成功!",
     }
   },
 };

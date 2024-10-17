@@ -22,20 +22,21 @@ const SignInForm = ({ className }: SignInFormProps) => {
   const params = useSearchParams();
 
   useEffect(() => {
-    const queryCode = params.get("pw") || "";
-    const storedCode = localStorage.getItem("code") || "";
+    // const queryCode = params.get("pw") || "";
+    // const storedCode = localStorage.getItem("code") || "";
 
     // Prefer query code first, then stored code
-    if (queryCode || storedCode) {
-      setValue("code", queryCode || storedCode);
-    }
+    // if (queryCode || storedCode) {
+    //   setValue("code", queryCode || storedCode);
+    // }
 
     // Initial authentication
-    const initAuthentication = async () => {
-      await onAuth();
-      setIsLoading(false);
-    };
-    initAuthentication();
+    // const initAuthentication = async () => {
+    //   await onAuth();
+    //   setIsLoading(false);
+    // };
+    // initAuthentication();
+    setIsLoading(false);
   }, []);
 
   const handleSubmit = (event: FormEvent) => {

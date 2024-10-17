@@ -12,7 +12,6 @@ const SkeletonRenderer = ({ element }: Props) => {
         <div className="flex w-full justify-end gap-x-4 p-4 shadow-sm">
           <Skeleton className="size-6" />
           <Skeleton className="size-6" />
-          <Skeleton className="size-6" />
         </div>
 
         {/* Body skeletons */}

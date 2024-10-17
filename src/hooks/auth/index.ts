@@ -1,6 +1,6 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -24,6 +24,8 @@ type AuthData = {
 
 const useAuth = () => {
   const [isPending, setIsPending] = useState(false);
+  const params = useSearchParams();
+  const pathname = usePathname()
   const router = useRouter();
 
   // Initialize form handling with react-hook-form and Zod resolver
@@ -41,6 +43,24 @@ const useAuth = () => {
     },
     resolver: zodResolver(schema),
   });
+
+  useEffect(() => {
+    const queryCode = params.get("pw") || "";
+    const storedCode = localStorage.getItem("code") || "";
+
+    // Prefer query code first, then stored code
+    if (queryCode || storedCode) {
+      setValue("code", queryCode || storedCode);
+    }
+
+    // Initial authentication
+    // const initAuthentication = async () => {
+    //   await onAuth();
+    //   setIsLoading(false);
+    // };
+    // initAuthentication();
+    // setIsLoading(false);
+  }, []);
 
   // Function to handle authentication
   const performAuth = async ({ code, remember }: AuthData) => {
@@ -62,9 +82,12 @@ const useAuth = () => {
       }
 
       // Redirect to the home page
-      router.replace("/");
+      if (pathname === '/auth') {
+        router.replace("/");
+      }
     } catch (error: any) {
       console.error(error);
+      router.replace("/auth");
 
       // Handle error by setting error state in form
       setError("code", {
@@ -82,12 +105,12 @@ const useAuth = () => {
   };
 
   // Effect hooks to check authentication status
-  useEffect(() => {
-    const { apiKey } = useAppStore.getState();
-    if (!apiKey) {
-      router.replace("/auth");
-    }
-  }, [router]);
+  // useEffect(() => {
+  //   const { apiKey } = useAppStore.getState();
+  //   if (!apiKey) {
+  //     router.replace("/auth");
+  //   }
+  // }, [router]);
 
   return {
     isPending,

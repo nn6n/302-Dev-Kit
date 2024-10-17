@@ -2,17 +2,15 @@
 
 import { useEffect } from "react";
 
+import useAuth from "@/hooks/auth";
 import Locale from "@/locales";
 
-import useAuth from "@/hooks/auth";
 import LandHeader from "./_components/header";
 import Test from "./_components/test";
 
-
 export default function HomePage() {
-
   const { checkAuth } = useAuth();
-  checkAuth()
+  checkAuth();
 
   useEffect(() => {
     document.title = Locale.Home.Title;

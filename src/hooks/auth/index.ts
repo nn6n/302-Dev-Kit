@@ -57,8 +57,9 @@ const useAuth = () => {
       console.error(err);
       setError("code", {
         type: "server",
-        message: "Auth code error, for more infomation please view http://302.ai"
-      })
+        message:
+          "Auth code error, for more infomation please view http://302.ai",
+      });
     } finally {
       setIsPending(false);
     }

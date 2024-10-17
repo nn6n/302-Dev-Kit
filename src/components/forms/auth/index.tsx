@@ -3,7 +3,7 @@
 import { useSearchParams } from "next/navigation";
 import { FormEvent, useEffect, useState } from "react";
 
-import { FormGenerator } from "@/components/common/form-generator";
+import FormGenerator from "@/components/common/form-generator";
 import { CircleLoader, DotLoader } from "@/components/common/loader-renderer";
 import { Button } from "@/components/ui/button";
 import { FORM_CONSTANTS } from "@/constants";
@@ -17,8 +17,7 @@ type SignInFormProps = {
 
 const SignInForm = ({ className }: SignInFormProps) => {
   const [isLoading, setIsLoading] = useState(true);
-  const { isPending, setValue, onAuth, watch, register, errors } =
-    useAuth();
+  const { isPending, setValue, onAuth, watch, register, errors } = useAuth();
   const params = useSearchParams();
 
   useEffect(() => {

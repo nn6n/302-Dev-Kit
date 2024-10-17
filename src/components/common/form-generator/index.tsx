@@ -19,16 +19,16 @@ type FormGeneratorProps = {
   errors: FieldErrors<FieldValues>;
   type?: "text" | "email" | "password" | "number" | "checkbox";
   options?: { value: string; label: string; id: string }[];
-  placeholder?: string; // Checkbox不需要placeholder
+  placeholder?: string;
   label?: string;
   lines?: number;
   register: UseFormRegister<any>;
   setValue: UseFormSetValue<any>;
-  watch: (name: string, defaultValue: any) => any; // added watch for checkbox default value
+  watch: (name: string, defaultValue: any) => any;
   className?: string;
 };
 
-export const FormGenerator = ({
+const FormGenerator = ({
   inputType,
   options,
   label,
@@ -37,107 +37,108 @@ export const FormGenerator = ({
   setValue,
   name,
   errors,
-  type,
+  type = "text",
   lines,
   watch,
   className,
 }: FormGeneratorProps) => {
+  const renderErrorMessage = () => (
+    <ErrorMessage
+      errors={errors}
+      name={name}
+      render={({ message }) => (
+        message !== "Required" && (
+          <p className="mt-2 text-red-400">
+            <HostRenderer content={message} />
+          </p>
+        )
+      )}
+    />
+  );
+
+  const renderInput = () => (
+    <Label
+      className="flex flex-col items-center justify-center gap-2 text-center"
+      htmlFor={`input-${label}`}
+    >
+      {label}
+      <Input
+        id={`input-${label}`}
+        type={type}
+        placeholder={placeholder}
+        className={cn(
+          "bg-themeBlack border-themeGray text-themeTextGray",
+          className
+        )}
+        {...register(name)}
+      />
+      {renderErrorMessage()}
+    </Label>
+  );
+
+  const renderSelect = () => (
+    <Label htmlFor={`select-${label}`} className="flex flex-col gap-2">
+      {label}
+      <select
+        id={`select-${label}`}
+        className="w-full rounded-lg border bg-transparent p-3"
+        {...register(name)}
+      >
+        {options?.map((option) => (
+          <option
+            value={option.value}
+            key={option.id}
+            className="dark:bg-muted"
+          >
+            {option.label}
+          </option>
+        ))}
+      </select>
+      {renderErrorMessage()}
+    </Label>
+  );
+
+  const renderTextarea = () => (
+    <Label className="flex flex-col gap-2" htmlFor={`input-${label}`}>
+      {label}
+      <Textarea
+        className="bg-themeBlack border-themeGray text-themeTextGray"
+        id={`input-${label}`}
+        placeholder={placeholder}
+        {...register(name)}
+        rows={lines}
+      />
+      {renderErrorMessage()}
+    </Label>
+  );
+
+  const renderCheckbox = () => {
+    const watchCheckbox = watch(name, true);
+    return (
+      <Label className="flex items-center gap-2" htmlFor={`checkbox-${label}`}>
+        <Checkbox
+          id={`checkbox-${label}`}
+          {...register(name)}
+          checked={watchCheckbox}
+          onCheckedChange={(checked) => setValue(name, checked)}
+        />
+        {label}
+      </Label>
+    );
+  };
+
   switch (inputType) {
     case "input":
-      return (
-        <Label className="flex flex-col items-center justify-center gap-2 text-center" htmlFor={`input-${label}`}>
-          {label && label}
-          <Input
-            id={`input-${label}`}
-            type={type}
-            placeholder={placeholder}
-            className={cn(
-              "bg-themeBlack border-themeGray text-themeTextGray",
-              className
-            )}
-            {...register(name)}
-          />
-          <ErrorMessage
-            errors={errors}
-            name={name}
-            render={({ message }) => (
-              <p className="mt-2 text-red-400">
-                {message === "Required" ? "" : <HostRenderer content={message} />}
-              </p>
-            )}
-          />
-        </Label>
-      );
+      return renderInput();
     case "select":
-      return (
-        <Label htmlFor={`select-${label}`} className="flex flex-col gap-2">
-          {label && label}
-          <select
-            id={`select-${label}`}
-            className="w-full rounded-lg border bg-transparent p-3"
-            {...register(name)}
-          >
-            {options?.length &&
-              options.map((option) => (
-                <option
-                  value={option.value}
-                  key={option.id}
-                  className="dark:bg-muted"
-                >
-                  {option.label}
-                </option>
-              ))}
-          </select>
-          <ErrorMessage
-            errors={errors}
-            name={name}
-            render={({ message }) => (
-              <p className="mt-2 text-red-400">
-                {message === "Required" ? "" : <HostRenderer content={message} />}
-              </p>
-            )}
-          />
-        </Label>
-      );
+      return renderSelect();
     case "textarea":
-      return (
-        <Label className="flex flex-col gap-2" htmlFor={`input-${label}`}>
-          {label && label}
-          <Textarea
-            className="bg-themeBlack border-themeGray text-themeTextGray"
-            id={`input-${label}`}
-            placeholder={placeholder}
-            {...register(name)}
-            rows={lines}
-          />
-          <ErrorMessage
-            errors={errors}
-            name={name}
-            render={({ message }) => (
-              <p className="mt-2 text-red-400">
-                {message === "Required" ? "" : <HostRenderer content={message} />}
-              </p>
-            )}
-          />
-        </Label>
-      );
+      return renderTextarea();
     case "checkbox":
-      const watchCheckbox = watch(name, true);
-      return (
-        <Label
-          className="flex items-center gap-2"
-          htmlFor={`checkbox-${label}`}
-        >
-          <Checkbox
-            id={`checkbox-${label}`}
-            {...register(name)}
-            checked={watchCheckbox}
-            onCheckedChange={(checked) => setValue(name, checked)}
-          />
-          {label && label}
-        </Label>
-      );
+      return renderCheckbox();
     default:
-      return <></>;
+      return null;
   }
 };
+
+export default FormGenerator;

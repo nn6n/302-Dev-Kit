@@ -19,7 +19,7 @@ const AppChat = dynamic(() => import("@/components/global/app-chat"), {
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "302AI",
+  title: "AI Tool Start - 302AI",
   description: "",
 };
 

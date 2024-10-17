@@ -10,6 +10,7 @@ import AppNavbar from "@/components/global/app-navbar";
 import AppQeury from "@/components/global/app-query";
 import AppTheme from "@/components/global/app-theme";
 import { cn } from "@/lib/utils";
+import Locale from "@/locales";
 import "@/styles/globals.css";
 
 const AppChat = dynamic(() => import("@/components/global/app-chat"), {
@@ -19,8 +20,8 @@ const AppChat = dynamic(() => import("@/components/global/app-chat"), {
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "AI Tool Start - 302AI",
-  description: "",
+  title: Locale.Home.Title,
+  description: Locale.Home.Desc,
 };
 
 export default function RootLayout({

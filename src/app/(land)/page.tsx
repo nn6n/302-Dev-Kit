@@ -12,12 +12,12 @@ export default function HomePage() {
   useAuth();
 
   useEffect(() => {
-    document.title = Locale.Home.Title;
+    document.title = `${Locale.Land.Title} - ${Locale.Domain}`;
   });
 
   return (
     <div className="flex w-full flex-col items-center p-8">
-      <LandHeader title="Welcome To 302.AI" />
+      <LandHeader title={Locale.Land.Title} />
       <Test />
     </div>
   );

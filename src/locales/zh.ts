@@ -1,49 +1,46 @@
 const zh = {
   Symbol: "zh",
   Title: "中文",
+  Desc: "",
+  Domain: "302.AI",
   System: {
     Title: "系统",
-    Wait: "等待",
-    Back: "返回",
+    Desc: "",
+    Cancel: "取消",
+    Confirm: "确认",
     Delete: "删除",
+    clean: '清空',
+    Back: "返回",
+    Success: '操作成功!',
+    Faild: '操作失败!',
+    Notify: '系统提示!',
+    Error: '系统错误!',
     Download: "下载",
   },
   Error: {
-    Title: "系统错误!",
-    TokenMiss: (domain: string) =>
-      `该工具已禁用/删除, 更多信息请访问 ${domain}`, // -10001
-    TokenInvalid: (domain: string) =>
-      `该工具已禁用/删除！更多信息请访问 ${domain}`, // -10002
-    InternalError: (domain: string) => `内部错误，更多信息请访问 ${domain}`, // -10003
-    AccountOut: (domain: string) => `账号欠费，更多信息请访问 ${domain}`, // -10004
-    TokenExpired: (domain: string) => `验证码过期，更多信息请访问 ${domain}`, // -10005
-    TotalOut: (domain: string) => `该工具总额度已用, 更多信息请访问 ${domain}`, // -10006
-    TodayOut: (domain: string) =>
-      `该工具当日额度已用完，更多信息请访问 ${domain}`, // -10007
-    HourOut: (domain: string) =>
-      `该免费工具在本小时的额度已达上限,请访问 ${domain} 生成属于自己的工具`, // -10012
+    Title: "错误",
+    Desc: "",
+    UnknowError: "未知错误，请稍后重试或联系客服！",
+    NetworkError: "网络错误，请稍后重试或联系客服！",
+    CodeInvalid: "验证码错误，更多信息请访问 302.AI",
+    ToolBin: "该工具已被禁用, 更多信息请访问 302.AI",
+    ToolDel: "该工具已被删除，更多信息请访问 302.AI",
   },
   Auth: {
     Title: "授权",
+    Desc: "",
     NeedCode: "需要分享码",
-    InputCode: "创建者开启了验证，请在下方填入分享码",
-    PlaceHolder: "请输入分享码",
-    ToolBin: "工具已禁用, 更多信息请访问",
-    ToolDel: "工具已删除, 更多信息请访问",
-    Submit: "确认",
-    Remind: "记住分享码",
-    CodeError: "验证码错误，更多请访问 302.AI",
-    AccountBin: "账号已被禁用!",
-    AccountDel: "该工具已禁用/删除，更多请访问 302.AI",
-    NetworkError: "网络错误，请刷新页面后重试！",
+    RemindCode: "记住分享码",
+    InputTip: "创建者开启了验证，请在下方填入分享码",
+    InputPlaceHolder: "请输入分享码",
   },
   Home: {
-    Title: "主页",
+    Title: "欢迎光临",
     Desc: "",
   },
   Footer: {
-    Title: "内容由AI生成，仅供参考",
-    Desc: "",
+    Title: "版权所有",
+    Desc: "内容由AI生成，仅供参考",
   },
   About: {
     Title: "关于",
@@ -51,14 +48,18 @@ const zh = {
   },
   History: {
     Title: "历史记录",
-    Desc: "",
+    Desc: "所有历史记录均保存在本地，不会被上传",
     Empty: "抱歉, 暂无历史记录!",
-    Clean: "清空",
+    Clean: "清空所有历史记录",
     ItemCount: (count: number) => `共${count}条历史记录`,
   },
-  Landing: {
-    Title: "AI Tool Start",
-    Desc: "Create your ai tool from here",
+  Land: {
+    Title: "AI工具基础模板",
+    Desc: "创建属于你自己的AI工具",
+    Test: {
+      LogOut: "退出登录",
+      LogOutSuccess: "退出登录成功!",
+    }
   },
 };
 

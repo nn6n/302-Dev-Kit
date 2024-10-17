@@ -10,6 +10,7 @@ import { FORM_CONSTANTS } from "@/constants";
 import useAuth from "@/hooks/auth";
 import { Lock } from "@/icons";
 import { cn } from "@/lib/utils";
+import Locale from "@/locales";
 
 type SignInFormProps = {
   className?: string;
@@ -56,10 +57,9 @@ const SignInForm = ({ className }: SignInFormProps) => {
     >
       <div className="flex w-full flex-col items-center justify-center space-y-2 text-center">
         <Lock className="size-14" />
-        <h2 className="text-2xl font-bold">Share code required</h2>
+        <h2 className="text-2xl font-bold">{Locale.Auth.NeedCode}</h2>
         <p className="text-sm text-muted-foreground">
-          The creator has enabled verification, please enter the share code
-          below
+          {Locale.Auth.InputTip}
         </p>
       </div>
       <form
@@ -78,7 +78,7 @@ const SignInForm = ({ className }: SignInFormProps) => {
           />
         ))}
         <Button type="submit" className="w-[200px] cursor-pointer rounded-md">
-          <CircleLoader loading={isPending}>Sign In with Code</CircleLoader>
+          <CircleLoader loading={isPending}>{Locale.System.Confirm}</CircleLoader>
         </Button>
       </form>
     </div>

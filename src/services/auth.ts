@@ -33,10 +33,10 @@ export const login = async (code?: string): Promise<LoginResult> => {
   const res = await authKy.get(
     `bot/v1/${hostname}${code ? `?pwd=${code}` : ""}`
   );
-  let errorMessage = "auth:errors.unknown_error";
+  let errorMessage = Locale.Error.UnknowError;
 
   if (res.status !== 200) {
-    errorMessage = "auth:errors.network_error";
+    errorMessage = Locale.Error.NetworkError;
   }
 
   const data = await res.json<Response>();
@@ -55,11 +55,11 @@ export const login = async (code?: string): Promise<LoginResult> => {
   }
 
   if (data.code === -101) {
-    errorMessage = Locale.Auth.AccountDel;
+    errorMessage = Locale.Error.ToolDel;
   } else if (data.code === -100) {
-    errorMessage = Locale.Auth.AccountBin;
+    errorMessage = Locale.Error.ToolBin;
   } else if (data.code === -99) {
-    errorMessage = Locale.Auth.CodeError;
+    errorMessage = Locale.Error.CodeInvalid;
   }
   throw new Error(errorMessage);
 };

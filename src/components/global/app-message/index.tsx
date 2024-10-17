@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { useToast } from "@/hooks/global/use-toast";
 import { emitter } from "@/lib/mitt";
+import Locale from "@/locales";
 
 import HostRenderer from "../../common/host-renderer";
 
@@ -15,7 +16,7 @@ const AppMessage = () => {
     // Handler for success messages
     const handleToastSuccess = (msg: string) => {
       toast({
-        title: "Success!",
+        title: Locale.System.Notify,
         // Renders the message using the HostRenderer component
         description: <HostRenderer content={msg} />,
       });
@@ -25,7 +26,7 @@ const AppMessage = () => {
     const handleToastError = (msg: string) => {
       toast({
         variant: "destructive",
-        title: "Error!",
+        title: Locale.System.Error,
         // Renders the message using the HostRenderer component
         description: <HostRenderer content={msg} />,
       });

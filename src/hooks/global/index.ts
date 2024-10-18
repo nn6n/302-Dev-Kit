@@ -5,4 +5,3 @@ export { useAppTheme } from "./use-theme";
 export type { Theme } from "./use-theme";
 export { useTitle } from "./use-title";
 export { toast, useToast } from "./use-toast";
-

@@ -7,9 +7,9 @@ export const env = createEnv({
     NODE_ENV: z.enum(["development", "production"]), // Ensure NODE_ENV is either 'development' or 'production'
   },
   client: {
-    NEXT_PUBLIC_VAR_KEY: z.string().min(1), // Ensure this variable is a string with at least one character
     NEXT_PUBLIC_OFFICIAL_WEBSITE_URL_GLOBAL: z.string(),
     NEXT_PUBLIC_OFFICIAL_WEBSITE_URL_CHINA: z.string(),
+    NEXT_PUBLIC_302_API_KEY: z.string().optional(),
     NEXT_PUBLIC_API_URL: z.string(),
     NEXT_PUBLIC_AUTH_API_URL: z.string(),
     NEXT_PUBLIC_DEFAULT_REGION: z.string(),
@@ -21,10 +21,10 @@ export const env = createEnv({
   // Runtime environment configuration
   runtimeEnv: {
     NODE_ENV: process.env.NODE_ENV,
+    NEXT_PUBLIC_302_API_KEY: process.env.NEXT_PUBLIC_302_API_KEY,
     NEXT_PUBLIC_AUTH_PATH: process.env.NEXT_PUBLIC_AUTH_PATH,
     NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL,
     NEXT_PUBLIC_AUTH_API_URL: process.env.NEXT_PUBLIC_AUTH_API_URL,
-    NEXT_PUBLIC_VAR_KEY: process.env.NEXT_PUBLIC_VAR_KEY,
     NEXT_PUBLIC_OFFICIAL_WEBSITE_URL_GLOBAL:
       process.env.NEXT_PUBLIC_OFFICIAL_WEBSITE_URL_GLOBAL,
     NEXT_PUBLIC_OFFICIAL_WEBSITE_URL_CHINA:

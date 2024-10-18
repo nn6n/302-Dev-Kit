@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
 import { Button } from "@/components/ui/button";
+import { env } from "@/env";
 import { useIsLogin } from "@/hooks/global";
 import { emitter } from "@/lib/mitt";
 import Locale from "@/locales";
@@ -28,8 +29,14 @@ const Test = () => {
   }, [isLogin]);
 
   return (
-    <div className="flex max-w-[200px] flex-col space-y-4 p-4 text-center">
-      <LogOutButton />
+    <div className="flex flex-col space-y-4 p-4 text-center">
+      {env.NEXT_PUBLIC_302_API_KEY ? (
+        <p className="text-center">
+          YOUR_API_KEY: {env.NEXT_PUBLIC_302_API_KEY}
+        </p>
+      ) : (
+        <LogOutButton />
+      )}
     </div>
   );
 };

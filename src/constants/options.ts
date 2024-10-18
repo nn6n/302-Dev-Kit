@@ -1,3 +1,5 @@
+import Locale from "@/locales";
+
 export type OptionProps = {
   id: number;
   label: string;
@@ -25,17 +27,17 @@ export const APP_LANG_OPTION: OptionProps[] = [
 export const APP_THEME_OPTION: OptionProps[] = [
   {
     id: 1,
-    label: "Light",
+    label: Locale.Theme.Light,
     value: "light",
   },
   {
     id: 2,
-    label: "Dark",
+    label: Locale.Theme.Dark,
     value: "dark",
   },
   {
     id: 3,
-    label: "System",
+    label: Locale.Theme.System,
     value: "system",
   },
 ];

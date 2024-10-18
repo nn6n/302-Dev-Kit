@@ -20,8 +20,8 @@ const AppChat = dynamic(() => import("@/components/global/app-chat"), {
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: Locale.Home.Title,
-  description: Locale.Home.Desc,
+  title: `${Locale.Navigator.Title} - ${Locale.Navigator.Domain}`,
+  description: Locale.Navigator.Desc,
 };
 
 export default function RootLayout({

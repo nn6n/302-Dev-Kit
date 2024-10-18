@@ -1,14 +1,12 @@
 "use client";
 
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
-
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
-
 import { login } from "@/services/auth";
 import { useAppStore } from "@/stores";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useCallback, useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
 
 // Define the schema using Zod for form validation
 const schema = z.object({
@@ -44,18 +42,18 @@ const useAuth = () => {
     resolver: zodResolver(schema),
   });
 
+  // Retrieve values from query param or local storage only when params change
   useEffect(() => {
     const queryCode = params.get("pw") || "";
     const storedCode = localStorage.getItem("code") || "";
 
-    // Prefer query code first, then stored code
     if (queryCode || storedCode) {
       setValue("code", queryCode || storedCode);
     }
-  }, []);
+  }, [params, setValue]);
 
   // Function to handle authentication
-  const performAuth = async ({ code, remember }: AuthData) => {
+  const performAuth = useCallback(async ({ code, remember }: AuthData) => {
     try {
       setIsPending(true);
 
@@ -73,14 +71,13 @@ const useAuth = () => {
         localStorage.removeItem("code");
       }
 
-      // Redirect to the home page
+      // Redirect to the home page if on auth page
       if (pathname === "/auth") {
         router.replace("/");
       }
     } catch (error: any) {
+      // Handle error by navigating to auth and setting error state
       router.replace("/auth");
-
-      // Handle error by setting error state in form
       setError("code", {
         type: "server",
         message: error.message,
@@ -88,12 +85,12 @@ const useAuth = () => {
     } finally {
       setIsPending(false);
     }
-  };
+  }, [pathname, router, setError]);
 
   // Callback for form submission
-  const onSubmit = async (data: AuthData) => {
+  const onSubmit = useCallback(async (data: AuthData) => {
     await performAuth(data);
-  };
+  }, [performAuth]);
 
   return {
     isPending,

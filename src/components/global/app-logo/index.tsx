@@ -20,7 +20,7 @@ const AppLogo = ({ type, className, width = 150, height = 42 }: Props) => {
           className="flex space-x-1 no-underline"
         >
           <Image
-            className=""
+            className="w-full h-auto"
             width={width}
             height={height}
             src="/images/global/logo-mini.png"
@@ -34,14 +34,14 @@ const AppLogo = ({ type, className, width = 150, height = 42 }: Props) => {
           className="flex space-x-1 no-underline"
         >
           <Image
-            className="hidden dark:block"
+            className="hidden dark:block w-full h-auto"
             width={width}
             height={height}
             src="/images/global/logo-dark.png"
             alt=""
           />
           <Image
-            className="dark:hidden"
+            className="dark:hidden w-full h-auto"
             width={width}
             height={height}
             src="/images/global/logo-light.png"

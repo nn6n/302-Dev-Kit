@@ -3,6 +3,11 @@ const zh = {
   Title: "中文",
   Desc: "",
   Domain: "302.AI",
+  Theme: {
+    Light: '日间模式',
+    Dark: '夜间模式',
+    System: '跟随系统',
+  },
   System: {
     Title: "系统",
     Desc: "",
@@ -26,20 +31,15 @@ const zh = {
     ToolBin: "该工具已被禁用, 更多信息请访问 302.AI",
     ToolDel: "该工具已被删除，更多信息请访问 302.AI",
   },
-  Auth: {
-    Title: "授权",
-    Desc: "",
-    NeedCode: "需要分享码",
-    RemindCode: "记住分享码",
-    InputTip: "创建者开启了验证，请在下方填入分享码",
-    InputPlaceHolder: "请输入分享码",
-  },
-  Home: {
+  Navigator: {
     Title: "欢迎光临",
-    Desc: "",
+    Desc: "创建属于你自己AI工具",
+    Domain: "302.AI",
+    Auth: "验证页",
+    Land: "落地页",
   },
   Footer: {
-    Title: "版权所有",
+    Title: "Powered By",
     Desc: "内容由AI生成，仅供参考",
   },
   About: {
@@ -53,9 +53,17 @@ const zh = {
     Clean: "清空所有历史记录",
     ItemCount: (count: number) => `共${count}条历史记录`,
   },
+  Auth: {
+    Title: "授权",
+    Desc: "",
+    NeedCode: "需要分享码",
+    RemindCode: "记住分享码",
+    InputTip: "创建者开启了验证，请在下方填入分享码",
+    InputPlaceHolder: "请输入分享码",
+  },
   Land: {
     Title: "AI工具基础模板",
-    Desc: "创建属于你自己的AI工具",
+    Desc: "从这里开始创建属于你自己的AI工具",
     Test: {
       Hello: "你好呀！欢迎来到 302.AI",
       LogOut: "退出登录",

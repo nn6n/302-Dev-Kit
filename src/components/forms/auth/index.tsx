@@ -11,7 +11,7 @@ import Locale from "@/locales";
 
 type SignInFormProps = {};
 
-const SignInForm = ({}: SignInFormProps) => {
+const SignInForm = ({ }: SignInFormProps) => {
   const { isPending, setValue, onAuth, watch, register, errors } = useAuth();
 
   const handleSubmit = (event: FormEvent) => {
@@ -32,10 +32,10 @@ const SignInForm = ({}: SignInFormProps) => {
           register={register}
           setValue={setValue}
           errors={errors}
-          className="w-[200px] text-center"
+          className="w-[220px] text-center"
         />
       ))}
-      <Button type="submit" className="w-[200px] cursor-pointer rounded-md">
+      <Button type="submit" className="w-[220px] cursor-pointer rounded-md">
         <CircleLoader loading={isPending}>{Locale.System.Confirm}</CircleLoader>
       </Button>
       {FORM_CONSTANTS.signInForm.slice(1).map((field) => (
@@ -46,7 +46,7 @@ const SignInForm = ({}: SignInFormProps) => {
           register={register}
           setValue={setValue}
           errors={errors}
-          className="w-[200px] text-center"
+          className="w-[220px] text-center"
         />
       ))}
     </form>

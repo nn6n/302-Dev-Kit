@@ -3,70 +3,73 @@ import { LocaleType } from "./index";
 const ja: LocaleType = {
   Symbol: "ja",
   Title: "日本語",
+  Desc: "",
+  Domain: "302.AI",
+  Theme: {
+    Light: '日中モード',
+    Dark: '夜間モード',
+    System: 'システムに従う',
+  },
   System: {
     Title: "システム",
-    Wait: "待つ",
-    Back: "戻る",
-    Download: "ダウンロード",
+    Desc: "",
+    Cancel: "キャンセル",
+    Confirm: "確認",
     Delete: "削除",
+    clean: "空にする",
+    Back: "戻る",
+    Success: "操作成功!",
+    Faild: "操作失敗!",
+    Notify: "システムヒント!",
+    Error: "システムエラー!",
+    Download: "ダウンロード",
   },
   Error: {
     Title: "エラー",
-    TokenMiss: (domain: string) =>
-      `このツールは無効/削除されています。詳細については ${domain} をご覧ください。`, // -10001
-    TokenInvalid: (domain: string) =>
-      `このツールは無効/削除されています！詳細については ${domain} をご覧ください。`, // -10002
-    InternalError: (domain: string) =>
-      `内部エラーです。詳細については ${domain} をご覧ください。`, // -10003
-    AccountOut: (domain: string) =>
-      `アカウントが期限切れです。詳細については ${domain} をご覧ください。`, // -10004
-    TokenExpired: (domain: string) =>
-      `認証コードが期限切れです。詳細については ${domain} をご覧ください。`, // -10005
-    TotalOut: (domain: string) =>
-      `このツールの総クォータが使い果たされました。詳細については ${domain} をご覧ください。`, // -10006
-    TodayOut: (domain: string) =>
-      `このツールの1日のクォータが使い果たされました。詳細については ${domain} をご覧ください。`, // -10007
-    HourOut: (domain: string) =>
-      `この無料ツールは今時間の上限に達しました。 ${domain} を訪問して自分のツールを作成してください`, // -10012
-  },
-  Auth: {
-    Title: "認証",
-    NeedCode: "共有コードが必要です",
-    InputCode:
-      "作成者が認証を有効にしました。以下に共有コードを入力してください。",
-    PlaceHolder: "共有コードを入力してください",
-    ToolBin: "ツールは無効です。詳細については",
-    ToolDel: "ツールは削除されました。詳細については",
-    Submit: "送信",
-    Remind: "共有コードを覚えておいてください",
-    CodeError: "認証コードエラー！",
-    AccountBin: "アカウントは無効です！",
-    AccountDel: "アカウントはキャンセルされました！",
-    NetworkError:
-      "ネットワークエラーです。ページを更新して再試行してください！",
-  },
-  Home: {
-    Title: "ホーム",
     Desc: "",
+    UnknowError: "未知のエラーが発生しました。後でもう一度試すか、お問い合わせください！",
+    NetworkError: "ネットワークエラーが発生しました。後でもう一度試すか、お問い合わせください！",
+    CodeInvalid: "認証コードが間違っています。詳細は 302.AI をご覧ください",
+    ToolBin: "このツールは無効になっています。詳細は 302.AI をご覧ください",
+    ToolDel: "このツールは削除されています。詳細は 302.AI をご覧ください",
+  },
+  Navigator: {
+    Title: "ようこそ",
+    Desc: "あなた自身のAIツールを作成する",
+    Domain: "302.AI",
+    Auth: "認証ページ",
+    Land: "ランディングページ",
   },
   Footer: {
-    Title: "AI生成コンテンツ、参考のためのみ",
-    Desc: "",
+    Title: "Powered By",
+    Desc: "コンテンツはAIによって生成されたもので、参考のためのものです",
   },
   About: {
     Title: "約",
-    Desc: "AI Tool",
+    Desc: "AIツール",
   },
   History: {
     Title: "履歴",
-    Desc: "",
-    Empty: "申し訳ありませんが、履歴記録はありません！",
-    Clean: "クリア",
-    ItemCount: (count: number) => `履歴記録は合計${count}件です`,
+    Desc: "すべての履歴はローカルに保存され、アップロードされません",
+    Empty: "申し訳ありませんが、履歴はありません！",
+    Clean: "すべての履歴を空にする",
+    ItemCount: (count: number) => `${count}件の履歴があります`,
   },
-  Landing: {
-    Title: "AI Tool Start",
-    Desc: "Create your ai tool from here",
+  Auth: {
+    Title: "権限付与",
+    Desc: "",
+    NeedCode: "共有コードが必要です",
+    RemindCode: "共有コードを記憶する",
+    InputTip: "作成者が認証をオンにしました。以下に共有コードを入力してください",
+    InputPlaceHolder: "共有コードを入力してください",
+  },
+  Land: {
+    Title: "AIツールの基本テンプレート",
+    Desc: "ここからあなた自身のAIツールを作り始めてください",
+    Test: {
+      Hello: "こんにちは！ようこそ 302.AI へ",
+      LogOut: "ログアウト",
+    },
   },
 };
 export default ja;

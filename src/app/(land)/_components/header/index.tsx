@@ -10,9 +10,7 @@ const LandHeader = (props: Props) => {
       <div className="flex items-center space-x-2">
         <AppLogo
           type="mini"
-          width={50}
-          height={50}
-          className="size-[40px] md:size-[50px]"
+          className="w-[40px] md:w-[50px]"
         />
         <h2 className="text-2xl font-medium md:text-4xl">{props.title}</h2>
       </div>

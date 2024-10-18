@@ -64,13 +64,13 @@ root
 1. 克隆仓库：
 
    ```bash
-   git clone https://github.com/302ai/tool-start
+   git clone https://github.com/302ai/302-Dev-Kit
    ```
 
 2. 安装依赖：
 
    ```bash
-   cd tool-start
+   cd 302-Dev-Kit
    npm install
    ```
 

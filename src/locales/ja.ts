@@ -1,10 +1,7 @@
-import { LocaleType } from "./index";
-
-const ja: LocaleType = {
+const ja = {
   Symbol: "ja",
   Title: "日本語",
   Desc: "",
-  Domain: "302.AI",
   Theme: {
     Light: "日中モード",
     Dark: "夜間モード",
@@ -18,59 +15,58 @@ const ja: LocaleType = {
     Delete: "削除",
     clean: "空にする",
     Back: "戻る",
-    Success: "操作成功!",
-    Faild: "操作失敗!",
-    Notify: "システムヒント!",
-    Error: "システムエラー!",
+    Success: "操作成功！",
+    Faild: "操作失敗！",
+    Notify: "システム通知！",
+    Error: "システムエラー！",
     Download: "ダウンロード",
   },
   Error: {
     Title: "エラー",
     Desc: "",
     UnknowError:
-      "未知のエラーが発生しました。後でもう一度試すか、お問い合わせください！",
+      "未知のエラーです。後でもう一度お試しいただくか、カスタマーサポートにお問い合わせください！",
     NetworkError:
-      "ネットワークエラーが発生しました。後でもう一度試すか、お問い合わせください！",
-    CodeInvalid: "認証コードが間違っています。詳細は 302.AI をご覧ください",
-    ToolBin: "このツールは無効になっています。詳細は 302.AI をご覧ください",
-    ToolDel: "このツールは削除されています。詳細は 302.AI をご覧ください",
+      "ネットワークエラーです。後でもう一度お試しいただくか、カスタマーサポートにお問い合わせください！",
+    CodeInvalid: "認証コードエラーです。詳細は302.AIをご覧ください。",
+    ToolBin: "このツールは無効化されました。詳細は302.AIをご覧ください。",
+    ToolDel: "このツールは削除されました。詳細は302.AIをご覧ください。",
   },
   Navigator: {
     Title: "ようこそ",
-    Desc: "あなた自身のAIツールを作成する",
+    Desc: "自分だけのAIツールを作成する",
     Domain: "302.AI",
     Auth: "認証ページ",
-    Land: "ランディングページ",
+    Land: "テンプレートページ",
   },
   Footer: {
     Title: "Powered By",
-    Desc: "コンテンツはAIによって生成されたもので、参考のためのものです",
+    Desc: "内容はAIによって生成され、参考用です",
   },
   About: {
-    Title: "約",
-    Desc: "AIツール",
+    Title: "説明",
+    Desc: "このAIツールの詳細プレビュー",
   },
   History: {
     Title: "履歴",
     Desc: "すべての履歴はローカルに保存され、アップロードされません",
-    Empty: "申し訳ありませんが、履歴はありません！",
+    Empty: "申し訳ありませんが、履歴がありません！",
     Clean: "すべての履歴を空にする",
-    ItemCount: (count: number) => `${count}件の履歴があります`,
+    ItemCount: (count: number) => `合計${count}件の履歴`,
   },
   Auth: {
-    Title: "権限付与",
+    Title: "認証",
     Desc: "",
     NeedCode: "共有コードが必要です",
-    RemindCode: "共有コードを記憶する",
-    InputTip:
-      "作成者が認証をオンにしました。以下に共有コードを入力してください",
+    RemindCode: "共有コードを記憶してください",
+    InputTip: "作成者が認証を有効にしました。下に共有コードを入力してください",
     InputPlaceHolder: "共有コードを入力してください",
   },
   Land: {
-    Title: "AIツールの基本テンプレート",
-    Desc: "ここからあなた自身のAIツールを作り始めてください",
+    Title: "AIツール基本テンプレート",
+    Desc: "ここから自分だけのAIツールを作り始めましょう",
     Test: {
-      Hello: "こんにちは！ようこそ 302.AI へ",
+      Hello: "こんにちは！ようこそ302.AIに",
       LogOut: "ログアウト",
     },
   },

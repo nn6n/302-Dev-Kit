@@ -9,16 +9,19 @@ import { emitter } from "@/lib/mitt";
 import Locale from "@/locales";
 import { useAppStore } from "@/stores";
 
-const Test = () => {
+const LogOutButton = () => {
   const router = useRouter();
   const { updateConfig } = useAppStore.getState();
-  const isLogin = useIsLogin();
-
-  const handleTestLogout = () => {
+  const handleLogout = () => {
     updateConfig({ apiKey: "", code: "" });
     localStorage.setItem("code", "");
     router.push("/auth");
   };
+  return <Button onClick={handleLogout}>{Locale.Land.Test.LogOut}</Button>;
+};
+
+const Test = () => {
+  const isLogin = useIsLogin();
 
   useEffect(() => {
     isLogin && emitter.emit("ToastSuccess", Locale.Land.Test.Hello);
@@ -26,7 +29,7 @@ const Test = () => {
 
   return (
     <div className="flex max-w-[200px] flex-col space-y-4 p-4 text-center">
-      <Button onClick={handleTestLogout}>{Locale.Land.Test.LogOut}</Button>
+      <LogOutButton />
     </div>
   );
 };

@@ -23,7 +23,7 @@ export type Lang = keyof typeof ALL_LANGS;
 export const AllLangs = Object.keys(ALL_LANGS) as Lang[];
 
 // Constants for language settings
-const LANG_KEY = "tool-lang";
+const LANG_KEY = "ai-tool-lang";
 const DEFAULT_LANG = "en";
 
 // Define fallback and current language

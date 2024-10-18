@@ -2,7 +2,6 @@ const zh = {
   Symbol: "zh",
   Title: "中文",
   Desc: "",
-  Domain: "302.AI",
   Theme: {
     Light: "日间模式",
     Dark: "夜间模式",
@@ -65,7 +64,7 @@ const zh = {
     Title: "AI工具基础模板",
     Desc: "从这里开始创建属于你自己的AI工具",
     Test: {
-      Hello: "你好呀！欢迎来到 302.AI",
+      Hello: "你好！欢迎来到 302.AI",
       LogOut: "退出登录",
     },
   },

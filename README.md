@@ -2,7 +2,7 @@
 
 ## 项目简介
 
-`tool-start` 是一个基于 Next.js 的 Web 项目，旨在提供快速、高效的开发体验。本项目包含丰富的组件、钩子以及工具函数，助力开发者快速搭建生产级应用。
+`tool-start` 是一个基于 Next.js 的 Web 项目，旨在提供快速、高效的开发体验。本项目包含基础的组件、钩子以及工具函数，助力开发者快速搭建生产级AI工具应用。
 
 ## 功能特性
 
@@ -19,12 +19,14 @@ root
 ├── src
 │   ├── app
 │   ├── layout                     // 根部布局
-│   ├── page                       // 主页
-│   │   ├── auth                   // 鉴权页
-│   │   │   ├── index              // 导出模块
-│   │   │   ├── _components        // 私有组件
-│   ├── components                 // 组件
-│   │   ├── common                 // 公共组件
+│   │── auth                       // 鉴权页
+│   │   ├── index                  // 导出模块
+│   │   ├── _components            // 私有组件
+│   ├── (land)                     // 落地页组
+│   │   │── page                   // 落地主页
+│   │   │── _components            // 私有组件
+│   ├── components                 // 公共组件
+│   │   ├── common                 // 通用组件
 │   │   ├── forms                  // 表单组件
 │   │   ├── global                 // 全局组件
 │   │   ├── ui                     // 基础组件
@@ -39,9 +41,10 @@ root
 │   │   ├── global                 // 全局模块图标
 │   ├── lib                        // 工具函数
 │   │   ├── api                    // 请求相关工具函数
-│   │   ├── auth                   // 鉴权相关函数
 │   │   ├── mitt                   // 事件派发工具
 │   │   ├── utils                  // 其他工具集
+│   ├── services                   // 请求函数
+│   │   ├── auth                   // 鉴权请求
 │   ├── locales                    // 国际化
 │   │   ├── zh                     // 中文
 │   │   ├── en                     // 英文
@@ -108,8 +111,6 @@ root
 - `mitt`
 - `next`
 - `next-themes`
-- `pino`
-- `radash`
 - `react`
 - `react-dom`
 - `react-hook-form`

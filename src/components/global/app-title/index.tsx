@@ -4,7 +4,7 @@ import { useTitle } from "@/hooks/global";
 
 const AppTitle = () => {
   useTitle();
-  return null
+  return null;
 };
 
 export default AppTitle;

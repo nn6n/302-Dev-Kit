@@ -1,8 +1,9 @@
-'use client'
-import { usePathname } from "next/navigation";
-import { useEffect } from 'react';
+"use client";
 
-import { APP_CONSTANTS } from '@/constants';
+import { usePathname } from "next/navigation";
+import { useEffect } from "react";
+
+import { APP_CONSTANTS } from "@/constants";
 import Locale from "@/locales";
 
 export const useTitle = () => {
@@ -10,10 +11,11 @@ export const useTitle = () => {
 
   useEffect(() => {
     // Auto set page title for current router
-    const currentRouter = APP_CONSTANTS.appRouteMenu.find(it => it.path === pathname)
+    const currentRouter = APP_CONSTANTS.appRouteMenu.find(
+      (it) => it.path === pathname
+    );
     if (currentRouter) {
-      document.title = `${currentRouter.label} - ${Locale.Navigator.Domain}`
+      document.title = `${currentRouter.label} - ${Locale.Navigator.Domain}`;
     }
   }, [pathname]);
-}
-
+};

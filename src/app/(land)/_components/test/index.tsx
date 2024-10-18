@@ -1,13 +1,13 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 import { Button } from "@/components/ui/button";
 import { useIsLogin } from "@/hooks/global";
 import { emitter } from "@/lib/mitt";
 import Locale from "@/locales";
 import { useAppStore } from "@/stores";
-import { useEffect } from "react";
 
 const Test = () => {
   const router = useRouter();

@@ -11,7 +11,7 @@ import Locale from "@/locales";
 
 type SignInFormProps = {};
 
-const SignInForm = ({ }: SignInFormProps) => {
+const SignInForm = ({}: SignInFormProps) => {
   const { isPending, setValue, onAuth, watch, register, errors } = useAuth();
 
   const handleSubmit = (event: FormEvent) => {

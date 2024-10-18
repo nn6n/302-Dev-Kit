@@ -6,9 +6,9 @@ const ja: LocaleType = {
   Desc: "",
   Domain: "302.AI",
   Theme: {
-    Light: '日中モード',
-    Dark: '夜間モード',
-    System: 'システムに従う',
+    Light: "日中モード",
+    Dark: "夜間モード",
+    System: "システムに従う",
   },
   System: {
     Title: "システム",
@@ -27,8 +27,10 @@ const ja: LocaleType = {
   Error: {
     Title: "エラー",
     Desc: "",
-    UnknowError: "未知のエラーが発生しました。後でもう一度試すか、お問い合わせください！",
-    NetworkError: "ネットワークエラーが発生しました。後でもう一度試すか、お問い合わせください！",
+    UnknowError:
+      "未知のエラーが発生しました。後でもう一度試すか、お問い合わせください！",
+    NetworkError:
+      "ネットワークエラーが発生しました。後でもう一度試すか、お問い合わせください！",
     CodeInvalid: "認証コードが間違っています。詳細は 302.AI をご覧ください",
     ToolBin: "このツールは無効になっています。詳細は 302.AI をご覧ください",
     ToolDel: "このツールは削除されています。詳細は 302.AI をご覧ください",
@@ -60,7 +62,8 @@ const ja: LocaleType = {
     Desc: "",
     NeedCode: "共有コードが必要です",
     RemindCode: "共有コードを記憶する",
-    InputTip: "作成者が認証をオンにしました。以下に共有コードを入力してください",
+    InputTip:
+      "作成者が認証をオンにしました。以下に共有コードを入力してください",
     InputPlaceHolder: "共有コードを入力してください",
   },
   Land: {

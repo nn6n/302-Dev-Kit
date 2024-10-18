@@ -1,12 +1,14 @@
 "use client";
 
-import { login } from "@/services/auth";
-import { useAppStore } from "@/stores";
-import { zodResolver } from "@hookform/resolvers/zod";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
+
+import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+
+import { login } from "@/services/auth";
+import { useAppStore } from "@/stores";
 
 // Define the schema using Zod for form validation
 const schema = z.object({
@@ -53,44 +55,50 @@ const useAuth = () => {
   }, [params, setValue]);
 
   // Function to handle authentication
-  const performAuth = useCallback(async ({ code, remember }: AuthData) => {
-    try {
-      setIsPending(true);
+  const performAuth = useCallback(
+    async ({ code, remember }: AuthData) => {
+      try {
+        setIsPending(true);
 
-      // Call login function to validate the code
-      const result = await login(code);
+        // Call login function to validate the code
+        const result = await login(code);
 
-      // Update app configuration from the store with result
-      const { updateConfig } = useAppStore.getState();
-      updateConfig({ ...result.data });
+        // Update app configuration from the store with result
+        const { updateConfig } = useAppStore.getState();
+        updateConfig({ ...result.data });
 
-      // Store or remove auth code based on remember flag
-      if (remember) {
-        localStorage.setItem("code", code);
-      } else {
-        localStorage.removeItem("code");
+        // Store or remove auth code based on remember flag
+        if (remember) {
+          localStorage.setItem("code", code);
+        } else {
+          localStorage.removeItem("code");
+        }
+
+        // Redirect to the home page if on auth page
+        if (pathname === "/auth") {
+          router.replace("/");
+        }
+      } catch (error: any) {
+        // Handle error by navigating to auth and setting error state
+        router.replace("/auth");
+        setError("code", {
+          type: "server",
+          message: error.message,
+        });
+      } finally {
+        setIsPending(false);
       }
-
-      // Redirect to the home page if on auth page
-      if (pathname === "/auth") {
-        router.replace("/");
-      }
-    } catch (error: any) {
-      // Handle error by navigating to auth and setting error state
-      router.replace("/auth");
-      setError("code", {
-        type: "server",
-        message: error.message,
-      });
-    } finally {
-      setIsPending(false);
-    }
-  }, [pathname, router, setError]);
+    },
+    [pathname, router, setError]
+  );
 
   // Callback for form submission
-  const onSubmit = useCallback(async (data: AuthData) => {
-    await performAuth(data);
-  }, [performAuth]);
+  const onSubmit = useCallback(
+    async (data: AuthData) => {
+      await performAuth(data);
+    },
+    [performAuth]
+  );
 
   return {
     isPending,

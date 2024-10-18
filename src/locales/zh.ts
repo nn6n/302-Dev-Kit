@@ -4,9 +4,9 @@ const zh = {
   Desc: "",
   Domain: "302.AI",
   Theme: {
-    Light: '日间模式',
-    Dark: '夜间模式',
-    System: '跟随系统',
+    Light: "日间模式",
+    Dark: "夜间模式",
+    System: "跟随系统",
   },
   System: {
     Title: "系统",

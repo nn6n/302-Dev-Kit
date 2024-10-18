@@ -6,9 +6,9 @@ const en: LocaleType = {
   Desc: "",
   Domain: "302.AI",
   Theme: {
-    Light: 'Light mode',
-    Dark: 'Dark mode',
-    System: 'Follow system',
+    Light: "Light mode",
+    Dark: "Dark mode",
+    System: "Follow system",
   },
   System: {
     Title: "System",
@@ -27,11 +27,16 @@ const en: LocaleType = {
   Error: {
     Title: "Error",
     Desc: "",
-    UnknowError: "Unknown error, please try again later or contact customer service!",
-    NetworkError: "Network error, please try again later or contact customer service!",
-    CodeInvalid: "Verification code error, for more information please visit 302.AI",
-    ToolBin: "This tool has been disabled, for more information please visit 302.AI",
-    ToolDel: "This tool has been deleted, for more information please visit 302.AI",
+    UnknowError:
+      "Unknown error, please try again later or contact customer service!",
+    NetworkError:
+      "Network error, please try again later or contact customer service!",
+    CodeInvalid:
+      "Verification code error, for more information please visit 302.AI",
+    ToolBin:
+      "This tool has been disabled, for more information please visit 302.AI",
+    ToolDel:
+      "This tool has been deleted, for more information please visit 302.AI",
   },
   Navigator: {
     Title: "Welcome",
@@ -60,7 +65,8 @@ const en: LocaleType = {
     Desc: "",
     NeedCode: "Need share code",
     RemindCode: "Remember share code",
-    InputTip: "The creator has enabled verification, please enter the share code below",
+    InputTip:
+      "The creator has enabled verification, please enter the share code below",
     InputPlaceHolder: "Please enter the share code",
   },
   Land: {

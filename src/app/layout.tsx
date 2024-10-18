@@ -30,20 +30,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className="bg-cover dark:bg-black">
+    <html lang="en" suppressHydrationWarning>
       <head></head>
       <body className={cn(inter.className, "h-screen w-screen")}>
-        <AppClient>
-          <AppQeury>
-            <AppTheme>
+        <AppTheme>
+          <AppClient>
+            <AppQeury>
               <AppNavbar />
               <Suspense>
                 <main className="flex grow">{children}</main>
               </Suspense>
               <AppFooter />
-            </AppTheme>
-          </AppQeury>
-        </AppClient>
+            </AppQeury>
+          </AppClient>
+        </AppTheme>
 
         <AppChat />
         <AppMessage />

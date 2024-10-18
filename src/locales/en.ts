@@ -27,7 +27,6 @@ const en: LocaleType = {
     ToolDel: "Tool has been deleted, more information please visit",
     Submit: "Submit",
     Remind: "Remember the share code",
-
   },
   Home: {
     Title: "Home",

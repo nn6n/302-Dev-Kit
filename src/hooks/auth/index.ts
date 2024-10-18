@@ -25,7 +25,7 @@ type AuthData = {
 const useAuth = () => {
   const [isPending, setIsPending] = useState(false);
   const params = useSearchParams();
-  const pathname = usePathname()
+  const pathname = usePathname();
   const router = useRouter();
 
   // Initialize form handling with react-hook-form and Zod resolver
@@ -82,7 +82,7 @@ const useAuth = () => {
       }
 
       // Redirect to the home page
-      if (pathname === '/auth') {
+      if (pathname === "/auth") {
         router.replace("/");
       }
     } catch (error: any) {

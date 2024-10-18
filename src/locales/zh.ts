@@ -9,12 +9,12 @@ const zh = {
     Cancel: "取消",
     Confirm: "确认",
     Delete: "删除",
-    clean: '清空',
+    clean: "清空",
     Back: "返回",
-    Success: '操作成功!',
-    Faild: '操作失败!',
-    Notify: '系统提示!',
-    Error: '系统错误!',
+    Success: "操作成功!",
+    Faild: "操作失败!",
+    Notify: "系统提示!",
+    Error: "系统错误!",
     Download: "下载",
   },
   Error: {
@@ -59,7 +59,7 @@ const zh = {
     Test: {
       Hello: "你好呀！欢迎来到 302.AI",
       LogOut: "退出登录",
-    }
+    },
   },
 };
 

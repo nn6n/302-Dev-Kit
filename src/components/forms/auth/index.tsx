@@ -41,7 +41,7 @@ const SignInForm = ({ className }: SignInFormProps) => {
 
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
-    console.log("Form submitted with input:");
+    // console.log("Form submitted with input:");
     onAuth();
   };
 
@@ -59,15 +59,13 @@ const SignInForm = ({ className }: SignInFormProps) => {
       <div className="flex w-full flex-col items-center justify-center space-y-2 text-center">
         <Lock className="size-14" />
         <h2 className="text-2xl font-bold">{Locale.Auth.NeedCode}</h2>
-        <p className="text-sm text-muted-foreground">
-          {Locale.Auth.InputTip}
-        </p>
+        <p className="text-sm text-muted-foreground">{Locale.Auth.InputTip}</p>
       </div>
       <form
         className="mt-4 flex w-full max-w-sm flex-col items-center gap-3"
         onSubmit={handleSubmit}
       >
-        {FORM_CONSTANTS.signInForm.map((field) => (
+        {FORM_CONSTANTS.signInForm.slice(0, 1).map((field) => (
           <FormGenerator
             {...field}
             key={field.id}
@@ -79,8 +77,21 @@ const SignInForm = ({ className }: SignInFormProps) => {
           />
         ))}
         <Button type="submit" className="w-[200px] cursor-pointer rounded-md">
-          <CircleLoader loading={isPending}>{Locale.System.Confirm}</CircleLoader>
+          <CircleLoader loading={isPending}>
+            {Locale.System.Confirm}
+          </CircleLoader>
         </Button>
+        {FORM_CONSTANTS.signInForm.slice(1).map((field) => (
+          <FormGenerator
+            {...field}
+            key={field.id}
+            watch={watch}
+            register={register}
+            setValue={setValue}
+            errors={errors}
+            className="w-[200px] text-center"
+          />
+        ))}
       </form>
     </div>
   );

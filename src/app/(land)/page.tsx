@@ -14,7 +14,7 @@ export default function HomePage() {
   // onAuth()
 
   useEffect(() => {
-    onAuth()
+    onAuth();
     document.title = `${Locale.Land.Title} - ${Locale.Domain}`;
   }, []);
 

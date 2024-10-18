@@ -86,7 +86,7 @@ const useAuth = () => {
         router.replace("/");
       }
     } catch (error: any) {
-      console.error(error);
+      // console.error(error);
       router.replace("/auth");
 
       // Handle error by setting error state in form

@@ -8,6 +8,7 @@ export type MenuProps = {
   path: string;
   section?: boolean;
   integration?: boolean;
+  auth?: boolean;
 };
 
 export const APP_ROUTE_MENU: MenuProps[] = [
@@ -16,13 +17,13 @@ export const APP_ROUTE_MENU: MenuProps[] = [
     label: Locale.Navigator.Land,
     icon: <Home />,
     path: "/",
-    section: true,
+    auth: true,
   },
   {
     id: 1,
     label: Locale.Navigator.Auth,
     icon: <Lock />,
     path: "/auth",
-    section: true,
+    auth: false,
   },
 ];

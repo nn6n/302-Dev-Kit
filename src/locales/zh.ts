@@ -36,15 +36,15 @@ const zh = {
     Desc: "创建属于你自己AI工具",
     Domain: "302.AI",
     Auth: "鉴权页面",
-    Land: "AI工具模板页面",
+    Land: "模板页面",
   },
   Footer: {
     Title: "Powered By",
     Desc: "内容由AI生成，仅供参考",
   },
   About: {
-    Title: "关于",
-    Desc: "AI工具",
+    Title: "说明",
+    Desc: "本AI工具详情预览",
   },
   History: {
     Title: "历史记录",

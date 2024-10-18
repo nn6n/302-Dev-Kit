@@ -16,6 +16,9 @@ import "@/styles/globals.css";
 const AppTitle = dynamic(() => import("@/components/global/app-title"), {
   ssr: false,
 });
+const AppAuth = dynamic(() => import("@/components/global/app-auth"), {
+  ssr: false,
+});
 const AppChat = dynamic(() => import("@/components/global/app-chat"), {
   ssr: false,
 });
@@ -37,6 +40,7 @@ export default function RootLayout({
       <head></head>
       <body className={cn(inter.className, "h-screen w-screen")}>
         <AppTitle />
+        <AppAuth />
         <AppTheme>
           <AppClient>
             <AppQeury>

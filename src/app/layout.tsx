@@ -36,7 +36,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className="dark: bg-black">
       <head></head>
       <body className={cn(inter.className, "h-screen w-screen")}>
         <AppTitle />

@@ -3,9 +3,9 @@ const zh = {
   Title: "中文",
   Desc: "",
   Theme: {
-    Light: "日间模式",
-    Dark: "夜间模式",
-    System: "跟随系统",
+    Light: "日间",
+    Dark: "夜间",
+    System: "系统",
   },
   System: {
     Title: "系统",

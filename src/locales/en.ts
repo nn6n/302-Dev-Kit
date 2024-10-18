@@ -5,9 +5,9 @@ const en: LocaleType = {
   Title: "English",
   Desc: "",
   Theme: {
-    Light: "Day Mode",
-    Dark: "Night Mode",
-    System: "Follow System",
+    Light: "Light",
+    Dark: "Dark",
+    System: "System",
   },
   System: {
     Title: "System",

@@ -3,9 +3,9 @@ const ja = {
   Title: "日本語",
   Desc: "",
   Theme: {
-    Light: "日中モード",
-    Dark: "夜間モード",
-    System: "システムに従う",
+    Light: "ライト",
+    Dark: "ダーク",
+    System: "システム",
   },
   System: {
     Title: "システム",

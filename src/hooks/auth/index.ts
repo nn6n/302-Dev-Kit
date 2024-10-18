@@ -52,14 +52,6 @@ const useAuth = () => {
     if (queryCode || storedCode) {
       setValue("code", queryCode || storedCode);
     }
-
-    // Initial authentication
-    // const initAuthentication = async () => {
-    //   await onAuth();
-    //   setIsLoading(false);
-    // };
-    // initAuthentication();
-    // setIsLoading(false);
   }, []);
 
   // Function to handle authentication
@@ -86,7 +78,6 @@ const useAuth = () => {
         router.replace("/");
       }
     } catch (error: any) {
-      // console.error(error);
       router.replace("/auth");
 
       // Handle error by setting error state in form
@@ -103,14 +94,6 @@ const useAuth = () => {
   const onSubmit = async (data: AuthData) => {
     await performAuth(data);
   };
-
-  // Effect hooks to check authentication status
-  // useEffect(() => {
-  //   const { apiKey } = useAppStore.getState();
-  //   if (!apiKey) {
-  //     router.replace("/auth");
-  //   }
-  // }, [router]);
 
   return {
     isPending,

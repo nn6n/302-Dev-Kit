@@ -9,9 +9,7 @@ import LandHeader from "./_components/header";
 import Test from "./_components/test";
 
 export default function HomePage() {
-  // useAuth();
   const { onAuth } = useAuth();
-  // onAuth()
 
   useEffect(() => {
     onAuth();

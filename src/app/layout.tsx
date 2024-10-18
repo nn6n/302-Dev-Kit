@@ -13,6 +13,9 @@ import { cn } from "@/lib/utils";
 import Locale from "@/locales";
 import "@/styles/globals.css";
 
+const AppTitle = dynamic(() => import("@/components/global/app-title"), {
+  ssr: false,
+});
 const AppChat = dynamic(() => import("@/components/global/app-chat"), {
   ssr: false,
 });
@@ -29,10 +32,12 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
   return (
     <html lang="en" suppressHydrationWarning>
       <head></head>
       <body className={cn(inter.className, "h-screen w-screen")}>
+        <AppTitle />
         <AppTheme>
           <AppClient>
             <AppQeury>
@@ -44,7 +49,6 @@ export default function RootLayout({
             </AppQeury>
           </AppClient>
         </AppTheme>
-
         <AppChat />
         <AppMessage />
       </body>

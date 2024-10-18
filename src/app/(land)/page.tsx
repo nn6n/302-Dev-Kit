@@ -13,7 +13,6 @@ export default function HomePage() {
 
   useEffect(() => {
     onAuth();
-    document.title = `${Locale.Land.Title} - ${Locale.Domain}`;
   }, []);
 
   return (

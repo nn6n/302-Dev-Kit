@@ -35,8 +35,8 @@ const zh = {
     Title: "欢迎光临",
     Desc: "创建属于你自己AI工具",
     Domain: "302.AI",
-    Auth: "验证页",
-    Land: "落地页",
+    Auth: "鉴权页面",
+    Land: "AI工具模板页面",
   },
   Footer: {
     Title: "Powered By",

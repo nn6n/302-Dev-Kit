@@ -67,14 +67,14 @@ function getItem(key: string): string | null {
  */
 function setItem(key: string, value: string): void {
   if (isClient()) {
+
     try {
+
       localStorage.setItem(key, value);
+
       updateConfig({ language: value });
     } catch {
-      // Todo: add log
-
-
-      // Ignore storage errors
+      // Todo: add log here
     }
   }
 }

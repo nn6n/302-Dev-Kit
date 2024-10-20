@@ -14,7 +14,6 @@ export default function AppClient({
   const [hasMounted, setHasMounted] = useState<boolean>(false);
 
   useEffect(() => {
-
     setHasMounted(true);
   }, []);
 

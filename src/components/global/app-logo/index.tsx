@@ -20,6 +20,7 @@ const AppLogo = ({ type, className, width = 150, height = 42 }: Props) => {
           className="flex space-x-1 no-underline"
         >
           <Image
+            priority={true}
             className="h-auto w-full"
             width={width}
             height={height}
@@ -34,6 +35,7 @@ const AppLogo = ({ type, className, width = 150, height = 42 }: Props) => {
           className="flex space-x-1 no-underline"
         >
           <Image
+            priority={true}
             className="hidden h-auto w-full dark:block"
             width={width}
             height={height}
@@ -41,6 +43,7 @@ const AppLogo = ({ type, className, width = 150, height = 42 }: Props) => {
             alt=""
           />
           <Image
+            priority={true}
             className="h-auto w-full dark:hidden"
             width={width}
             height={height}

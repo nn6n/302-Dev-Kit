@@ -33,6 +33,7 @@ const apiKy = ky.create({
       async (_request, _options, response) => {
         // Handle HTTP errors by emitting a 'ToastError' event
         if (!response.ok) {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           const res = (await response.json()) as any;
 
           // Emit a toast error if there is an error code

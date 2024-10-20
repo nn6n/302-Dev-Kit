@@ -78,6 +78,7 @@ const useAuth = () => {
         if (pathname === "/auth") {
           router.replace("/");
         }
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
       } catch (error: any) {
         // Handle error by navigating to auth and setting error state
         router.replace("/auth");

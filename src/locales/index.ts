@@ -72,7 +72,7 @@ function setItem(key: string, value: string): void {
 
       updateConfig({ language: value });
     } catch {
-      // Todo: add log here
+      // Todo: add log
     }
   }
 }

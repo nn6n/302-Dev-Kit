@@ -71,6 +71,9 @@ function setItem(key: string, value: string): void {
       localStorage.setItem(key, value);
       updateConfig({ language: value });
     } catch {
+      // Todo: add log
+
+
       // Ignore storage errors
     }
   }

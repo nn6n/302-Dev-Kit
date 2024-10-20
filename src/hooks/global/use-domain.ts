@@ -1,3 +1,5 @@
+"use client";
+
 import { env } from "@/env";
 import { useAppStore } from "@/stores";
 

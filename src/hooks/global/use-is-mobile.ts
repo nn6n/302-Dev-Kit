@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useState } from "react";
 
 // 定义一个阈值，当窗口宽度小于这个值时，认为是移动设备

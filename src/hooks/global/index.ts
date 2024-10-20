@@ -1,3 +1,4 @@
+export { useDomain } from "./use-domain";
 export { useInfo } from "./use-info";
 export { useIsLogin } from "./use-is-login";
 export { useIsMobile } from "./use-is-mobile";

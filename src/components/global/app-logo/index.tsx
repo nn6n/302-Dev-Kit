@@ -1,6 +1,8 @@
+"use client";
+
 import Image from "next/image";
 
-import { useDomain } from "@/hooks/global/use-domain";
+import { useDomain } from "@/hooks/global";
 
 type Props = {
   type?: string;

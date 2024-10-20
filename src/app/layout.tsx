@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import { Inter } from "next/font/google";
-import { Suspense } from "react";
 
 import AppClient from "@/components/global/app-client";
 import AppFooter from "@/components/global/app-footer";
@@ -36,22 +35,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className="dark: bg-black">
+    <html className="dark">
       <head></head>
       <body className={cn(inter.className, "h-screen w-screen")}>
         <AppTitle />
         <AppAuth />
-        <AppTheme>
-          <AppClient>
+        <AppClient>
+          <AppTheme>
             <AppQeury>
               <AppNavbar />
-              <Suspense>
-                <main className="flex grow">{children}</main>
-              </Suspense>
+              <main className="flex grow">{children}</main>
               <AppFooter />
             </AppQeury>
-          </AppClient>
-        </AppTheme>
+          </AppTheme>
+        </AppClient>
         <AppChat />
         <AppMessage />
       </body>

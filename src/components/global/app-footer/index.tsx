@@ -1,5 +1,4 @@
-"use client";
-
+// "use client";
 import AppLogo from "@/components/global/app-logo";
 import Locale from "@/locales";
 

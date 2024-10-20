@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import { Inter } from "next/font/google";
+import { Suspense } from "react";
 
-import AppClient from "@/components/global/app-client";
+// import AppClient from "@/components/global/app-client";
+import SkeletonRenderer from "@/components/common/skeleton-renderer";
 import AppFooter from "@/components/global/app-footer";
 import AppMessage from "@/components/global/app-message";
 import AppNavbar from "@/components/global/app-navbar";
@@ -35,20 +37,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html className="dark">
+    <html>
       <head></head>
       <body className={cn(inter.className, "h-screen w-screen")}>
         <AppTitle />
         <AppAuth />
-        <AppClient>
-          <AppTheme>
-            <AppQeury>
+        {/* <AppClient> */}
+        <AppTheme>
+          <AppQeury>
+            <Suspense fallback={<SkeletonRenderer element="APP_CLIENT" />}>
               <AppNavbar />
               <main className="flex grow">{children}</main>
               <AppFooter />
-            </AppQeury>
-          </AppTheme>
-        </AppClient>
+            </Suspense>
+          </AppQeury>
+        </AppTheme>
+        {/* </AppClient> */}
         <AppChat />
         <AppMessage />
       </body>

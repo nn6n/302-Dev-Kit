@@ -38,16 +38,26 @@ updateConfig({ language: langSymbol });
 export default targetLang;
 
 /**
+ * Determine if the environment is server or client
+ */
+function isClient(): boolean {
+  return typeof window !== "undefined";
+}
+
+/**
  * Retrieve stored item from localStorage
  * @param key - The key of the item to retrieve
  * @returns The stored item or null if not found
  */
 function getItem(key: string): string | null {
-  try {
-    return localStorage.getItem(key);
-  } catch {
-    return null;
+  if (isClient()) {
+    try {
+      return localStorage.getItem(key);
+    } catch {
+      return null;
+    }
   }
+  return null;
 }
 
 /**
@@ -56,11 +66,13 @@ function getItem(key: string): string | null {
  * @param value - The value to store
  */
 function setItem(key: string, value: string): void {
-  try {
-    localStorage.setItem(key, value);
-    updateConfig({ language: value });
-  } catch {
-    // Ignore storage errors
+  if (isClient()) {
+    try {
+      localStorage.setItem(key, value);
+      updateConfig({ language: value });
+    } catch {
+      // Ignore storage errors
+    }
   }
 }
 
@@ -69,11 +81,14 @@ function setItem(key: string, value: string): void {
  * @returns Preferred language or default language if unavailable
  */
 function getLanguage(): string {
-  try {
-    return navigator.language.toLowerCase();
-  } catch {
-    return DEFAULT_LANG;
+  if (isClient()) {
+    try {
+      return navigator.language.toLowerCase();
+    } catch {
+      return DEFAULT_LANG;
+    }
   }
+  return DEFAULT_LANG;
 }
 
 /**
@@ -82,7 +97,7 @@ function getLanguage(): string {
  * @returns Language code
  */
 export function getLang(): Lang {
-  if (typeof window !== "undefined") {
+  if (isClient()) {
     const urlLang = new URLSearchParams(window.location.search).get("lang");
     const standardizedLang = urlLang?.split("-")[0];
     if (standardizedLang && AllLangs.includes(standardizedLang as Lang)) {
@@ -109,7 +124,9 @@ export function getLang(): Lang {
  */
 export function changeLang(lang: Lang): void {
   setItem(LANG_KEY, lang);
-  location.reload();
+  if (isClient()) {
+    location.reload();
+  }
 }
 
 /**

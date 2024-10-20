@@ -77,6 +77,8 @@ const useAuth = () => {
         // Redirect to the home page if on auth page
         if (pathname === "/auth") {
           router.replace("/");
+        } else {
+          window.history.replaceState({}, "", pathname);
         }
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
       } catch (error: any) {

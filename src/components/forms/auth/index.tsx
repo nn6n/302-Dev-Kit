@@ -9,9 +9,7 @@ import { FORM_CONSTANTS } from "@/constants";
 import useAuth from "@/hooks/auth";
 import Locale from "@/locales";
 
-type SignInFormProps = {};
-
-const SignInForm = ({}: SignInFormProps) => {
+const SignInForm = () => {
   const { isPending, setValue, onAuth, watch, register, errors } = useAuth();
 
   const handleSubmit = (event: FormEvent) => {

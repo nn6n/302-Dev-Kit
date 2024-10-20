@@ -32,6 +32,7 @@ const AppAuth = () => {
     if (neeAuthPages.includes(pathname)) {
       onAuth();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname]);
   return null;
 };

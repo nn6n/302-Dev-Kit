@@ -19,7 +19,7 @@ export const CircleLoader = ({ loading, children, className }: LoaderProps) => {
         {/* Provide accessible label */}
         <svg
           aria-hidden="true"
-          className="inline h-8 w-8 animate-spin fill-yellow-400 text-gray-200 dark:text-gray-600"
+          className="inline size-8 animate-spin fill-yellow-400 text-gray-200 dark:text-gray-600"
           viewBox="0 0 100 101"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"

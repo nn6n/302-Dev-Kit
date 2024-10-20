@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { ErrorMessage } from "@hookform/error-message";
 import {
   FieldErrors,
@@ -103,7 +104,7 @@ const FormGenerator = ({
     <Label className="flex flex-col gap-2" htmlFor={`input-${label}`}>
       {label}
       <Textarea
-        className="bg-themeBlack border-themeGray text-themeTextGray"
+        className=""
         id={`input-${label}`}
         placeholder={placeholder}
         {...register(name)}

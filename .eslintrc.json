@@ -13,7 +13,11 @@
     //   "error"
     // ],
     "quotes": ["error", "double"],
-    "n/no-process-env": ["error"],
+    // "n/no-process-env": ["error"],
+    "tailwindcss/enforces-shorthand": "off",
+    "@typescript-eslint/no-empty-object-type": "off",
+    "tailwindcss/no-custom-classname": "off",
+    "n/no-process-env": "off",
     "check-file/filename-naming-convention": [
       "error",
       {

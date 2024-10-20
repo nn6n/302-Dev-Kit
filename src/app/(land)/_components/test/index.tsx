@@ -25,7 +25,7 @@ const Test = () => {
   const isLogin = useIsLogin();
 
   useEffect(() => {
-    isLogin && emitter.emit("ToastSuccess", Locale.Land.Test.Hello);
+    if (isLogin) emitter.emit("ToastSuccess", Locale.Land.Test.Hello);
   }, [isLogin]);
 
   return (

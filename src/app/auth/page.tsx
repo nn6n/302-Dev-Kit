@@ -1,11 +1,11 @@
-"use client";
 
 import SignInForm from "@/components/forms/auth";
 import AppLogo from "@/components/global/app-logo";
 import { Lock } from "@/icons";
 import Locale from "@/locales";
 
-const AuthPage = () => {
+const AuthPage = async () => {
+  await new Promise((resolve) => { setTimeout(() => { resolve("done") }, 2 * 1000) })
   return (
     <div className="fixed left-0 top-0 size-full items-center justify-center transition-all ease-in-out sm:relative sm:p-12">
       <div className="relative m-auto flex size-full max-w-screen-lg items-center bg-white p-4 dark:bg-black sm:rounded-2xl sm:border sm:shadow-2xl">

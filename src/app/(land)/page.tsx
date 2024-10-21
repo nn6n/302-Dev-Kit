@@ -3,13 +3,19 @@ import Locale from "@/locales";
 
 import LandHeader from "./_components/header";
 
-// import Test from "./_components/test";
+import { useAppStore } from "@/stores";
+import Test from "./_components/test";
 
-export default function HomePage() {
+const HomePage = async () => {
+  await new Promise((resolve) => { setTimeout(() => { resolve("done") }, 2 * 1000) })
+  const { apiKey } = useAppStore.getState();
+
   return (
     <div className="flex w-full flex-col items-center p-8">
       <LandHeader title={Locale.Land.Title} />
-      {/* <Test /> */}
+      <Test />
     </div>
   );
 }
+
+export default HomePage

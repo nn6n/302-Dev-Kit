@@ -1,4 +1,3 @@
-
 export default function NotFound() {
   return (
     <div className="mx-auto mt-4 max-w-md">

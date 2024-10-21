@@ -1,3 +1,4 @@
+export { useClientTranslation } from "./use-client-translation";
 export { useCopyToClipboard } from "./use-copy";
 export { useDomain } from "./use-domain";
 export { useInfo } from "./use-info";
@@ -7,4 +8,3 @@ export { useAppTheme } from "./use-theme";
 export type { Theme } from "./use-theme";
 export { useTitle } from "./use-title";
 export { toast, useToast } from "./use-toast";
-

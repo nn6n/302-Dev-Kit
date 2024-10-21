@@ -9,7 +9,6 @@ import AppNavbar from "@/components/global/app-navbar";
 import AppQeury from "@/components/global/app-query";
 import AppTheme from "@/components/global/app-theme";
 import { cn } from "@/lib/utils";
-import Locale from "@/locales";
 import "@/styles/globals.css";
 
 const AppTitle = dynamic(() => import("@/components/global/app-title"), {
@@ -25,26 +24,29 @@ const AppChat = dynamic(() => import("@/components/global/app-chat"), {
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: `${Locale.Navigator.Title} - ${Locale.Navigator.Domain}`,
-  description: Locale.Navigator.Desc,
+  title: "dev",
+  description: "",
 };
 
 export default function RootLayout({
   children,
+  params: { locale },
 }: Readonly<{
   children: React.ReactNode;
+  params: { locale: string };
 }>) {
   return (
-    <html suppressHydrationWarning>
+    <html lang={locale} suppressHydrationWarning>
       <head></head>
       <body className={cn(inter.className, "h-screen w-screen")}>
-        <AppTitle />
-        <AppAuth />
+        {/* <AppTitle /> */}
+        {/* <AppAuth /> */}
         {/* <AppClient> */}
+        {/* {locale} */}
         <AppTheme>
           <AppQeury>
             {/* <Suspense fallback={<SkeletonRenderer element="APP_CLIENT" />}> */}
-            <AppNavbar />
+            <AppNavbar locale={locale} />
             <main className="flex grow">{children}</main>
             <AppFooter />
             {/* </Suspense> */}

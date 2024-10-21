@@ -1,6 +1,7 @@
 "use client";
 
-import * as React from "react";
+import Link from "next/link";
+import { useState } from "react";
 
 import { LanguagesIcon } from "lucide-react";
 
@@ -13,18 +14,18 @@ import {
   DropdownMenuRadioItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { APP_CONSTANTS } from "@/constants";
-import Locale, { Lang, changeLang } from "@/locales";
+import { Lang, languages } from "@/i18n/config";
 
-// Import locale utilities
-
-export default function LangSwitcher() {
-  const [lang, setLang] = React.useState(Locale.Symbol); // Initialize lang to the Locale symbol
+type LangSwitcherProps = {
+  locale: string;
+};
+export default function LangSwitcher({ locale }: LangSwitcherProps) {
+  const [lang, setLang] = useState(locale); // Initialize lang to the Locale symbol
 
   // Handler for changing language
   const handlerChangeLang = (value: Lang) => {
     setLang(value);
-    changeLang(value); // Update locale
+    // changeLang(value); // Update locale
   };
 
   return (
@@ -41,12 +42,15 @@ export default function LangSwitcher() {
           value={lang}
           onValueChange={(value: string) => handlerChangeLang(value as Lang)}
         >
-          {/* Map language options to menu items */}
-          {APP_CONSTANTS.appLangOption.map((option) => (
-            <DropdownMenuRadioItem key={option.value} value={option.value}>
-              {option.label}
-            </DropdownMenuRadioItem>
-          ))}
+          {languages.map((l) => {
+            return (
+              <Link key={l.value} href={`/${l.value}`}>
+                <DropdownMenuRadioItem key={l.value} value={l.value}>
+                  {l.label}
+                </DropdownMenuRadioItem>
+              </Link>
+            );
+          })}
         </DropdownMenuRadioGroup>
       </DropdownMenuContent>
     </DropdownMenu>

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 "use client";
 
 import { useEffect, useState } from "react";
@@ -11,15 +12,11 @@ import {
   useTranslation as useTranslationOrg,
 } from "react-i18next";
 
-import { defaultLocale, locales } from "@/i18n/config";
+import { defaultLocale, locales, namespaces } from "@/i18n/config";
 
 import { UseTranslationOptions } from "./";
-import enAuth from "./locales/en/auth.json";
-import enBasic from "./locales/en/basic.json";
-import enLand from "./locales/en/land.json";
-import zhAuth from "./locales/zh/auth.json";
-import zhBasic from "./locales/zh/basic.json";
-import zhLand from "./locales/zh/land.json";
+
+/* eslint-disable react-hooks/rules-of-hooks */
 
 export const cookieName = "i18next";
 
@@ -35,16 +32,12 @@ i18next
     )
   )
   .init({
-    resources: {
-      en: { basic: enBasic, auth: enAuth, land: enLand },
-      zh: { basic: zhBasic, auth: zhAuth, land: zhLand },
-    },
     supportedLngs: locales,
     fallbackLng: defaultLocale,
     lng: defaultLocale,
-    fallbackNS: "basic",
-    defaultNS: "basic",
-    ns: "basic",
+    fallbackNS: namespaces[0],
+    defaultNS: namespaces[0],
+    ns: namespaces,
     detection: {
       order: ["path", "htmlTag", "cookie", "navigator"],
     },
@@ -53,7 +46,7 @@ i18next
 
 export function useTranslation(
   lng: string,
-  ns: string = "basic",
+  ns?: string,
   options: UseTranslationOptions = {}
 ) {
   const [cookies, setCookie] = useCookies([cookieName]);
@@ -74,7 +67,7 @@ export function useTranslation(
     useEffect(() => {
       if (cookies.i18next === lng) return;
       setCookie(cookieName, lng, { path: "/" });
-    }, [lng, cookies.i18next]);
+    }, [lng, cookies.i18next, setCookie]);
   }
   return ret;
 }

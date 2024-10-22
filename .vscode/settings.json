@@ -8,5 +8,24 @@
     "*.css": "tailwindcss"
   },
   "typescript.tsdk": "node_modules/typescript/lib",
-  "compile-hero.disable-compile-files-on-did-save-code": true
+  "compile-hero.disable-compile-files-on-did-save-code": true,
+  "i18n-ally.localesPaths": [
+    // "src/i18n",
+    // "src/locales",
+    "src/i18n/locales"
+  ],
+  "i18n-ally.sourceLanguage": "zh", // 根据此语言文件翻译其他语言文件的变量和内容
+  "i18n-ally.displayLanguage": "zh", // 显示语言
+  "i18n-ally.keystyle": "nested", // 翻译后变量格式 nested：嵌套式  flat:扁平式
+  "i18n-ally.preferredDelimiter": "_", // 翻译后变量分隔符
+  "i18n-ally.sortKeys": true, // 翻译后变量排序
+  "i18n-ally.namespace": true, // 翻译后命名空间
+  // "i18n-ally.extract.keygenStrategy": "random", // 生成密钥路径的策略。可以slug，random或empty
+  // "i18n-ally.extract.keygenStyle": "camelCase", // 翻译字段命名样式采用驼峰
+  "i18n-ally.enabledParsers": ["json", "js"], // 支持的翻译文件类型（json文件支持写入，js文件只有读取的权限）
+  // "i18n-ally.pathMatcher": "{locale}/{namespaces}.{ext}", // 翻译文件路径匹配规则
+  // "i18n-ally.keysInUse": ["view.progress_submenu.translated_keys", "view.progress_submenu.missing_keys", "view.progress_submenu.empty_keys"], // 翻译过的翻译文件
+  // "i18n-ally.theme.annotationMissingBorder": "#d37070", // 未翻译字段的边框
+  // "i18n-ally.theme.annotationMissing": "#d37070", // 未翻译字段的背景
+  "i18n-ally.extract.autoDetect": false // 自动检测翻译文件
 }

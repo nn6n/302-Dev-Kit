@@ -22,9 +22,9 @@ const HomePage = async ({ params: { locale } }: pageProps) => {
 
   return (
     <div className="flex w-full flex-col items-center p-8">
-      <LandHeader title={t("title")} />
-      <Test locale={locale} />
-      <p>{t("lang")}</p>
+      <LandHeader title={t("land:title")} />
+      <p>{t("land:desc")}</p>
+      <Test />
     </div>
   );
 };

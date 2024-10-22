@@ -14,3 +14,5 @@ export type Lang = (typeof languages)[number]["value"];
 export const defaultLocale: Lang = "zh";
 
 export const locales = languages.map((it) => it.value);
+
+export const namespaces = ["global", "auth", "land"];

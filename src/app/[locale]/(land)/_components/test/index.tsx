@@ -4,17 +4,12 @@ import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
 import { Button } from "@/components/ui/button";
-import { useIsLogin } from "@/hooks/global";
-import { useTranslation } from "@/i18n/client";
+import { useClientTranslation, useIsLogin } from "@/hooks/global";
 import { emitter } from "@/lib/mitt";
 import { useAppStore } from "@/stores";
 
-type TestProps = {
-  locale?: string;
-};
-
-const LogOutButton = ({ locale }: TestProps) => {
-  const { t } = useTranslation(locale as string);
+const LogOutButton = () => {
+  const { t } = useClientTranslation();
   const router = useRouter();
   const updateConfig = useAppStore((state) => state.updateConfig);
   const handleLogout = () => {
@@ -22,10 +17,10 @@ const LogOutButton = ({ locale }: TestProps) => {
     localStorage.setItem("code", "");
     router.push("/auth");
   };
-  return <Button onClick={handleLogout}>{t("logout")}</Button>;
+  return <Button onClick={handleLogout}>{t("global:system.logout")}</Button>;
 };
 
-const Test = ({ locale }: TestProps) => {
+const Test = () => {
   const isLogin = useIsLogin();
 
   useEffect(() => {
@@ -34,7 +29,7 @@ const Test = ({ locale }: TestProps) => {
 
   return (
     <div className="flex w-full flex-col items-center justify-center space-y-4 p-4 text-center">
-      <LogOutButton locale={locale} />
+      <LogOutButton />
     </div>
   );
 };

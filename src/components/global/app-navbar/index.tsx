@@ -1,6 +1,5 @@
 "use client";
 
-// import MenuSheet from "./menu-sheet";
 import { useIsLogin } from "@/hooks/global";
 
 import { InfoModal } from "./info-modal";
@@ -11,7 +10,6 @@ type AppNavbarProps = {
   locale: string;
 };
 export default function AppNavbar({ locale }: AppNavbarProps) {
-  // console.log('locale;::::', locale)
   const isLogin = useIsLogin();
 
   return (

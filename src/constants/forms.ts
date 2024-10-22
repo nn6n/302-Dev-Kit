@@ -1,5 +1,3 @@
-import Locale from "@/locales";
-
 export type AuthFormProps = {
   id: number;
   name: string;
@@ -16,13 +14,13 @@ export const SIGN_IN_FORM: AuthFormProps[] = [
     name: "code",
     inputType: "input",
     type: "password",
-    placeholder: Locale.Auth.InputPlaceHolder,
+    placeholder: "auth:form.input_code",
     label: "",
   },
   {
     id: 2,
     name: "remember",
     inputType: "checkbox",
-    label: Locale.Auth.RemindCode,
+    label: "auth:form.remember_code",
   },
 ];

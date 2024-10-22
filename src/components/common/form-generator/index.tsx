@@ -11,6 +11,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { useClientTranslation } from "@/hooks/global";
 import { cn } from "@/lib/utils";
 
 import HostRenderer from "../host-renderer";
@@ -44,6 +45,7 @@ const FormGenerator = ({
   watch,
   className,
 }: FormGeneratorProps) => {
+  const { t } = useClientTranslation();
   const renderErrorMessage = () => (
     <ErrorMessage
       errors={errors}
@@ -67,7 +69,7 @@ const FormGenerator = ({
       <Input
         id={`input-${label}`}
         type={type}
-        placeholder={placeholder}
+        placeholder={placeholder && t(placeholder)}
         className={cn(
           "bg-themeBlack border-themeGray text-themeTextGray",
           className
@@ -80,7 +82,7 @@ const FormGenerator = ({
 
   const renderSelect = () => (
     <Label htmlFor={`select-${label}`} className="flex flex-col gap-2">
-      {label}
+      {label && t(label)}
       <select
         id={`select-${label}`}
         className="w-full rounded-lg border bg-transparent p-3"
@@ -92,7 +94,7 @@ const FormGenerator = ({
             key={option.id}
             className="dark:bg-muted"
           >
-            {option.label}
+            {t(option.label)}
           </option>
         ))}
       </select>
@@ -102,7 +104,7 @@ const FormGenerator = ({
 
   const renderTextarea = () => (
     <Label className="flex flex-col gap-2" htmlFor={`input-${label}`}>
-      {label}
+      {label && t(label)}
       <Textarea
         className=""
         id={`input-${label}`}
@@ -124,7 +126,7 @@ const FormGenerator = ({
           checked={watchCheckbox}
           onCheckedChange={(checked) => setValue(name, checked)}
         />
-        {label}
+        {label && t(label)}
       </Label>
     );
   };

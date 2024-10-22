@@ -5,12 +5,14 @@
   "title": "AI Tool",
   "desc": "Create your own AI tool",
   "theme": {
-    "light": "Day",
+    "light": "Light",
     "dark": "Night",
     "system": "System"
   },
   "system": {
-    "logout": "Logout"
+    "logout": "Logout",
+    "notifi": "System Notification",
+    "error": "System Error"
   },
   "about": {
     "title": "Description",
@@ -29,7 +31,11 @@
     "clear": "Clear"
   },
   "error": {
-    "404": "Page not found",
-    "500": "Internal server error"
+    "not_found": "Page not found",
+    "network_error": "Internal server error",
+    "unknown_error": "An unknown error occurred, please contact customer service",
+    "code_invalid": "Invalid share code, for more info visit 302.AI",
+    "tool_disabled": "The tool has been disabled, for more info visit 302.AI",
+    "tool_deleted": "The tool has been deleted, for more info visit 302.AI"
   }
 }

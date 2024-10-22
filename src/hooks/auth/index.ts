@@ -1,6 +1,6 @@
 "use client";
 
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
 
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -9,6 +9,8 @@ import { z } from "zod";
 
 import { login } from "@/services/auth";
 import { useAppStore } from "@/stores";
+
+import { useClientTranslation, useLocaleRouter } from "../global";
 
 // Define the schema using Zod for form validation
 const schema = z.object({
@@ -25,8 +27,8 @@ type AuthData = {
 const useAuth = () => {
   const [isPending, setIsPending] = useState(false);
   const params = useSearchParams();
-  const pathname = usePathname();
-  const router = useRouter();
+  const { isAuthPage, replaceRouter, removeParams } = useLocaleRouter();
+  const { t } = useClientTranslation();
 
   // Initialize form handling with react-hook-form and Zod resolver
   const {
@@ -75,24 +77,24 @@ const useAuth = () => {
         }
 
         // Redirect to the home page if on auth page
-        if (pathname === "/auth") {
-          router.replace("/");
+        if (isAuthPage) {
+          replaceRouter("/");
         } else {
-          window.history.replaceState({}, "", pathname);
+          removeParams();
         }
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
       } catch (error: any) {
         // Handle error by navigating to auth and setting error state
-        router.replace("/auth");
+        replaceRouter("/auth");
         setError("code", {
           type: "server",
-          message: error.message,
+          message: t(error.message),
         });
       } finally {
         setIsPending(false);
       }
     },
-    [pathname, router, setError]
+    [setError, isAuthPage, removeParams, replaceRouter]
   );
 
   // Callback for form submission

@@ -7,7 +7,6 @@ import { CircleLoader } from "@/components/common/loader-renderer";
 import { Button } from "@/components/ui/button";
 import { FORM_CONSTANTS } from "@/constants";
 import useAuth from "@/hooks/auth";
-// import Locale from "@/locales";
 import { useClientTranslation } from "@/hooks/global";
 
 const SignInForm = () => {

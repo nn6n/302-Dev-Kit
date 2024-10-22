@@ -1,8 +1,8 @@
 "use client";
 
 import { env } from "@/env";
-import Locale from "@/locales";
 
+// import { UseTranslationReturnType } from "@/types/auth";
 import { authKy } from "../lib/api";
 
 interface Response {
@@ -33,10 +33,10 @@ export const login = async (code?: string): Promise<LoginResult> => {
   const res = await authKy.get(
     `bot/v1/${hostname}${code ? `?pwd=${code}` : ""}`
   );
-  let errorMessage = Locale.Error.UnknowError;
+  let errorMessage = "global:error.unknow_error";
 
   if (res.status !== 200) {
-    errorMessage = Locale.Error.NetworkError;
+    errorMessage = "global:error.network_error";
   }
 
   const data = await res.json<Response>();
@@ -55,11 +55,11 @@ export const login = async (code?: string): Promise<LoginResult> => {
   }
 
   if (data.code === -101) {
-    errorMessage = Locale.Error.ToolDel;
+    errorMessage = "global:error.tool_deleted";
   } else if (data.code === -100) {
-    errorMessage = Locale.Error.ToolBin;
+    errorMessage = "global:error.tool_disabled";
   } else if (data.code === -99) {
-    errorMessage = Locale.Error.CodeInvalid;
+    errorMessage = "global:error.code_invalid";
   }
   throw new Error(errorMessage);
 };

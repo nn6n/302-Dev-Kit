@@ -12,11 +12,11 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { useInfo } from "@/hooks/global";
-import Locale from "@/locales";
+import { useClientTranslation, useInfo } from "@/hooks/global";
 import "@/styles/info.css";
 
 export function InfoModal() {
+  const { t } = useClientTranslation();
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -26,9 +26,9 @@ export function InfoModal() {
       </DialogTrigger>
       <DialogContent className="max-w-[600px]">
         <DialogHeader>
-          <DialogTitle>{Locale.About.Title}</DialogTitle>
+          <DialogTitle>{t("global:about.title")}</DialogTitle>
           <DialogDescription className="">
-            {Locale.About.Desc}
+            {t("global.about.desc")}
           </DialogDescription>
         </DialogHeader>
         <InfoContent />

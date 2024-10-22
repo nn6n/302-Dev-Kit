@@ -7,17 +7,17 @@ export type OptionProps = {
 export const APP_THEME_OPTION: OptionProps[] = [
   {
     id: 1,
-    label: "Light",
+    label: "global:theme.light",
     value: "light",
   },
   {
     id: 2,
-    label: "Dark",
+    label: "global:theme.dark",
     value: "dark",
   },
   {
     id: 3,
-    label: "System",
+    label: "global:theme.system",
     value: "system",
   },
 ];

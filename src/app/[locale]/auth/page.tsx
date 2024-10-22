@@ -1,6 +1,5 @@
 import SignInForm from "@/components/forms/auth";
 import AppLogo from "@/components/global/app-logo";
-// import Locale from "@/locales";
 import { useTranslation } from "@/i18n";
 import { Lock } from "@/icons";
 

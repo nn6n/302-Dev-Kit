@@ -18,6 +18,8 @@ import { UseTranslationOptions } from "./";
 
 /* eslint-disable react-hooks/rules-of-hooks */
 
+/* eslint-disable react-hooks/rules-of-hooks */
+
 export const cookieName = "i18next";
 
 const runsOnServerSide = typeof window === "undefined";
@@ -34,7 +36,7 @@ i18next
   .init({
     supportedLngs: locales,
     fallbackLng: defaultLocale,
-    lng: defaultLocale,
+    lng: undefined,
     fallbackNS: namespaces[0],
     defaultNS: namespaces[0],
     ns: namespaces,

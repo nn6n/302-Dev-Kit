@@ -3,20 +3,21 @@
 import { useEffect } from "react";
 
 import { Toaster } from "@/components/ui/toaster";
+import { useClientTranslation } from "@/hooks/global";
 import { useToast } from "@/hooks/global/use-toast";
 import { emitter } from "@/lib/mitt";
-import Locale from "@/locales";
 
 import HostRenderer from "../../common/host-renderer";
 
 const AppMessage = () => {
   const { toast } = useToast();
+  const { t } = useClientTranslation();
 
   useEffect(() => {
     // Handler for success messages
     const handleToastSuccess = (msg: string) => {
       toast({
-        title: Locale.System.Notify,
+        title: t("global:system.notifi"),
         // Renders the message using the HostRenderer component
         description: <HostRenderer content={msg} />,
       });
@@ -26,7 +27,7 @@ const AppMessage = () => {
     const handleToastError = (msg: string) => {
       toast({
         variant: "destructive",
-        title: Locale.System.Error,
+        title: t("global:system.error"),
         // Renders the message using the HostRenderer component
         description: <HostRenderer content={msg} />,
       });
@@ -43,7 +44,7 @@ const AppMessage = () => {
       emitter.off("ToastSuccess", handleToastSuccess);
       emitter.off("ToastError", handleToastError);
     };
-  }, [toast]); // Dependency array ensures the effect is set up again if toast changes
+  }, [toast, t]); // Dependency array ensures the effect is set up again if toast changes
 
   return <Toaster />; // Render the Toaster component
 };

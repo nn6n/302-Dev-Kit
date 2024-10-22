@@ -1,5 +1,4 @@
 import { Home, Lock } from "@/icons";
-import Locale from "@/locales";
 
 export type MenuProps = {
   id: number;
@@ -14,14 +13,14 @@ export type MenuProps = {
 export const APP_ROUTE_MENU: MenuProps[] = [
   {
     id: 0,
-    label: Locale.Navigator.Land,
+    label: "global:title",
     icon: <Home />,
-    path: "/",
+    path: "",
     auth: true,
   },
   {
     id: 1,
-    label: Locale.Navigator.Auth,
+    label: "land:title",
     icon: <Lock />,
     path: "/auth",
     auth: false,

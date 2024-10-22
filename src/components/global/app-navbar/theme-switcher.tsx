@@ -13,11 +13,12 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { APP_CONSTANTS } from "@/constants";
-import { Theme, useAppTheme } from "@/hooks/global";
+import { Theme, useAppTheme, useClientTranslation } from "@/hooks/global";
 
 export default function ThemeSwitcher({}) {
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useAppTheme();
+  const { t } = useClientTranslation();
 
   useEffect(() => {
     setMounted(true);
@@ -40,7 +41,7 @@ export default function ThemeSwitcher({}) {
         >
           {APP_CONSTANTS.appThemeOption.map((it) => (
             <DropdownMenuRadioItem key={it.value} value={it.value}>
-              {it.label}
+              {t(`global:theme.${it.value}`)}
             </DropdownMenuRadioItem>
           ))}
         </DropdownMenuRadioGroup>

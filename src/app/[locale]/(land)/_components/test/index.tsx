@@ -21,15 +21,16 @@ const LogOutButton = () => {
 };
 
 const Test = () => {
+  const { t } = useClientTranslation();
   const isLogin = useIsLogin();
 
   useEffect(() => {
-    if (isLogin) emitter.emit("ToastSuccess", "ddd");
-  }, [isLogin]);
+    if (isLogin) emitter.emit("ToastSuccess", t("land:hello"));
+  }, [isLogin, t]);
 
   return (
     <div className="flex w-full flex-col items-center justify-center space-y-4 p-4 text-center">
-      <LogOutButton />
+      {isLogin && <LogOutButton />}
     </div>
   );
 };

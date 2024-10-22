@@ -18,7 +18,6 @@ function getLocale(request: NextRequest): Lang {
 
 export function middleware(request: NextRequest): Response | void {
   const { pathname } = request.nextUrl;
-  console.log("page;:", pathname);
 
   // Check if the path already includes a locale
   const pathnameHasLocale = locales.some(

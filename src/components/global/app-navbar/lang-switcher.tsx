@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useState } from "react";
 
 import { LanguagesIcon } from "lucide-react";
@@ -14,6 +13,7 @@ import {
   DropdownMenuRadioItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { useLocaleRouter } from "@/hooks/global";
 import { Lang, languages } from "@/i18n/config";
 
 type LangSwitcherProps = {
@@ -21,11 +21,12 @@ type LangSwitcherProps = {
 };
 export default function LangSwitcher({ locale }: LangSwitcherProps) {
   const [lang, setLang] = useState(locale); // Initialize lang to the Locale symbol
+  const { replaceLocale } = useLocaleRouter();
 
   // Handler for changing language
   const handlerChangeLang = (value: Lang) => {
     setLang(value);
-    // changeLang(value); // Update locale
+    replaceLocale(value);
   };
 
   return (
@@ -44,11 +45,9 @@ export default function LangSwitcher({ locale }: LangSwitcherProps) {
         >
           {languages.map((l) => {
             return (
-              <Link key={l.value} href={`/${l.value}`}>
-                <DropdownMenuRadioItem key={l.value} value={l.value}>
-                  {l.label}
-                </DropdownMenuRadioItem>
-              </Link>
+              <DropdownMenuRadioItem key={l.value} value={l.value}>
+                {l.label}
+              </DropdownMenuRadioItem>
             );
           })}
         </DropdownMenuRadioGroup>

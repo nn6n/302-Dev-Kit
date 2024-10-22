@@ -8,7 +8,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 
 import { login } from "@/services/auth";
-import { useAppStore } from "@/stores";
+import { useAppSession } from "@/stores";
 
 import { useClientTranslation, useLocaleRouter } from "../global";
 
@@ -49,10 +49,18 @@ const useAuth = () => {
   // Retrieve values from query param or local storage only when params change
   useEffect(() => {
     const queryCode = params.get("pw") || "";
+    const sessionCode = sessionStorage.getItem("code") || "";
     const storedCode = localStorage.getItem("code") || "";
+    const storeRemember = localStorage.getItem("remember") || "";
 
-    if (queryCode || storedCode) {
-      setValue("code", queryCode || storedCode);
+    // Reset remember
+    if (storeRemember === "0") {
+      setValue("remember", false);
+    }
+
+    // Reset code
+    if (queryCode || sessionCode || storedCode) {
+      setValue("code", queryCode || sessionCode || storedCode);
     }
   }, [params, setValue]);
 
@@ -66,14 +74,17 @@ const useAuth = () => {
         const result = await login(code);
 
         // Update app configuration from the store with result
-        const { updateConfig } = useAppStore.getState();
+        const { updateConfig } = useAppSession.getState();
         updateConfig({ ...result.data });
 
         // Store or remove auth code based on remember flag
         if (remember) {
+          localStorage.setItem("remember", "1");
           localStorage.setItem("code", code);
         } else {
-          localStorage.removeItem("code");
+          localStorage.setItem("remember", "0");
+          sessionStorage.setItem("code", code);
+          localStorage.setItem("code", "");
         }
 
         // Redirect to the home page if on auth page

@@ -1,6 +1,9 @@
-import { useAppStore } from "@/stores";
+import { env } from "@/env";
+import { useAppSession } from "@/stores";
 
-export function useIsLogin() {
-  const apiKey = useAppStore((state) => state.apiKey);
-  return !!apiKey;
-}
+export const useIsLogin = () => {
+  const apiKey = useAppSession((state) => state.apiKey);
+  const isLogin = apiKey || env.NEXT_PUBLIC_302_API_KEY;
+  console.log("isLogin::", !!isLogin);
+  return !!isLogin;
+};

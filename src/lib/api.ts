@@ -4,7 +4,7 @@ import ky from "ky";
 
 import { env } from "@/env";
 import { emitter } from "@/lib/mitt";
-import { useAppStore } from "@/stores";
+import { useAppSession } from "@/stores";
 
 import { langToCountry } from "./utils";
 
@@ -16,7 +16,7 @@ const apiKy = ky.create({
     beforeRequest: [
       (request) => {
         // Get the apiKey and language from the application state
-        const { apiKey, language } = useAppStore.getState();
+        const { apiKey, language } = useAppSession.getState();
 
         // Set Authorization header if apiKey exists
         if (apiKey) {
@@ -37,7 +37,7 @@ const apiKy = ky.create({
           const res = (await response.json()) as any;
 
           // Emit a toast error if there is an error code
-          const { language } = useAppStore.getState();
+          const { language } = useAppSession.getState();
           if (res.error && language) {
             // Get the apiKey and language from the application state
             const message =
@@ -58,7 +58,7 @@ const authKy = ky.create({
     beforeRequest: [
       (request) => {
         // Get the language from the application state and set the header
-        const { language } = useAppStore.getState();
+        const { language } = useAppSession.getState();
         if (language) {
           request.headers.set("Lang", langToCountry(language));
         }

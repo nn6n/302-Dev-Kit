@@ -6,15 +6,16 @@ import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { useClientTranslation, useIsLogin } from "@/hooks/global";
 import { emitter } from "@/lib/mitt";
-import { useAppStore } from "@/stores";
+import { useAppSession } from "@/stores";
 
 const LogOutButton = () => {
   const { t } = useClientTranslation();
   const router = useRouter();
-  const updateConfig = useAppStore((state) => state.updateConfig);
+  const updateConfig = useAppSession((state) => state.updateConfig);
   const handleLogout = () => {
     updateConfig({ apiKey: "", code: "" });
     localStorage.setItem("code", "");
+    sessionStorage.setItem("code", "");
     router.push("/auth");
   };
   return <Button onClick={handleLogout}>{t("global:system.logout")}</Button>;

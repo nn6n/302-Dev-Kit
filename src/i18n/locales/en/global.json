@@ -1,9 +1,8 @@
 {
   "symbol": "en",
   "lang": "English",
-  "domain": "302AI",
-  "title": "AI Tool",
-  "desc": "Create your own AI tool",
+  "title": "302.AI",
+  "desc": "Generate your tools using AI",
   "theme": {
     "light": "Light",
     "dark": "Night",
@@ -31,9 +30,10 @@
     "clear": "Clear"
   },
   "error": {
-    "not_found": "Page not found",
-    "network_error": "Internal server error",
+    "not_found": "Page does not exist",
+    "resource_not_found": "The requested resource does not exist.",
     "unknown_error": "An unknown error occurred, please contact customer service",
+    "network_error": "Internal server error",
     "code_invalid": "Invalid share code, for more info visit 302.AI",
     "tool_disabled": "The tool has been disabled, for more info visit 302.AI",
     "tool_deleted": "The tool has been deleted, for more info visit 302.AI"

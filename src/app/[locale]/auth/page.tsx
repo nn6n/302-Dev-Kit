@@ -1,7 +1,23 @@
+import { Metadata } from "next";
+
 import SignInForm from "@/components/forms/auth";
 import AppLogo from "@/components/global/app-logo";
 import { useTranslation } from "@/i18n";
 import { Lock } from "@/icons";
+
+type Props = {
+  params: { locale: string };
+  searchParams: { [key: string]: string | string[] | undefined };
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const locale = params.locale;
+  const { t } = await useTranslation(locale);
+
+  return {
+    title: t("auth:title"),
+  };
+}
 
 interface pageProps {
   params: {

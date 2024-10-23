@@ -28,7 +28,7 @@ export function InfoModal() {
         <DialogHeader>
           <DialogTitle>{t("global:about.title")}</DialogTitle>
           <DialogDescription className="">
-            {t("global.about.desc")}
+            {t("global:about.desc")}
           </DialogDescription>
         </DialogHeader>
         <InfoContent />

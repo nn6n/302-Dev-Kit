@@ -1,7 +1,23 @@
+import { Metadata } from "next";
+
 import { useTranslation } from "@/i18n";
 
 import LandHeader from "./_components/header";
 import Test from "./_components/test";
+
+type Props = {
+  params: { locale: string };
+  searchParams: { [key: string]: string | string[] | undefined };
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const locale = params.locale;
+  const { t } = await useTranslation(locale);
+
+  return {
+    title: t("land:title"),
+  };
+}
 
 interface pageProps {
   params: {

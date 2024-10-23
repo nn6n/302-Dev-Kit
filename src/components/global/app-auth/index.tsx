@@ -33,6 +33,7 @@ const AppAuth = () => {
 
     // Use share code
     onAuth();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname]);
   return null;
 };

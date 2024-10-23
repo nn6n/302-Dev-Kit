@@ -1,5 +1,4 @@
 export { useClientTranslation } from "./use-client-translation";
-export { useCopyToClipboard } from "./use-copy";
 export { useDomain } from "./use-domain";
 export { useInfo } from "./use-info";
 export { useIsLogin } from "./use-is-login";

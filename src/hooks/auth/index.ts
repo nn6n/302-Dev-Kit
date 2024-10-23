@@ -105,7 +105,7 @@ const useAuth = () => {
         setIsPending(false);
       }
     },
-    [setError, isAuthPage, removeParams, replaceRouter]
+    [t, setError, isAuthPage, removeParams, replaceRouter]
   );
 
   // Callback for form submission

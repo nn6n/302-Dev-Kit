@@ -39,7 +39,7 @@ const initI18next = async (
   return i18nInstance;
 };
 
-export async function useTranslation<
+export async function serverTranslation<
   Ns extends FlatNamespace,
   KPrefix extends KeyPrefix<FallbackNs<Ns>> = undefined,
 >(lng: string, ns?: Ns, options: { keyPrefix?: KPrefix } = {}) {

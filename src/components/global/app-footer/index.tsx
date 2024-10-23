@@ -1,11 +1,11 @@
 import AppLogo from "@/components/global/app-logo";
-import { useTranslation } from "@/i18n";
+import { serverTranslation } from "@/i18n";
 
 type AppFooterProps = {
   locale: string;
 };
 const AppFooter = async ({ locale }: AppFooterProps) => {
-  const { t } = await useTranslation(locale);
+  const { t } = await serverTranslation(locale);
   return (
     <footer className="flex w-full">
       <div className="flex w-full flex-col items-center justify-center space-y-1 p-1">

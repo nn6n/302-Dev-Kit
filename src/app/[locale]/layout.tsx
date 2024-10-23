@@ -7,7 +7,7 @@ import AppMessage from "@/components/global/app-message";
 import AppNavbar from "@/components/global/app-navbar";
 import AppQeury from "@/components/global/app-query";
 import AppTheme from "@/components/global/app-theme";
-import { useTranslation } from "@/i18n";
+import { serverTranslation } from "@/i18n";
 import { cn } from "@/lib/utils";
 import "@/styles/globals.css";
 
@@ -27,7 +27,7 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const locale = params.locale;
-  const { t } = await useTranslation(locale);
+  const { t } = await serverTranslation(locale);
 
   return {
     title: {

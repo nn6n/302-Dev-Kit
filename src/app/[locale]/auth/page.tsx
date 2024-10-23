@@ -2,7 +2,7 @@ import { Metadata } from "next";
 
 import SignInForm from "@/components/forms/auth";
 import AppLogo from "@/components/global/app-logo";
-import { useTranslation } from "@/i18n";
+import { serverTranslation } from "@/i18n";
 import { Lock } from "@/icons";
 
 type Props = {
@@ -12,7 +12,7 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const locale = params.locale;
-  const { t } = await useTranslation(locale);
+  const { t } = await serverTranslation(locale);
 
   return {
     title: t("auth:title"),
@@ -26,7 +26,7 @@ interface pageProps {
 }
 
 const AuthPage = async ({ params: { locale } }: pageProps) => {
-  const { t } = await useTranslation(locale);
+  const { t } = await serverTranslation(locale);
 
   return (
     <div className="fixed left-0 top-0 size-full items-center justify-center transition-all ease-in-out sm:relative sm:p-12">

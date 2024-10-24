@@ -46,7 +46,7 @@ const RootLayout = ({
   params: { locale: string };
 }>) => {
   return (
-    <html lang={locale} suppressHydrationWarning>
+    <html lang={locale} suppressHydrationWarning className="dark">
       <head></head>
       <body className={cn(inter.className, "h-screen w-screen")}>
         <AppAuth />

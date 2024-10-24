@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import {
   useClientTranslation,
-  useIsLogin,
+  useIsAuthed,
   useLocaleRouter,
 } from "@/hooks/global";
 import { emitter } from "@/lib/mitt";
@@ -26,15 +26,15 @@ const LogOutButton = () => {
 
 const Test = () => {
   const { t } = useClientTranslation();
-  const isLogin = useIsLogin();
+  const isAuthed = useIsAuthed();
 
   useEffect(() => {
-    if (isLogin) emitter.emit("ToastSuccess", t("land:welcome"));
-  }, [isLogin, t]);
+    if (isAuthed) emitter.emit("ToastSuccess", t("land:welcome"));
+  }, [isAuthed, t]);
 
   return (
     <div className="flex w-full flex-col items-center justify-center space-y-4 p-4 text-center">
-      {isLogin && <LogOutButton />}
+      {isAuthed && <LogOutButton />}
     </div>
   );
 };

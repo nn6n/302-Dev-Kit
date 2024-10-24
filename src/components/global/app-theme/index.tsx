@@ -9,7 +9,7 @@ const AppTheme = ({ children }: { children: ReactNode }) => {
     <div className="flex size-full flex-col">
       <NextThemesProvider
         attribute="class"
-        defaultTheme="dark"
+        defaultTheme="system"
         enableSystem
         disableTransitionOnChange
       >

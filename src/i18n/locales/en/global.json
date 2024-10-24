@@ -5,12 +5,12 @@
   "desc": "Generate your tools using AI",
   "theme": {
     "light": "Light",
-    "dark": "Night",
-    "system": "System"
+    "dark": "Dark",
+    "system": "Auto"
   },
   "system": {
-    "logout": "Logout",
     "login": "<login>Login</login>",
+    "logout": "Logout",
     "notifi": "System Notification",
     "error": "System Error"
   },

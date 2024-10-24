@@ -5,7 +5,7 @@ import { useEffect } from "react";
 
 import { env } from "@/env";
 import useAuth from "@/hooks/auth";
-import { useIsLogin, useLocaleRouter } from "@/hooks/global";
+import { useIsAuthed, useLocaleRouter } from "@/hooks/global";
 import { useAppSession } from "@/stores";
 
 const AppAuth = () => {
@@ -15,11 +15,11 @@ const AppAuth = () => {
   const { onAuth } = useAuth();
   const updateConfig = useAppSession((state) => state.updateConfig);
   const { isAuthRouter, isAuthPage } = useLocaleRouter();
-  const isLogin = useIsLogin();
+  const isAuthed = useIsAuthed();
 
   useEffect(() => {
     // Ff alreally login or not the auth require router then just pass
-    if (isLogin || !isAuthRouter) return;
+    if (isAuthed || !isAuthRouter) return;
 
     // Use env api-key
     if (env.NEXT_PUBLIC_302_API_KEY) {

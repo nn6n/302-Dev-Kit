@@ -9,8 +9,8 @@
     "system": "系统"
   },
   "system": {
-    "logout": "退出登录",
     "login": "<login>登录</login>",
+    "logout": "退出登录",
     "notifi": "系统通知",
     "error": "系统错误"
   },

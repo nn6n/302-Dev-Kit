@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { LanguagesIcon } from "lucide-react";
 
@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { useLocaleRouter } from "@/hooks/global";
 import { Lang, languages } from "@/i18n/config";
+import { useAppSession } from "@/stores";
 
 type LangSwitcherProps = {
   locale: string;
@@ -28,6 +29,11 @@ export default function LangSwitcher({ locale }: LangSwitcherProps) {
     setLang(value);
     replaceLocale(value);
   };
+
+  // Init session language by locale
+  useEffect(() => {
+    useAppSession.getState().updateConfig({ language: locale });
+  }, [locale]);
 
   return (
     <DropdownMenu>

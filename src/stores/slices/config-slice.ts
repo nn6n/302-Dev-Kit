@@ -1,6 +1,8 @@
 import { produce } from "immer";
 import { StateCreator } from "zustand";
 
+import { env } from "@/env";
+
 type ConfigState = {
   region?: string;
   code?: string;
@@ -22,11 +24,11 @@ export const createConfigSlice: StateCreator<
   [],
   ConfigStore
 > = (set) => ({
-  region: "",
+  region: env.NEXT_PUBLIC_DEFAULT_REGION,
+  language: env.NEXT_PUBLIC_DEFAULT_LOCALE,
   code: "",
   apiKey: "",
   modelName: "",
-  language: "",
   info: "",
   updateConfig: (fields) => set(produce((state) => ({ ...state, ...fields }))),
 });

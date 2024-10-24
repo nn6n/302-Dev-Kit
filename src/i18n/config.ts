@@ -1,3 +1,5 @@
+import { env } from "@/env";
+
 type LangOption = {
   label: string;
   value: string;
@@ -11,7 +13,7 @@ export const languages: LangOption[] = [
 
 export type Lang = (typeof languages)[number]["value"];
 
-export const defaultLocale: Lang = "zh";
+export const defaultLocale: Lang = env.NEXT_PUBLIC_DEFAULT_LOCALE;
 
 export const locales = languages.map((it) => it.value);
 

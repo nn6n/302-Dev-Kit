@@ -7,6 +7,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
+import { env } from "@/env";
 import { login } from "@/services/auth";
 import { useAppSession } from "@/stores";
 
@@ -96,7 +97,7 @@ const useAuth = () => {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
       } catch (error: any) {
         // Handle error by navigating to auth and setting error state
-        replaceRouter("/auth");
+        replaceRouter(env.NEXT_PUBLIC_AUTH_PATH);
         setError("code", {
           type: "server",
           message: t(error.message),

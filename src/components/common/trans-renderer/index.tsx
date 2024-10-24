@@ -3,6 +3,7 @@ import { useParams } from "next/navigation";
 
 import { Trans } from "react-i18next";
 
+import { env } from "@/env";
 import { useDomain } from "@/hooks/global";
 
 type TransRendererProps = {
@@ -32,7 +33,7 @@ const TransRenderer = ({
         bold: <strong />,
         login: (
           <Link
-            href={`/${locale}/auth`}
+            href={`/${locale}${env.NEXT_PUBLIC_AUTH_PATH}`}
             className="!text-primary underline"
             rel="noreferrer"
             locale="fr"

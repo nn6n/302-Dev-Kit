@@ -1,3 +1,4 @@
+import { env } from "@/env";
 import { Home, Lock } from "@/icons";
 
 export type MenuProps = {
@@ -22,7 +23,7 @@ export const APP_ROUTE_MENU: MenuProps[] = [
     id: 1,
     label: "land:title",
     icon: <Lock />,
-    path: "/auth",
+    path: env.NEXT_PUBLIC_AUTH_PATH,
     auth: false,
   },
 ];

@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 
 import { Button } from "@/components/ui/button";
+import { env } from "@/env";
 import {
   useClientTranslation,
   useIsAuthed,
@@ -19,7 +20,7 @@ const LogOutButton = () => {
     updateConfig({ apiKey: "", code: "" });
     localStorage.setItem("code", "");
     sessionStorage.setItem("code", "");
-    pushRouter("/auth");
+    pushRouter(env.NEXT_PUBLIC_AUTH_PATH);
   };
   return <Button onClick={handleLogout}>{t("global:system.logout")}</Button>;
 };

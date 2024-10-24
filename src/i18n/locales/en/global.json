@@ -10,6 +10,7 @@
   },
   "system": {
     "logout": "Logout",
+    "login": "<login>Login</login>",
     "notifi": "System Notification",
     "error": "System Error"
   },
@@ -34,8 +35,8 @@
     "resource_not_found": "The requested resource does not exist.",
     "unknown_error": "An unknown error occurred, please contact customer service",
     "network_error": "Internal server error",
-    "code_invalid": "Invalid share code, for more info visit 302.AI",
-    "tool_disabled": "The tool has been disabled, for more info visit 302.AI",
-    "tool_deleted": "The tool has been deleted, for more info visit 302.AI"
+    "code_invalid": "Invalid share code, for more info visit <site>302.AI</site>",
+    "tool_disabled": "The tool has been disabled, for more info visit <site>302.AI</site>",
+    "tool_deleted": "The tool has been deleted, for more info visit <site>302.AI</site>"
   }
 }

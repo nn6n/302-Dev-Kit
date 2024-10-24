@@ -12,8 +12,14 @@ const nextConfig = {
   experimental: {
     typedRoutes: true,
   },
-  // images: {
-  // }
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "file.302.ai",
+      },
+    ],
+  },
 };
 
 export default nextConfig;

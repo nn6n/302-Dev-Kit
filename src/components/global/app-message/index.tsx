@@ -2,12 +2,11 @@
 
 import { useEffect } from "react";
 
+import TransRenderer from "@/components/common/trans-renderer";
 import { Toaster } from "@/components/ui/toaster";
 import { useClientTranslation } from "@/hooks/global";
 import { useToast } from "@/hooks/global/use-toast";
 import { emitter } from "@/lib/mitt";
-
-import HostRenderer from "../../common/host-renderer";
 
 const AppMessage = () => {
   const { toast } = useToast();
@@ -19,7 +18,7 @@ const AppMessage = () => {
       toast({
         title: t("global:system.notifi"),
         // Renders the message using the HostRenderer component
-        description: <HostRenderer content={msg} />,
+        description: <TransRenderer content={msg} />,
       });
     };
 
@@ -29,7 +28,7 @@ const AppMessage = () => {
         variant: "destructive",
         title: t("global:system.error"),
         // Renders the message using the HostRenderer component
-        description: <HostRenderer content={msg} />,
+        description: <TransRenderer content={msg} />,
       });
     };
 

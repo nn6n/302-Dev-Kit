@@ -28,14 +28,14 @@ export const useLocaleRouter = () => {
   );
 
   // replace router
-  const replaceRouter = (path: string) => {
-    router.replace(`/${locale}${path}`);
-  };
-
-  // replace router
   const replaceLocale = (newLocale: string) => {
     const oldLocale = `/${locale}`;
     router.replace(`/${pathname.replace(oldLocale, newLocale)}`);
+  };
+
+  // replace router
+  const replaceRouter = (path: string) => {
+    router.replace(`/${locale}${path}`);
   };
 
   // push router

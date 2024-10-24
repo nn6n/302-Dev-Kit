@@ -14,7 +14,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { useClientTranslation } from "@/hooks/global";
 import { cn } from "@/lib/utils";
 
-import HostRenderer from "../host-renderer";
+import TransRenderer from "../trans-renderer";
 
 type FormGeneratorProps = {
   inputType: "select" | "input" | "textarea" | "checkbox";
@@ -53,7 +53,7 @@ const FormGenerator = ({
       render={({ message }) =>
         message !== "Required" && (
           <p className="mt-2 text-red-400">
-            <HostRenderer content={message} />
+            <TransRenderer content={message} />
           </p>
         )
       }

@@ -1,22 +1,25 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
 import { Button } from "@/components/ui/button";
-import { useClientTranslation, useIsLogin } from "@/hooks/global";
+import {
+  useClientTranslation,
+  useIsLogin,
+  useLocaleRouter,
+} from "@/hooks/global";
 import { emitter } from "@/lib/mitt";
 import { useAppSession } from "@/stores";
 
 const LogOutButton = () => {
   const { t } = useClientTranslation();
-  const router = useRouter();
+  const { pushRouter } = useLocaleRouter();
   const updateConfig = useAppSession((state) => state.updateConfig);
   const handleLogout = () => {
     updateConfig({ apiKey: "", code: "" });
     localStorage.setItem("code", "");
     sessionStorage.setItem("code", "");
-    router.push("/auth");
+    pushRouter("/auth");
   };
   return <Button onClick={handleLogout}>{t("global:system.logout")}</Button>;
 };
@@ -26,7 +29,7 @@ const Test = () => {
   const isLogin = useIsLogin();
 
   useEffect(() => {
-    if (isLogin) emitter.emit("ToastSuccess", t("land:hello"));
+    if (isLogin) emitter.emit("ToastSuccess", t("land:welcome"));
   }, [isLogin, t]);
 
   return (

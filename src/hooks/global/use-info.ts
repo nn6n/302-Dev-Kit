@@ -15,7 +15,7 @@ interface InfoResult {
   };
 }
 
-export const fetchAuth = async (): Promise<InfoResult> => {
+export const fetchInfo = async (): Promise<InfoResult> => {
   const { code } = useAppSession.getState();
   const res = await login(code);
   return res;
@@ -25,7 +25,7 @@ export const useInfo = () => {
   return useQuery<InfoResult, Error>({
     queryKey: ["info"],
     queryFn: async () => {
-      return fetchAuth();
+      return fetchInfo();
     },
     retry: false,
   });

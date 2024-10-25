@@ -49,7 +49,7 @@ const useAuth = () => {
 
   // Retrieve values from query param or local storage only when params change
   useEffect(() => {
-    const queryCode = params.get("pw") || "";
+    const queryCode = params.get("pwd") || "";
     const sessionCode = sessionStorage.getItem("code") || "";
     const storedCode = localStorage.getItem("code") || "";
     const storeRemember = localStorage.getItem("remember") || "";

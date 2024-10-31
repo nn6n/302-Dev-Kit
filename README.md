@@ -1,6 +1,6 @@
 # 302-Dev-Kit
 
-[Chinese](README_zh.md) | [English](README.md) | [Japanese](README_ja.md)
+[中文](README_zh.md) | [English](README.md) | [日本語](README_ja.md)
 
 ## Project Overview
 

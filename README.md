@@ -1,92 +1,92 @@
 # 302-Dev-Kit
 
-## 项目简介
+## Project Overview
 
-`302-Dev-Kit` 是一个基于 Next.js 的 Web 项目，旨在基于302.AI的API基础上，提供快速、高效的开发体验。本项目包含基础的组件、钩子以及工具函数，助力开发者快速搭建生产级AI工具应用。
+`302-Dev-Kit` is a Next.js-based Web project aimed at providing a fast and efficient development experience based on the 302.AI API. This project includes basic components, hooks, and utility functions to help developers quickly build production-grade AI tool applications.
 
-## 功能特性
+## Features
 
-- **组件化开发**: 项目结构清晰，组件划分明确，包括公共组件、表单组件、全局组件和基础组件。
-- **状态管理**: 使用 Zustand 进行状态管理。
-- **国际化支持**: 内置多语言支持（中文、英文、日文）。
-- **丰富的工具函数**: 包含 API 请求、鉴权、事件派发等工具函数。
-- **代码规范**: 使用 ESLint 和 Prettier 进行代码检查和格式化。
+- **Component-based Development**: Clear project structure with well-defined components, including public components, form components, global components, and basic components.
+- **State Management**: Uses Zustand for state management.
+- **Internationalization Support**: Built-in multi-language support (Chinese, English, Japanese).
+- **Rich Utility Functions**: Includes API requests, authentication, event dispatching, and other utility functions.
+- **Code Standards**: Uses ESLint and Prettier for code checking and formatting.
 
-## 目录结构
+## Directory Structure
 
 ```plaintext
 root
 ├── src
 │   ├── app
-│   ├── layout                     // 根部布局
-│   │── auth                       // 鉴权页
-│   │   ├── index                  // 导出模块
-│   │   ├── _components            // 私有组件
-│   ├── (land)                     // 落地页组
-│   │   │── page                   // 落地主页
-│   │   │── _components            // 私有组件
-│   ├── components                 // 公共组件
-│   │   ├── common                 // 通用组件
-│   │   ├── forms                  // 表单组件
-│   │   ├── global                 // 全局组件
-│   │   ├── ui                     // 基础组件
-│   ├── constants                  // 常量
-│   │   ├── forms                  // 表单相关常量
-│   │   ├── menus                  // 菜单选项
-│   ├── hooks                      // 钩子
-│   │   ├── auth                   // 认证模块钩子
-│   │   ├── global                 // 全局钩子
-│   ├── icons                      // 图标
-│   │   ├── auth                   // 认证模块的图标
-│   │   ├── global                 // 全局模块图标
-│   ├── lib                        // 工具函数
-│   │   ├── api                    // 请求相关工具函数
-│   │   ├── mitt                   // 事件派发工具
-│   │   ├── utils                  // 其他工具集
-│   ├── services                   // 请求函数
-│   │   ├── auth                   // 鉴权请求
-│   ├── locales                    // 国际化
-│   │   ├── zh                     // 中文
-│   │   ├── en                     // 英文
-│   │   ├── ja                     // 日文
-│   ├── stores                     // 状态管理
-│   │   ├── slices                 // 划分模块状态
-│   │   ├── index                  // 导出模块
-│   ├── styles                     // 样式
-│   │   ├── global                 // 全局样式
-│   │   ├── info                   // 信息样式
-│   ├── env.ts                     // 环境变量控制
+│   ├── layout                     // Root layout
+│   │── auth                       // Authentication page
+│   │   ├── index                  // Export module
+│   │   ├── _components            // Private components
+│   ├── (land)                     // Landing page group
+│   │   │── page                   // Main landing page
+│   │   │── _components            // Private components
+│   ├── components                 // Public components
+│   │   ├── common                 // Common components
+│   │   ├── forms                  // Form components
+│   │   ├── global                 // Global components
+│   │   ├── ui                     // Basic components
+│   ├── constants                  // Constants
+│   │   ├── forms                  // Form-related constants
+│   │   ├── menus                  // Menu options
+│   ├── hooks                      // Hooks
+│   │   ├── auth                   // Authentication module hooks
+│   │   ├── global                 // Global hooks
+│   ├── icons                      // Icons
+│   │   ├── auth                   // Authentication module icons
+│   │   ├── global                 // Global module icons
+│   ├── lib                        // Utility functions
+│   │   ├── api                    // Request-related utility functions
+│   │   ├── mitt                   // Event dispatching tool
+│   │   ├── utils                  // Other utility sets
+│   ├── services                   // Request functions
+│   │   ├── auth                   // Authentication requests
+│   ├── locales                    // Internationalization
+│   │   ├── zh                     // Chinese
+│   │   ├── en                     // English
+│   │   ├── ja                     // Japanese
+│   ├── stores                     // State management
+│   │   ├── slices                 // Divided module states
+│   │   ├── index                  // Export module
+│   ├── styles                     // Styles
+│   │   ├── global                 // Global styles
+│   │   ├── info                   // Information styles
+│   ├── env.ts                     // Environment variable control
 └── package.json
 ```
 
-## 安装
+## Installation
 
-1. 克隆仓库：
+1. Clone the repository:
 
    ```bash
-   git clone https://github.com/302ai/302-Dev-Kit
+   git clone 
    ```
 
-2. 安装依赖：
+2. Install dependencies:
 
    ```bash
    cd 302-Dev-Kit
    npm install
    ```
 
-## 脚本命令
+## Script Commands
 
-- `npm run build`：构建生产环境。
-- `npm run dev`：启动开发环境。
-- `npm run lint`：运行 ESLint 进行代码检查。
-- `npm run start`：启动生产环境。
-- `npm run clean`：清理生成的构建文件。
-- `npm run check`：检查代码格式。
-- `npm run format`：格式化代码。
+- `npm run build`: Build for production environment.
+- `npm run dev`: Start development environment.
+- `npm run lint`: Run ESLint for code checking.
+- `npm run start`: Start production environment.
+- `npm run clean`: Clean generated build files.
+- `npm run check`: Check code format.
+- `npm run format`: Format code.
 
-## 依赖
+## Dependencies
 
-### 生产依赖
+### Production Dependencies
 
 - `@hookform/error-message`
 - `@hookform/resolvers`
@@ -119,7 +119,7 @@ root
 - `zod`
 - `zustand`
 
-### 开发依赖
+### Development Dependencies
 
 - `@trivago/prettier-plugin-sort-imports`
 - `@types/eslint`
@@ -140,33 +140,33 @@ root
 - `tailwindcss`
 - `typescript`
 
-## 开发指南
+## Development Guide
 
-### 启动开发环境
+### Start Development Environment
 
 ```bash
 npm run dev
 ```
 
-### 构建生产环境
+### Build Production Environment
 
 ```bash
 npm run build
 ```
 
-## 代码风格和规范
+## Code Style and Standards
 
-使用 ESLint 进行代码检查，Prettier 进行代码格式化。请在提交代码前确保代码通过检查和格式化。
+Use ESLint for code checking and Prettier for code formatting. Please ensure your code passes checks and formatting before submitting.
 
 ```bash
 npm run lint
 npm run format
 ```
 
-## 国际化
+## Internationalization
 
-项目支持多种语言，当前支持中文、英文和日文。语言文件存储在 `src/locales` 目录下。
+The project supports multiple languages, currently including Chinese, English, and Japanese. Language files are stored in the `src/locales` directory.
 
 ## License
 
-此项目使用 MIT 许可证。
+This project is licensed under the MIT License.

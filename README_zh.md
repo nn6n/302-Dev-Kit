@@ -1,5 +1,7 @@
 # 302-Dev-Kit
 
+[中文](README_zh.md) | [English](README.md) | [日本語](README_ja.md)
+
 ## 项目简介
 
 `302-Dev-Kit` 是一个基于 Next.js 的 Web 项目，旨在基于302.AI的API基础上，提供快速、高效的开发体验。本项目包含基础的组件、钩子以及工具函数，助力开发者快速搭建生产级AI工具应用。

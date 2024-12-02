@@ -1,10 +1,10 @@
-# 302-Dev-Kit
+# <p align="center">🤖 302-Dev-Kit🚀✨</p>
 
-[中文](README_zh.md) | [English](README.md) | [日本語](README_ja.md)
+<p align="center">`302-Dev-Kit` 是一个基于 Next.js 的 Web 项目，旨在基于302.AI的API基础上，提供快速、高效的开发体验。本项目包含基础的组件、钩子以及工具函数，助力开发者快速搭建生产级AI工具应用。</p>
 
-## 项目简介
+<p align="center"><a href="https://302.ai/tools/word/" target="blank"><img src="https://file.302ai.cn/gpt/imgs/badge/21212.png" /></a></p >
 
-`302-Dev-Kit` 是一个基于 Next.js 的 Web 项目，旨在基于302.AI的API基础上，提供快速、高效的开发体验。本项目包含基础的组件、钩子以及工具函数，助力开发者快速搭建生产级AI工具应用。
+<p align="center"><a href="README zh.md">中文</a> | <a href="README.md">English</a> | <a href="README_ja.md">日本語</a></p>
 
 ## 功能特性
 

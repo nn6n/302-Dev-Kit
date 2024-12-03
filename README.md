@@ -1,10 +1,10 @@
-# 302-Dev-Kit
+# <p align="center">🤖 302-Dev-Kit🚀✨</p>
 
-[中文](README_zh.md) | [English](README.md) | [日本語](README_ja.md)
+<p align="center">`302-Dev-Kit` is a Next.js-based Web project aimed at providing a fast and efficient development experience based on the 302.AI API. This project includes basic components, hooks, and utility functions to help developers quickly build production-grade AI tool applications.</p>
 
-## Project Overview
+<p align="center"><a href="https://302.ai/tools/word/" target="blank"><img src="https://file.302ai.cn/gpt/imgs/badge/21212.png" /></a></p >
 
-`302-Dev-Kit` is a Next.js-based Web project aimed at providing a fast and efficient development experience based on the 302.AI API. This project includes basic components, hooks, and utility functions to help developers quickly build production-grade AI tool applications.
+<p align="center"><a href="README zh.md">中文</a> | <a href="README.md">English</a> | <a href="README_ja.md">日本語</a></p>
 
 ## Features
 

@@ -1,10 +1,12 @@
-# 302-Dev-Kit
+# <p align="center">🤖 302-Dev-Kit🚀✨</p>
 
-[中文](README_zh.md) | [English](README.md) | [日本語](README_ja.md)
+<p align="center"><code>302-Dev-Kit</code>は、302.AIのAPIをベースにした、高速で効率的な開発体験を提供することを目的としたNext.jsベースのWebプロジェクトです。このプロジェクトには、基本的なコンポーネント、フック、ユーティリティ関数が含まれており、開発者が本番環境レベルのAIツールアプリケーションを迅速に構築するのに役立ちます。</p>
 
-## プロジェクト概要
+<p align="center"><a href="https://302.ai/ja/" target="blank"><img src="https://file.302ai.cn/gpt/imgs/github/302_badge.png" /></a></p >
 
-`302-Dev-Kit`は、302.AIのAPIをベースにした、高速で効率的な開発体験を提供することを目的としたNext.jsベースのWebプロジェクトです。このプロジェクトには、基本的なコンポーネント、フック、ユーティリティ関数が含まれており、開発者が本番環境レベルのAIツールアプリケーションを迅速に構築するのに役立ちます。
+<p align="center"><a href="README_zh.md">中文</a> | <a href="README.md">English</a> | <a href="README_ja.md">日本語</a></p>
+
+![](public//images/global//DEV-KIT.png)
 
 ## 機能特性
 

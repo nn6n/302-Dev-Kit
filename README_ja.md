@@ -1,6 +1,6 @@
 # <p align="center">🤖 302-Dev-Kit🚀✨</p>
 
-<p align="center">`302-Dev-Kit`は、302.AIのAPIをベースにした、高速で効率的な開発体験を提供することを目的としたNext.jsベースのWebプロジェクトです。このプロジェクトには、基本的なコンポーネント、フック、ユーティリティ関数が含まれており、開発者が本番環境レベルのAIツールアプリケーションを迅速に構築するのに役立ちます。</p>
+<p align="center"><code>302-Dev-Kit</code>は、302.AIのAPIをベースにした、高速で効率的な開発体験を提供することを目的としたNext.jsベースのWebプロジェクトです。このプロジェクトには、基本的なコンポーネント、フック、ユーティリティ関数が含まれており、開発者が本番環境レベルのAIツールアプリケーションを迅速に構築するのに役立ちます。</p>
 
 <p align="center"><a href="https://302.ai/" target="blank"><img src="https://file.302ai.cn/gpt/imgs/github/302_badge.png" /></a></p >
 

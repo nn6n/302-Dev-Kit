@@ -2,7 +2,7 @@
 
 <p align="center"><code>302-Dev-Kit</code>是一个基于 Next.js 的 Web 项目，旨在基于302.AI的API基础上，提供快速、高效的开发体验。本项目包含基础的组件、钩子以及工具函数，助力开发者快速搭建生产级AI工具应用。</p>
 
-<p align="center"><a href="https://302.ai/" target="blank"><img src="https://file.302ai.cn/gpt/imgs/github/302_badge.png" /></a></p >
+<p align="center"><a href="https://302.ai/" target="blank"><img src="https://file.302.ai/gpt/imgs/github/20250102/72a57c4263944b73bf521830878ae39a.png" /></a></p >
 
 <p align="center"><a href="README_zh.md">中文</a> | <a href="README.md">English</a> | <a href="README_ja.md">日本語</a></p>
 

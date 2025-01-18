@@ -7,6 +7,7 @@
 <p align="center"><a href="README_zh.md">中文</a> | <a href="README.md">English</a> | <a href="README_ja.md">日本語</a></p>
 
 ![](public//images/global//DEV-KIT.png)
+
 ## 功能特性
 
 - **组件化开发**: 项目结构清晰，组件划分明确，包括公共组件、表单组件、全局组件和基础组件。
